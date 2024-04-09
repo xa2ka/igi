@@ -1,0 +1,4 @@
+The text file contains some sentences. Question sentences are marked with a question mark?
+Imperative sentences end with a semicolon! Sentences can vary in length and have different punctuation marks.
+Some sentences contain smileys, such as ;-----[[[[[[[ and :---(((((((. Smileys can have a varying number of brackets inside. 
+All sentences and smileys need to be analyzed and counted.
