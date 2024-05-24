@@ -1,0 +1,16 @@
+{% extends 'main/layout2.html' %}
+
+{%block title%}Контакты{% endblock %}
+
+{% block сontent %}
+    {% for el in Contact%}
+        <div class = "alert alert-warning">
+            <h3>{{ el.full_name }}</h3>
+            <p>Номер телефона: {{ el.phone }}</p>
+            <p>Выполняемые работы: {{el.description}}</p>
+            {% if el.image %}
+                <img src="{{ el.image.url }}" alt="{{el.full_name}}" width="150" height="150">
+            {% endif %}
+        </div>
+    {% endfor%}
+{% endblock %}

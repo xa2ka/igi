@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+    <aside>
+    <h3>NAVIGATION</h3>
+        <ul>
+            <a href="{% url 'usermain'%}"><li>Main</li></a>
+            <a href="{% url 'userabout'%}"><li>About company</li></a>
+            <a href="{% url 'usernews'%}"><li>News</li></a>
+            <a href="{% url 'userfaq'%}"><li>FAQ</li></a>
+            <a href="{% url 'usercontacts'%}"><li>Contacts</li></a>
+            <a href="{% url 'userpolicy'%}"><li>Privacy policy</li></a>
+            <a href="{% url 'uservacancies'%}"><li>Vacancies</li></a>
+            <a href="{% url 'userfeedback'%}"><li>Reviews</li></a>
+            <a href="{% url 'userdiscounts'%}"><li>Discounts and promotions</li></a>
+            <a href="{% url 'request'%}"><li>Make an order</li></a>
+            <a href="{% url 'time'%}"><li>Time</li></a>
+            <a href="{% url 'orders'%}"><li>Orders</li></a>
+        </ul>
+    </aside>
+    <main>
+        {% block сontent %}
+        {% endblock %}
+    </main>
+</body>
+</html>

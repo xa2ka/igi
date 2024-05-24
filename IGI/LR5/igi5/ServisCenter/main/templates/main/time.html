@@ -1,0 +1,23 @@
+{% extends 'main/layout2.html' %}
+
+{%block title%}Время{% endblock %}
+
+{% block сontent %}
+    <h1 >INFORMATION ABOUT TIME(TIME ZONE)</h1>
+    <p style="font-size: 16px; color: #19f350;">USER TIME ZONE: {{ user_timezone }}</p>
+    <p style="font-size: 16px; color: #14d2e4;">USER TIME: {{ user_time }}</p>
+    <p style="font-size: 16px; color: #150202;">UTC TIME: {{ utc_time }}</p>
+    <ul style="font-family: 'Helvetica Neue', Arial, sans-serif;">
+        {% for item in data_list %}
+            <li>
+                Name: {{ item.name }}<br>
+                Created (User TZ): {{ item.created_at_user }}<br>
+                Created (UTC): {{ item.created_at_utc }}<br>
+                Updated (User TZ): {{ item.updated_at_user }}<br>
+                Updated (UTC): {{ item.updated_at_utc }}
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Calendar</h2>
+    {{ calendar_html|safe }}
+{% endblock %}

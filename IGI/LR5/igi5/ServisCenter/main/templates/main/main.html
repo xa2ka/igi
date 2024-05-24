@@ -1,0 +1,28 @@
+{% extends 'main/layout.html' %}
+
+{%block title%}Главная страница{% endblock %}
+
+{% block сontent %}
+    <h1>Главная страница</h1>
+
+        {% csrf_token %}
+        <ul>
+            {% for supplier in suppliers %}
+                <li>
+                    <p>{{ supplier.name }}</p>
+                    <ul>
+                        {% for detail in details %}
+                            {% if detail.SupplierId == supplier.id %}
+                                <li style="color: #6c757d;">
+                                 
+                                    {{ detail.name }} - {{ detail.price }} рублей
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+      
+    </form>
+{% endblock %}
