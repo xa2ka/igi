@@ -1,0 +1,29 @@
+{% extends 'main/layout2.html' %}
+
+{%block title%}Заказ{% endblock %}
+
+{% block сontent %}
+    <p>Выберите интересующие вас</p>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {% for supplier in suppliers %}
+                <li>
+                    <p>{{ supplier.name }}</p>
+                    <ul>
+                        {% for detail in details %}
+                            {% if detail.SupplierId == supplier.id %}
+                                <li style="color: #6c757d;">
+                                    <input type="checkbox" name="records" value="{{ detail.id }}">
+                                    {{ detail.name }} - {{ detail.price }} рублей
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Сделать заказ</button>
+    </form>
+{% endblock %}
+

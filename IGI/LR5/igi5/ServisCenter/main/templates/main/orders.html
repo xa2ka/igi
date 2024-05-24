@@ -1,0 +1,90 @@
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+    {% if orders %}
+        <h1>My Orders</h1>
+        {% for order in orders %}
+            {% if order.UserId == userId %}
+                <h2>Order Details</h2>
+                <p>Quantity: {{ order.quantity }}</p>
+                <p>Purchase Date: {{ order.purchase_date }}</p>
+                <p>Total Cost: {{ order.sum }}</p>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>You have no orders yet.</p>
+    {% endif %}
+
+    {% if pickup_addresses %}
+    <h2>Pickup Addresses</h2>
+    <ul>
+        {% for address in pickup_addresses %}
+            <li>{{ address.adress }} - {{ address.Workinghours }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pickup addresses available.</p>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+<!-- def CheckOrders(request):
+    suppliers = list(Supplier.objects.all().order_by('name'))
+    orders = list(Order.objects.all().order_by('-purchase_date'))
+    order_items = list(OrderItem.objects.all().order_by('OrderId'))
+    details = list(Detail.objects.all())
+    context = {
+        'suppliers': suppliers,
+        'orders': orders,
+        'order_items': order_items,
+        'details': details,
+        'userId': int(request.session.get('user_id')),
+    }
+    return render(request, 'main/orders.html', context) -->
+
+<!-- 
+class Supplier(models.Model):
+    name = models.TextField('Поставщик')
+    adress = models.TextField('Адрес')
+    phone = models.TextField('Телефон')
+
+    class Meta:
+        verbose_name = 'Поставщик'
+        verbose_name_plural = 'Поставщики'
+
+
+class Detail(models.Model):
+    SupplierId = models.IntegerField('Id поставщика')
+    name = models.TextField('Деталь')
+    article = models.IntegerField('Артикул')
+    price = models.IntegerField('Цена')
+
+    class Meta:
+        verbose_name = 'Деталь'
+        verbose_name_plural = 'Детали'
+
+
+class Order(models.Model):
+    UserId = models.IntegerField('Id пользователя')    
+    quantity = models.IntegerField('Количество деталей')
+    purchase_date = models.DateTimeField('Дата покупки')
+    sum = models.IntegerField('Сумма заказа')    
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+
+
+class OrderItem(models.Model):
+    NameOfSupplier = models.TextField('Имя поставщика')
+    NameOfDetail = models.TextField('Имя детали')
+    OrderId = models.IntegerField('Id заказа')    
+    SupplierId = models.IntegerField('Id поставщика')
+    DetailId = models.IntegerField('Id детали')
+    
+    class Meta:
+        verbose_name = 'часть заказа'
+        verbose_name_plural = 'часть заказов' -->

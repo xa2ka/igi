@@ -1,0 +1,143 @@
+
+{% block сontent %}
+
+<p>Самая часто заказываемая деталь:  {{ most_ordered_detail }}</p>
+
+    <p10><strong><big>БАЗА ПОСТАВЩИКОВ И ИХ ТОВАРЫ</big></strong></p10>
+    <form method="post">
+        {% csrf_token %}
+        <ul>
+            {% for supplier in suppliers %}
+                <li>
+                    <p style="color: #410af7;">{{ supplier.name }}</p>
+                    <ul>
+                        {% for detail in details %}
+                            {% if detail.SupplierId == supplier.id %}
+                                <li style="color: #e10e9e;">
+
+                                    {{ detail.name }} - {{ detail.price }} рублей
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </form>
+
+<h1>Поставщики и Заказы</h1>
+
+<h2>Поставщики</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Название Поставщика</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for supplier in suppliers %}
+        <tr>
+            <td>{{ supplier.name }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Заказы</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Номер Заказа</th>
+            <th>Дата Покупки</th>
+            <th>Сумма</th>
+            <th>Количество</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.purchase_date }}</td>
+            <td>{{ order.sum }}</td>
+            <td>{{ order.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Позиции Заказа</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Номер Заказа</th>
+            <th>Название Продукта</th>
+            <th>Название Поставщика</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order_items %}
+        <tr>
+            <td>{{ item.OrderId }}</td>
+            <td>{{ item.NameOfDetail }}</td>
+            <td>{{ item.NameOfSupplier }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p>График</p>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Данные для графика
+    const data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                data: [120, 190, 30, 55, 62, 73, 85, 92, 68, 105, 140, 160],
+                backgroundColor: [
+                    '#FFC0CB',
+                    '#ADD8E6',
+                    '#FFD700',
+                    '#90EE90',
+                    '#C0C0C0',
+                    '#FFA07A',
+                    '#FF69B4',
+                    '#87CEEB',
+                    '#DAA520',
+                    '#32CD32',
+                    '#708090',
+                    '#FA8072'
+                ],
+                borderColor: [
+                    '#FF69B4',
+                    '#87CEEB',
+                    '#DAA520',
+                    '#32CD32',
+                    '#708090',
+                    '#FA8072',
+                    '#FFC0CB',
+                    '#ADD8E6',
+                    '#FFD700',
+                    '#90EE90',
+                    '#C0C0C0',
+                    '#FFA07A'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+    // Конфигурация графика
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {}
+    };
+
+    // Отрисовка графика
+    var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
+{% endblock %}
+

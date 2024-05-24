@@ -1,0 +1,24 @@
+{% extends 'main/layout2.html' %}
+
+{%block title%}Главная страница{% endblock %}
+
+{% block сontent %}
+    <h1>Главная страница</h1>
+    <h2><b>СПИСОК ПОЛЕЗНОЙ ИНФОРМАЦИИ</b></h2>
+    {% if data %}
+        <h1>Weather in {{ data.name }}</h1>
+        <p>Temperature: {{ data.main.temp }}°C</p>
+        <p>Weather: {{ data.weather.0.description }}</p>
+        <p>Humidity: {{ data.main.humidity }}%</p>
+        <p>Wind Speed: {{ data.wind.speed }} m/s</p>
+    {% else %}
+        <p>Could not fetch weather data.</p>
+    {% endif %}
+
+    {% if data1 %}
+        <h1>Random fact about cats:</h1>
+            <p>{{ data1.fact }}</p>
+        {% else %}
+            <p>Could not fetch cat fact.</p>
+    {% endif %}
+{% endblock %}

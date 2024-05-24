@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        aside ul a {
+            color: #007bff; /* Цвет ссылок в навигации */
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home'%}"><li>MAIN</li></a>
+            <a href="{% url 'about'%}"><li>О компании</li></a>
+            <a href="{% url 'news'%}"><li>Новости</li></a>
+            <a href="{% url 'faq'%}"><li>FAQ</li></a>
+            <a href="{% url 'contacts'%}"><li>Контакты</li></a>
+            <a href="{% url 'policy'%}"><li>Политика конфиденциальности</li></a>
+            <a href="{% url 'vacancies'%}"><li>Вакансии</li></a>
+            <a href="{% url 'feedback'%}"><li>Отзывы</li></a>
+            <a href="{% url 'discounts'%}"><li>Скидки и акции</li></a>
+            <a href="{% url 'login'%}"><li>Вход</li></a>
+            <a href="{% url 'registration'%}"><li>Регистрация</li></a>
+
+        </ul>
+    </aside>
+    <main>
+        {% block сontent %}
+        {% endblock %}
+    </main>
+</body>
+</html>

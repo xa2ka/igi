@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+
+{%block title%}Регистрация{% endblock %}
+
+{% block сontent %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="login">Enter your login</label>
+        <input type="text" id="login" name="login" required><br><br>
+
+        <label for="password">Enter your password</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="login">Enter your name</label>
+        <input type="text" id="frstName" name="frstName" required><br><br>
+
+        <label for="login">Enter your Last Name</label>
+        <input type="text" id="secondName" name="secondName" required><br><br>
+
+        <label for="login">Enter your patronymic</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="login">Enter the phone number in the form +375 (29) XXX-XX-XX</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+
+        <label for="login">Are you 18 years old?</label>
+        <input type="checkbox" id="ageCheck" name="ageCheck">
+
+        <label for="login">Are you employee?</label>
+        <input type="checkbox" id="EmployeeOrNot" name="EmployeeOrNot">
+
+
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}
