@@ -201,14 +201,23 @@ def contact_view(request):
                 error_message = "Введите телефон в формате +375 (29) XXX-XX-XX"
                 return render(request, 'main/registration.html', {'error_message': error_message})
 
-            # Создаем запись в базе данных
-            User.objects.create(login=login, password=password, fullName=fullName, phone=phone, IsEmployee=is_employee)
+            try:
+                # Создаем запись в базе данных
+                User.objects.create(login=login, password=password, fullName=fullName, phone=phone, IsEmployee=is_employee)
 
-            last_obj = User.objects.order_by('-id').first()
-            last_id = last_obj.id if last_obj else 0
-            request.session['user_id'] = last_id
+                last_obj = User.objects.order_by('-id').first()
+                last_id = last_obj.id if last_obj else 0
+                request.session['user_id'] = last_id
+
+                return redirect('usermain')  # Перенаправление на страницу успеха после сохранения
+           
+            except Exception as e:
+                error_message = "Произошла ошибка при создании пользователя. Пожалуйста, попробуйте еще раз."
+                return render(request, 'main/registration.html', {'error_message': error_message})
+
         else:
-            return redirect('usermain')  # Перенаправление на страницу успеха после сохранения
+            error_message = "Вы не являетесь совершеннолетним(18+)."
+            return render(request, 'main/registration.html', {'error_message': error_message})
     return render(request, 'main/registration.html')
 
 
