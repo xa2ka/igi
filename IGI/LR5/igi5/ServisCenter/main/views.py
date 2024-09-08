@@ -33,6 +33,8 @@ def CheckOrders(request):
     order_items = list(OrderItem.objects.all().order_by('OrderId'))
     details = list(Detail.objects.all())
     pickup_addresses = list(PickupAddresses.objects.all()) 
+
+    
     context = {
         'suppliers': suppliers,
         'orders': orders,

@@ -91,6 +91,16 @@ class Supplier(models.Model):
         verbose_name = 'Поставщик'
         verbose_name_plural = 'Поставщики'
 
+from django.db import models
+
+class Partner(models.Model):
+    name = models.CharField(max_length=255)  # Используйте CharField для имени
+    logo = models.ImageField(upload_to='logos/')  # Поле для загрузки изображения логотипа
+    link = models.URLField(max_length=255)  # Поле для ссылки
+    class Meta:
+        verbose_name = 'Партнер'
+        verbose_name_plural = 'Партнеры'
+
 
 class Detail(models.Model):
     SupplierId = models.IntegerField('Id поставщика')

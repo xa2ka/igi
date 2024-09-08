@@ -6,9 +6,19 @@
         {% for order in orders %}
             {% if order.UserId == userId %}
                 <h2>Order Details</h2>
-                <p>Quantity: {{ order.quantity }}</p>
                 <p>Purchase Date: {{ order.purchase_date }}</p>
-                <p>Total Cost: {{ order.sum }}</p>
+                <p>Quantity: {{ order.quantity }}</p>
+                <p>Total Cost: {{ order.sum }} $</p>
+                <h3>Ordered Items:</h3>
+                <ul>
+                    {% for item in order_items %}
+                        {% if item.OrderId == order.id %}
+                            <li>
+                                {{ item.NameOfDetail }} (from {{ item.NameOfSupplier }})
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
                 <hr>
             {% endif %}
         {% endfor %}
