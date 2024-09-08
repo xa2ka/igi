@@ -91,7 +91,6 @@ class Supplier(models.Model):
         verbose_name = 'Поставщик'
         verbose_name_plural = 'Поставщики'
 
-from django.db import models
 
 class Partner(models.Model):
     name = models.CharField(max_length=255)  # Используйте CharField для имени
@@ -101,6 +100,19 @@ class Partner(models.Model):
         verbose_name = 'Партнер'
         verbose_name_plural = 'Партнеры'
 
+from django.db import models
+
+class Company(models.Model):
+    information = models.CharField(max_length=255)
+    video = models.URLField(max_length=255, blank=True, null=True)  # Поле для ссылки на видео
+    logo = models.ImageField(upload_to='logos/', blank=True, null=True)  # Поле для загрузки логотипа
+    history = models.TextField(blank=True, null=True)  # Поле для истории компании
+    details = models.TextField(blank=True, null=True)  # Поле для дополнительных деталей
+    certificate = models.FileField(upload_to='certificates/', blank=True, null=True)  # Поле для загрузки сертификата
+
+    class Meta:
+        verbose_name = 'Компания'
+        verbose_name_plural = 'Компании'
 
 class Detail(models.Model):
     SupplierId = models.IntegerField('Id поставщика')
