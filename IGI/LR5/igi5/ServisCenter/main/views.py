@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses
+from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company
 from django.contrib import messages
 from django.db.models import Sum, Count
 from django.utils import timezone
@@ -57,6 +57,11 @@ def CheckOrders(request):
 #     }
 #     return render(request, 'main/employee.html', context)
 
+##################################################################################################################
+# def partners_view(request):
+#     partners = Partner.objects.all()  # Получаем всех партнеров
+#     return render(request, 'layout.html', {'partners': partners})
+
 
 def employee(request):
     suppliers = list(Supplier.objects.all().order_by('name'))
@@ -94,7 +99,9 @@ def index(request):
     #     'order_items': order_items
     # }
 
-    return render(request, 'main/main.html',{'suppliers': suppliers, 'details': details, 'discounts': discounts})
+    partners = Partner.objects.all()  # Получаем всех партнеров
+    companies = Company.objects.all()
+    return render(request, 'main/main.html',{'suppliers': suppliers, 'details': details, 'discounts': discounts, 'partners': partners, 'companies': companies})
 
 def about(request):
     logger.debug("Rendering about page")

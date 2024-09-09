@@ -3,7 +3,7 @@
 {%block title%}Главная страница{% endblock %}
 
 {% block сontent %}
-    <h1>Главная страница</h1>
+    <h1>ГЛАВНАЯ СТРАНИЦА</h1>
 
         {% csrf_token %}
         <ul>
@@ -23,6 +23,45 @@
                 </li>
             {% endfor %}
         </ul>
-      
+        <h2>О КОМПАНИИ</h2>
+        <ul>
+            {% for company in companies %}
+                <li>
+                    <h3>{{ company.information }}</h3>
+                    {% if company.logo %}
+                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 100px;">
+                    {% endif %}
+                    {% if company.video %}
+                        <video width="320" height="240" controls>
+                            <source src="{{ company.video.url }}" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    {% endif %}
+                    <p><strong>История:</strong> {{ company.history }}</p>
+                    <p><strong>Детали:</strong> {{ company.details }}</p>
+                    {% if company.certificate %}
+                        <a href="{{ company.certificate.url }}">Скачать сертификат</a>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <li>Нет доступных компаний.</li>
+            {% endfor %}
+        </ul>
+
+
+        <h3>ПАРТНЕРЫ</h3>
+        <ul>
+            {% for partner in partners %}
+                <li>
+                    <a href="{{ partner.link }}">
+                        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" style="max-width: 100px;">
+                        <h3>{{ partner.name }}</h3>
+                    </a>
+                </li>
+            {% empty %}
+                <li>Нет доступных партнеров.</li>
+            {% endfor %}
+        </ul>
     </form>
-{% endblock %}
+{% endblock %} 
+
