@@ -3,7 +3,7 @@
 {%block title%}Главная страница{% endblock %}
 
 {% block сontent %}
-    <h1>ГЛАВНАЯ СТРАНИЦА</h1>
+    <h1 style="text-align: center;">ГЛАВНАЯ СТРАНИЦА</h1>
 
         {% csrf_token %}
         <ul>
@@ -13,7 +13,7 @@
                     <ul>
                         {% for detail in details %}
                             {% if detail.SupplierId == supplier.id %}
-                                <li style="color: #6c757d;">
+                                <li style="color: black;">
                                  
                                     {{ detail.name }} - {{ detail.price }} рублей
                                 </li>
@@ -23,13 +23,13 @@
                 </li>
             {% endfor %}
         </ul>
-        <h2>О КОМПАНИИ</h2>
+        <h2 style="text-align: center;">О КОМПАНИИ</h2>
         <ul>
             {% for company in companies %}
                 <li>
                     <h3>{{ company.information }}</h3>
                     {% if company.logo %}
-                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 100px;">
+                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
                     {% endif %}
                     {% if company.video %}
                         <video width="320" height="240" controls>
@@ -49,7 +49,7 @@
         </ul>
 
 
-        <h3>ПАРТНЕРЫ</h3>
+        <h3 style="text-align: center;">ПАРТНЕРЫ</h3>
         <ul>
             {% for partner in partners %}
                 <li>

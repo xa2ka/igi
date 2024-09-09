@@ -8,14 +8,39 @@
     <title>{% block title %}{% endblock %}</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+                body {
+            background-color: lightblue; /* Замените на нужный цвет */
+        }
         aside ul a {
             color: #007bff; /* Цвет ссылок в навигации */
         }
     </style>
+    <title>Баннер из нескольких картинок</title>
+    <style>
+        .banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
+            gap: 10px; /* Отступы между картинками */
+        }
+        .banner img {
+            max-width: 100%; /* Адаптивная ширина */
+            height: auto; /* Сохранение пропорций */
+            border-radius: 5px; /* Скругление углов */
+        }
+    </style>
+
+
 </head>
 <body>
+    <div class="banner">
+        <img src="media/images/banner1.png" alt="Изображение 1">
+        <img src="media/images/banner3.png" alt="Изображение 2">
+        <img src="media/images/banner2.png" alt="Изображение 3">
+    </div>
+
     <aside>
-        <h3>Навигация</h3>
+        
+        <h1 style="text-align: center;">НАВИГАЦИЯ</h1>
         <ul>
             <a href="{% url 'home'%}"><li>MAIN</li></a>
             <a href="{% url 'about'%}"><li>О компании</li></a>
