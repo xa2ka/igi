@@ -1,0 +1,20 @@
+
+{% block title %}Корзина{% endblock %}
+
+{% block content %}
+    <h2>Корзина</h2>
+    {% if details %}
+        <ul>
+            {% for detail in details %}
+                <li>
+                    <h3>{{ detail.name }}</h3>
+                    <p><strong>Артикул:</strong> {{ detail.article }}</p>
+                    <p><strong>Цена:</strong> {{ detail.price }} рублей</p>
+                    <p><strong>Количество:</strong> {{ 0 }}</p>  <!-- Отображаем количество -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ваша корзина пуста.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% block content %}
+    <div class="product-detail">
+        <h2>{{ detail.name }}</h2>
+        {% if detail.image %}
+            <img src="{{ detail.image.url }}" alt="{{ detail.name }}" style="max-width: 300px;">
+        {% endif %}
+        <p><strong>Артикул:</strong> {{ detail.article }}</p>
+        <p><strong>Цена:</strong> {{ detail.price }} рублей</p>
+        
+        <form method="post" action="{% url 'add_to_cart' detail.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Добавить в корзину</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,6 +1,15 @@
 from django.db import models
 
 
+from django.contrib.auth.models import User
+
+
+
+
+
+
+
+
 class PickupAddresses(models.Model):
     adress = models.TextField('Адрес пункта самовывоза')
     Workinghours = models.TextField('Время работы')
@@ -117,10 +126,25 @@ class Detail(models.Model):
     name = models.TextField('Деталь')
     article = models.IntegerField('Артикул')
     price = models.IntegerField('Цена')
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Деталь'
         verbose_name_plural = 'Детали'
+
+
+# class Order(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+
+# class OrderItem(models.Model):
+#     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+#     detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField()
+
+
+
 
 
 class Order(models.Model):

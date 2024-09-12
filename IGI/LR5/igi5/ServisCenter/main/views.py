@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company
 from django.contrib import messages
 from django.db.models import Sum, Count
@@ -12,10 +12,11 @@ import requests
 from loguru import logger
 
 from collections import Counter
+from django.shortcuts import render
 
 
-logger.add("debug.log", format="{time} {level} {message}", level="DEBUG")
-
+import logging
+from .models import Detail
 
 def get_cat_fact():
     url = 'https://catfact.ninja/fact'
@@ -45,22 +46,65 @@ def CheckOrders(request):
     }
     return render(request, 'main/orders.html', context)
 
-# def information(request):
-#     suppliers = list(Supplier.objects.all().order_by('name'))
-#     orders = list(Order.objects.all().order_by('-purchase_date'))
-#     order_items = list(OrderItem.objects.all().order_by('OrderId'))
+def templateproduct(request, detail_id):
+    # Получаем объект детали по ID
+    detail = get_object_or_404(Detail, id=detail_id)
+    # Возвращаем данные в шаблон
+    return render(request, 'main/templateproduct.html', {'detail': detail})
 
-#     context = {
-#         'suppliers': suppliers,
-#         'orders': orders,
-#         'order_items': order_items
-#     }
-#     return render(request, 'main/employee.html', context)
+def add_to_cart(request, detail_id):
+    detail = get_object_or_404(Detail, id=detail_id)
 
-##################################################################################################################
-# def partners_view(request):
-#     partners = Partner.objects.all()  # Получаем всех партнеров
-#     return render(request, 'layout.html', {'partners': partners})
+    # Логика добавления товара в корзину
+    # Например, можно использовать сессию для хранения товаров в корзине
+    cart = request.session.get('cart', [])
+    cart.append(detail.id)  # Добавляем ID детали в корзину
+    request.session['cart'] = cart  # Сохраняем обновленный список в сессии
+
+    return redirect('cart')  # Перенаправляем на страницу корзины
+
+def cart_view(request):
+    # Получаем список ID деталей из сессии
+    cart = request.session.get('cart', [])
+    
+    # Получаем детали товаров из базы данных
+    details = Detail.objects.filter(id__in=cart)
+
+    return render(request, 'main/cart.html', {'details': details})
+
+# from django.shortcuts import render, redirect, get_object_or_404
+# from django.contrib import messages
+# from .models import Detail, Order, OrderItem
+
+# def place_order(request):
+#     if request.method == 'POST':
+#         cart = request.session.get('cart', {})
+        
+#         if not cart:
+#             messages.error(request, "Ваша корзина пуста.")
+#             return redirect('cart')
+
+#         # Создаем заказ
+#         order = Order.objects.create(user=request.user)
+
+#         # Добавляем товары в заказ
+#         for detail_id, quantity in cart.items():
+#             detail = get_object_or_404(Detail, id=detail_id)
+#             OrderItem.objects.create(order=order, detail=detail, quantity=quantity)
+
+#         # Очищаем корзину
+#         del request.session['cart']
+
+#         messages.success(request, "Заказ успешно оформлен!")
+#         return redirect('order_success')  # Перенаправьте на страницу успешного оформления заказа
+
+#     return render(request, 'main/place_order.html')  # Шаблон для оформления заказа
+
+
+
+
+
+
 
 
 def employee(request):

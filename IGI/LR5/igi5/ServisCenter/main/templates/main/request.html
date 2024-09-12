@@ -3,7 +3,7 @@
 {%block title%}Заказ{% endblock %}
 
 {% block сontent %}
-    <p>Выберите интересующие вас</p>
+    <p>Выберите интересующие вас детали</p>
     <form method="post">
         {% csrf_token %}
         <ul>
@@ -15,8 +15,13 @@
                             {% if detail.SupplierId == supplier.id %}
                                 <li style="color: #6c757d;">
                                     <input type="checkbox" name="records" value="{{ detail.id }}">
-                                    {{ detail.name }} - {{ detail.price }} рублей
-                                </li>
+                                    {% if detail.image %}
+                                        <img src="{{ detail.image.url }}" alt="{{ detail.name }}" style="max-width: 100px; margin-right: 10px;">
+                                    {% endif %}
+                                    <a href="{% url 'templateproduct' detail.id %}">
+                                        <strong style="color: black;">{{ detail.name }}</strong>
+                                    </a>
+                                </li> 
                             {% endif %}
                         {% endfor %}
                     </ul>

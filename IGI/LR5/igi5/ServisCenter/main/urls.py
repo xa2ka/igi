@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -15,7 +15,7 @@ urlpatterns = [
     path('feedback', views.feedback, name='feedback'),
     path('registration', views.contact_view, name='registration'),
     path('discounts', views.discount, name='discounts'),
-    path('usermain', views.index2, name='usermain'),
+    path('usermain', views.index2, name='usermain'),  # Убедитесь, что это нужно
     path('userabout', views.about2, name='userabout'),
     path('usernews', views.news2, name='usernews'),
     path('userfaq', views.faq2, name='userfaq'),
@@ -26,8 +26,9 @@ urlpatterns = [
     path('userdiscounts', views.discount2, name='userdiscounts'),
     path('request', views.MyRequest, name='request'),
     path('time', views.userTime, name='time'),
-    path('usermain', views.get_cat_fact, name='usermain'),
     path('employee', views.employee, name='employee'),
-    path('orders', views.CheckOrders, name='orders')
-] 
-
+    path('orders', views.CheckOrders, name='orders'),
+    path('templateproduct/<int:detail_id>/', views.templateproduct, name='templateproduct'), 
+    path('add_to_cart/<int:detail_id>/', views.add_to_cart, name='add_to_cart'),
+    path('cart/', views.cart_view, name='cart'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

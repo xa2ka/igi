@@ -1,0 +1,20 @@
+{% extends 'main/layout2.html' %}
+
+{% block title %}Оформление заказа{% endblock %}
+
+{% block content %}
+    <h2>Оформление заказа</h2>
+    {% if cart %}
+        <ul>
+            {% for detail_id, quantity in cart.items %}
+                <li>{{ detail_id }} - {{ quantity }}</li>
+            {% endfor %}
+        </ul>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Подтвердить заказ</button>
+        </form>
+    {% else %}
+        <p>Ваша корзина пуста.</p>
+    {% endif %}
+{% endblock %}
