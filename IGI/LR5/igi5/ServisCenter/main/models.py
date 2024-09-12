@@ -163,6 +163,7 @@ class OrderItem(models.Model):
     OrderId = models.IntegerField('Id заказа')    
     SupplierId = models.IntegerField('Id поставщика')
     DetailId = models.IntegerField('Id детали')
+    Quantity = models.IntegerField('Количество товара', default=0)
     
     class Meta:
         verbose_name = 'часть заказа'

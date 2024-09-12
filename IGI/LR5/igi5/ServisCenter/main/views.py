@@ -13,7 +13,7 @@ from loguru import logger
 
 from collections import Counter
 from django.shortcuts import render
-
+from .cart import Cart
 
 import logging
 from .models import Detail
@@ -52,55 +52,63 @@ def templateproduct(request, detail_id):
     # Возвращаем данные в шаблон
     return render(request, 'main/templateproduct.html', {'detail': detail})
 
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from .models import Order, OrderItem, Detail
+
+# Создание экземпляра корзины (можно хранить в памяти, например, в глобальной переменной)
+cart = Cart()
+
 def add_to_cart(request, detail_id):
+    # Получаем информацию о детали (предполагается, что есть модель Detail)
     detail = get_object_or_404(Detail, id=detail_id)
-
-    # Логика добавления товара в корзину
-    # Например, можно использовать сессию для хранения товаров в корзине
-    cart = request.session.get('cart', [])
-    cart.append(detail.id)  # Добавляем ID детали в корзину
-    request.session['cart'] = cart  # Сохраняем обновленный список в сессии
-
-    return redirect('cart')  # Перенаправляем на страницу корзины
+       
+    # Добавление товара в корзину
+    order_item = {
+        'name_of_detail': "-",
+        'quantity': 1,
+        'price': detail.price,
+        'detail_id': detail.id
+    }
+    cart.add(order_item)
+    messages.success(request, "Товар добавлен в корзину.")
+    return redirect('cart')
 
 def cart_view(request):
-    # Получаем список ID деталей из сессии
-    cart = request.session.get('cart', [])
-    
-    # Получаем детали товаров из базы данных
-    details = Detail.objects.filter(id__in=cart)
+    items = cart.items
+    return render(request, 'main/cart.html', {'items': items})
 
-    return render(request, 'main/cart.html', {'details': details})
+def place_order(request):
+    if request.method == 'POST':
+        if not cart.items:
+            messages.error(request, "Ваша корзина пуста.")
+            return redirect('cart')
 
-# from django.shortcuts import render, redirect, get_object_or_404
-# from django.contrib import messages
-# from .models import Detail, Order, OrderItem
+        # Создание нового заказа
+        order = Order.objects.create(
+            UserId=request.user.id,
+            quantity=cart.total_quantity(),
+            purchase_date=timezone.now(),
+            sum=cart.total_sum()
+        )
 
-# def place_order(request):
-#     if request.method == 'POST':
-#         cart = request.session.get('cart', {})
-        
-#         if not cart:
-#             messages.error(request, "Ваша корзина пуста.")
-#             return redirect('cart')
+        # Создание деталей заказа
+        for item in cart.items:
+            OrderItem.objects.create(
+                NameOfSupplier=item['name_of_supplier'],
+                NameOfDetail=item['name_of_detail'],
+                OrderId=order.id,
+                SupplierId=item['supplier_id'],  # Предполагается, что supplier_id есть в item
+                DetailId=item['detail_id'],
+                Quantity=item['quantity']
+            )
 
-#         # Создаем заказ
-#         order = Order.objects.create(user=request.user)
+        # Очистка корзины
+        cart.clear()
+        messages.success(request, "Заказ успешно оформлен!")
+        return redirect('order_success')
 
-#         # Добавляем товары в заказ
-#         for detail_id, quantity in cart.items():
-#             detail = get_object_or_404(Detail, id=detail_id)
-#             OrderItem.objects.create(order=order, detail=detail, quantity=quantity)
-
-#         # Очищаем корзину
-#         del request.session['cart']
-
-#         messages.success(request, "Заказ успешно оформлен!")
-#         return redirect('order_success')  # Перенаправьте на страницу успешного оформления заказа
-
-#     return render(request, 'main/place_order.html')  # Шаблон для оформления заказа
-
-
+    return redirect('cart')
 
 
 

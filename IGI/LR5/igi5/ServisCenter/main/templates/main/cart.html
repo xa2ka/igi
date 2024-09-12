@@ -1,4 +1,4 @@
-
+<!-- 
 {% block title %}Корзина{% endblock %}
 
 {% block content %}
@@ -10,11 +10,35 @@
                     <h3>{{ detail.name }}</h3>
                     <p><strong>Артикул:</strong> {{ detail.article }}</p>
                     <p><strong>Цена:</strong> {{ detail.price }} рублей</p>
-                    <p><strong>Количество:</strong> {{ 0 }}</p>  <!-- Отображаем количество -->
-                </li>
+                    <p><strong>Количество:</strong> {{ 0 }}</p>   Отображаем количество -->
+                <!-- </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>Ваша корзина пуста.</p>
     {% endif %}
-{% endblock %}
+{% endblock %} --> 
+<form method="post" action="{% url 'place_order' %}">
+    {% csrf_token %}
+    <table>
+        <thead>
+            <tr>
+                <th>Имя детали</th>
+                <th>Имя поставщика</th>
+                <th>Количество</th>
+                <th>Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name_of_detail }}</td>
+                <td>{{ item.name_of_supplier }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Оформить заказ</button>
+</form>
