@@ -158,10 +158,9 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    NameOfSupplier = models.TextField('Имя поставщика')
     NameOfDetail = models.TextField('Имя детали')
     OrderId = models.IntegerField('Id заказа')    
-    SupplierId = models.IntegerField('Id поставщика')
+    SupplierId = models.IntegerField('Id поставщика', default=0)
     DetailId = models.IntegerField('Id детали')
     Quantity = models.IntegerField('Количество товара', default=0)
     

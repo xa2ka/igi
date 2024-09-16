@@ -1,13 +1,9 @@
-{% extends 'main/layout2.html' %}
-
-{% block title %}Оформление заказа{% endblock %}
-
 {% block content %}
     <h2>Оформление заказа</h2>
-    {% if cart %}
+    {% if cart.items %}
         <ul>
-            {% for detail_id, quantity in cart.items %}
-                <li>{{ detail_id }} - {{ quantity }}</li>
+            {% for item in cart.items %}
+                <li>Название: {{ item.name_of_detail }} - Количество: {{ item.quantity }} - Цена: {{ item.price }}</li>
             {% endfor %}
         </ul>
         <form method="post">

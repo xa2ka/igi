@@ -52,37 +52,74 @@ def templateproduct(request, detail_id):
     # Возвращаем данные в шаблон
     return render(request, 'main/templateproduct.html', {'detail': detail})
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
-from .models import Order, OrderItem, Detail
 
 # Создание экземпляра корзины (можно хранить в памяти, например, в глобальной переменной)
 cart = Cart()
 
 def add_to_cart(request, detail_id):
-    # Получаем информацию о детали (предполагается, что есть модель Detail)
+    # Получаем информацию о детали
     detail = get_object_or_404(Detail, id=detail_id)
-       
-    # Добавление товара в корзину
-    order_item = {
-        'name_of_detail': "-",
-        'quantity': 1,
-        'price': detail.price,
-        'detail_id': detail.id
-    }
-    cart.add(order_item)
-    messages.success(request, "Товар добавлен в корзину.")
+    
+
+    # Проверяем, есть ли уже товар в корзине
+    existing_item = cart.get(detail.id)
+
+    if existing_item:
+        # Если товар уже в корзине, увеличиваем количество
+        existing_item['quantity'] += 1
+        existing_item['price'] += detail.price
+        messages.success(request, "Количество товара обновлено в корзине.")
+    else:
+        # Если товара нет в корзине, добавляем новый
+        order_item = {
+            'name_of_detail': detail.name,
+            'quantity': 1,
+            'price': detail.price,
+            'detail_id': detail.id,
+            'supplier_id': detail.SupplierId  
+        }
+        cart.add(order_item)
+        messages.success(request, "Товар добавлен в корзину.")
+
     return redirect('cart')
 
+
+
+# def cart_view(request):
+#     items = cart.items
+#     return render(request, 'main/cart.html', {'items': items})
+
+
 def cart_view(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        item_id = request.POST.get('item_id')
+
+        if action == 'remove':
+            cart.remove(item_id)  # Теперь этот метод будет работать
+            messages.success(request, "Товар удален из корзины.")
+            return redirect('cart_view')
+
+        elif action == 'increase':
+            cart.increase_quantity(item_id)
+            messages.success(request, "Количество товара увеличено.")
+            return redirect('cart_view')
+
+        elif action == 'decrease':
+            cart.decrease_quantity(item_id)
+            messages.success(request, "Количество товара уменьшено.")
+            return redirect('cart_view')
+
     items = cart.items
     return render(request, 'main/cart.html', {'items': items})
 
+
 def place_order(request):
+
     if request.method == 'POST':
         if not cart.items:
             messages.error(request, "Ваша корзина пуста.")
-            return redirect('cart')
+            return redirect('usermain')
 
         # Создание нового заказа
         order = Order.objects.create(
@@ -94,25 +131,21 @@ def place_order(request):
 
         # Создание деталей заказа
         for item in cart.items:
+            detail = get_object_or_404(Detail, id=item['detail_id'])
             OrderItem.objects.create(
-                NameOfSupplier=item['name_of_supplier'],
-                NameOfDetail=item['name_of_detail'],
+                NameOfDetail=detail.name,  # Сохраняем название детали
                 OrderId=order.id,
-                SupplierId=item['supplier_id'],  # Предполагается, что supplier_id есть в item
-                DetailId=item['detail_id'],
+                DetailId=detail.id,
                 Quantity=item['quantity']
             )
 
         # Очистка корзины
         cart.clear()
         messages.success(request, "Заказ успешно оформлен!")
-        return redirect('order_success')
+        return redirect('usermain')  # Замените на нужный вам путь
 
-    return redirect('cart')
-
-
-
-
+    # Обработка GET-запроса
+    return render(request, 'main/place_order.html', {'cart': cart})
 
 
 def employee(request):
@@ -202,12 +235,12 @@ def contacts2(request):
     return render(request, 'main/usercontacts.html', {'Contact': Contact})
 
 def policy(request):
-    logger.debug("Rendering policy page")
-    return render(request, 'main/policy.html')
+    # logger.debug("Rendering policy page")
+    return render(request, 'main/policy.html', {'current_date': timezone.now()})
 
 def policy2(request):
-    logger.debug("Rendering policy2 page")
-    return render(request, 'main/userpolicy.html')
+    # logger.debug("Rendering policy2 page")
+    return render(request, 'main/userpolicy.html', {'current_date': timezone.now()})
 
 def vacancies(request):
     logger.debug("Rendering vacancies page")
