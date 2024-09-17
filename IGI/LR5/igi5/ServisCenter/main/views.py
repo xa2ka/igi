@@ -85,33 +85,51 @@ def add_to_cart(request, detail_id):
 
 
 
-# def cart_view(request):
-#     items = cart.items
-#     return render(request, 'main/cart.html', {'items': items})
-
-
 def cart_view(request):
+    items = cart.items
+    return render(request, 'main/cart.html', {'items': items})
+
+from django.contrib import messages
+from django.shortcuts import redirect, render
+from django.contrib import messages
+from django.shortcuts import redirect
+
+
+def cart_update(request):
     if request.method == 'POST':
         action = request.POST.get('action')
         item_id = request.POST.get('item_id')
 
         if action == 'remove':
-            cart.remove(item_id)  # Теперь этот метод будет работать
+            cart.remove(item_id)
             messages.success(request, "Товар удален из корзины.")
-            return redirect('cart_view')
 
         elif action == 'increase':
-            cart.increase_quantity(item_id)
-            messages.success(request, "Количество товара увеличено.")
-            return redirect('cart_view')
+            order_item = cart.get(item_id)
+            if order_item:
+                order_item['quantity'] += 1
+                cart.update(order_item)
+                messages.success(request, "Количество товара увеличено.")
 
         elif action == 'decrease':
-            cart.decrease_quantity(item_id)
-            messages.success(request, "Количество товара уменьшено.")
-            return redirect('cart_view')
+            order_item = cart.get(item_id)
+            if order_item and order_item['quantity'] > 1:
+                order_item['quantity'] -= 1
+                cart.update(order_item)
+                messages.success(request, "Количество товара уменьшено.")
+            elif order_item:
+                cart.remove(item_id)
+                messages.success(request, "Товар удален из корзины, так как количество стало 0.")
 
-    items = cart.items
-    return render(request, 'main/cart.html', {'items': items})
+        # Перенаправление на представление корзины
+        return redirect('cart')  # Убедитесь, что вы используете правильное имя маршрута
+
+    # Если не POST-запрос, просто перенаправьте на корзину
+    return redirect('cart')
+
+
+
+
 
 
 def place_order(request):
@@ -419,6 +437,12 @@ def index2(request):
 
     return render(request, 'main/usermain.html', context)
 
+
+
+
+def newall(request, detail_id):
+    article = get_object_or_404(News, id=detail_id)
+    return render(request, 'main/newall.html', {'article': article})
 
     
 

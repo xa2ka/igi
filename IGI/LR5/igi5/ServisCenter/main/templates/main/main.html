@@ -13,10 +13,15 @@
                     <ul>
                         {% for detail in details %}
                             {% if detail.SupplierId == supplier.id %}
-                                <li style="color: black;">
-                                 
-                                    {{ detail.name }} - {{ detail.price }} рублей
-                                </li>
+                                <li style="color: #6c757d;">
+                                    <input type="checkbox" name="records" value="{{ detail.id }}">
+                                    {% if detail.image %}
+                                        <img src="{{ detail.image.url }}" alt="{{ detail.name }}" style="max-width: 100px; margin-right: 10px;">
+                                    {% endif %}
+                                    <a href="{% url 'registration' %}">
+                                        <strong style="color: black;">{{ detail.name }}</strong>
+                                    </a>
+                                </li> 
                             {% endif %}
                         {% endfor %}
                     </ul>
