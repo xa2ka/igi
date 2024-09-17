@@ -271,9 +271,14 @@ def vacancies2(request):
     return render(request, 'main/uservacancies.html',{'vacancion': vacancion})
 
 def feedback(request):
-    logger.debug("Rendering feedback page")
+    if request.method == 'POST':
+        # Перенаправляем на страницу регистрации
+        return redirect('registration')
+
+    # Получаем все комментарии для отображения
     comments = reversed(Comment.objects.all())
-    return render(request, 'main/feedback.html',{'comments': comments})
+    return render(request, 'main/feedback.html', {'comments': comments})
+
 
 def feedback2(request):
     if request.method == 'POST':
