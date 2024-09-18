@@ -1,3 +1,5 @@
+
+
 {% extends 'main/layout.html' %}
 
 {%block title%}Ответы на вопросы{% endblock %}
@@ -11,3 +13,9 @@
         </div>
     {% endfor%}
 {% endblock %}
+
+<script>
+    document.getElementsByClassName("clicker")[0].addEventListener("click", () => {
+        document.getElementById("question{{el.answer}}").style.display = "block"
+    });
+</script>

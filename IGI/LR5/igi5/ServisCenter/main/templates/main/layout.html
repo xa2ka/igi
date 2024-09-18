@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <link rel="shortcut icon" href="/media/images/favicon.png" type="image/png" />
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,10 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
                 body {
-            background-color: lightblue; /* Замените на нужный цвет */
+            background-color: lightblue; 
         }
         aside ul a {
-            color: #007bff; /* Цвет ссылок в навигации */
+            color: #007bff; 
         }
     </style>
     <title>Баннер из нескольких картинок</title>
@@ -21,10 +22,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
             gap: 10px; /* Отступы между картинками */
+            justify-items: center; /* Центрирование элементов по горизонтали */
         }
+
         .banner img {
-            max-width: 100%; /* Адаптивная ширина */
-            height: auto; /* Сохранение пропорций */
+            width: 200px; /* Фиксированная ширина */
+            height: 150px; /* Фиксированная высота */
+            object-fit: cover; /* Обрезка изображения для сохранения пропорций */
             border-radius: 5px; /* Скругление углов */
         }
     </style>
@@ -36,30 +40,74 @@
         <img src="media/images/banner1.png" alt="Изображение 1">
         <img src="media/images/banner3.png" alt="Изображение 2">
         <img src="media/images/banner2.png" alt="Изображение 3">
+        <img src="media/images/zapchast4.png" alt="Изображение 4">
+        <img src="media/images/zapchast5.png" alt="Изображение 5">
+        <img src="media/images/banner6.png" alt="Изображение 6">
+        <img src="media/images/banner7.png" alt="Изображение 7">
     </div>
 
     <aside>
-        
-        <h1 style="text-align: center;">НАВИГАЦИЯ</h1>
-        <ul>
-            <a href="{% url 'home'%}"><li>MAIN</li></a>
-            <a href="{% url 'about'%}"><li>О компании</li></a>
-            <a href="{% url 'news'%}"><li>Новости</li></a>
-            <a href="{% url 'faq'%}"><li>FAQ</li></a>
-            <a href="{% url 'contacts'%}"><li>Контакты</li></a>
-            <a href="{% url 'policy'%}"><li>Политика конфиденциальности</li></a>
-            <a href="{% url 'vacancies'%}"><li>Вакансии</li></a>
-            <a href="{% url 'feedback'%}"><li>Отзывы</li></a>
-            <a href="{% url 'discounts'%}"><li>Скидки и акции</li></a>
-            <a href="{% url 'login'%}"><li>Вход</li></a>
-            <a href="{% url 'registration'%}"><li>Регистрация</li></a>
-
+        <h1 id="nav-title" class="centered highlight" title="Это навигация" style="text-align: center;">НАВИГАЦИЯ</h1>
+    
+        <style>
+            .highlight {
+                background-color: rgb(9, 244, 126); /* Выделение фоном */
+                font-weight: bold; /* Жирный шрифт */
+            }
+    
+            /* Стили для горизонтальной навигации */
+            .nav-list {
+                list-style-type: none; /* Убираем маркеры списка */
+                padding: 0; /* Убираем отступы */
+                display: flex; /* Делаем список горизонтальным */
+                justify-content: center; /* Центрируем элементы */
+            }
+    
+            .nav-list li {
+                margin: 0 15px; /* Добавляем отступы между элементами */
+            }
+    
+            .nav-list a {
+                text-decoration: none; /* Убираем подчеркивание */
+                color: black; /* Цвет текста */
+            }
+    
+            .nav-list a:hover {
+                text-decoration: underline; /* Подчеркивание при наведении */
+            }
+        </style>
+    
+        <ul class="nav-list">
+            <li><a href="{% url 'home' %}">MAIN</a></li>
+            <li><a href="{% url 'about' %}">О компании</a></li>
+            <li><a href="{% url 'news' %}">Новости</a></li>
+            <li><a href="{% url 'faq' %}">FAQ</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            <li><a href="{% url 'policy' %}">Политика конфиденциальности</a></li>
+            <li><a href="{% url 'vacancies' %}">Вакансии</a></li>
+            <li><a href="{% url 'feedback' %}">Отзывы</a></li>
+            <li><a href="{% url 'discounts' %}">Скидки и акции</a></li>
+            <li><a href="{% url 'login' %}">Вход</a></li>
+            <li><a href="{% url 'registration' %}">Регистрация</a></li>
         </ul>
     </aside>
+
+    
     <main>
         {% block сontent %}
         {% endblock %}
     </main>
+
+    <footer style="border-top: 2px solid #01080f; /* Цвет полоски */
+    text-align: center; 
+    padding: 10px; 
+    background-color: #0eebe0; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%;">
+    
+<p>© 2023 Все права защищены. Все права защищены.</p>
+</footer>
 </body>
 </html>
 

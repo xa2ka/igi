@@ -31,7 +31,26 @@ class Cart:
         self.items = []
 
     def add(self, order_item):
-        self.items.append(order_item)
+        existing_item = self.get(order_item['detail_id'])
+        if existing_item:
+            existing_item['quantity'] += 1
+            self.update(existing_item)
+        else:
+            self.items.append(order_item)
+
+    def increment(self, detail_id):
+        item = self.get(detail_id)
+        if item:
+            item['quantity'] += 1
+            self.update(item)
+
+    def decrement(self, detail_id):
+        item = self.get(detail_id)
+        if item and item['quantity'] > 1:
+            item['quantity'] -= 1
+            self.update(item)
+        elif item and item['quantity'] == 1:
+            self.remove(detail_id)  # Удаляем, если количество стало 0
 
     def remove(self, detail_id):
         self.items = [item for item in self.items if item['detail_id'] != detail_id]

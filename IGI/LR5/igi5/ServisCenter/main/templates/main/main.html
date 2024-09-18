@@ -2,9 +2,25 @@
 
 {%block title%}Главная страница{% endblock %}
 
-{% block сontent %}
-    <h1 style="text-align: center;">ГЛАВНАЯ СТРАНИЦА</h1>
 
+
+{% block head %}
+    <meta name="author" content="Довнар Александр">
+    <meta name="group" content="253505">
+    <link rel="shortcut icon" href="media/images/favicon.png" type="image/png" />
+{% endblock %}
+
+
+
+{% block сontent %}
+    <h1 id="main-title1" class="centered highlight" title="Это главная страница" style="text-align: center;">ГЛАВНАЯ СТРАНИЦА</h1>
+
+    <style>
+        .highlight {
+            background-color: rgb(7, 248, 111); /* Выделение фоном */
+            font-weight: bold;        /* Жирный шрифт */
+        }
+    </style>
         {% csrf_token %}
         <ul>
             {% for supplier in suppliers %}
@@ -14,7 +30,6 @@
                         {% for detail in details %}
                             {% if detail.SupplierId == supplier.id %}
                                 <li style="color: #6c757d;">
-                                    <input type="checkbox" name="records" value="{{ detail.id }}">
                                     {% if detail.image %}
                                         <img src="{{ detail.image.url }}" alt="{{ detail.name }}" style="max-width: 100px; margin-right: 10px;">
                                     {% endif %}
@@ -28,11 +43,55 @@
                 </li>
             {% endfor %}
         </ul>
-        <h2 style="text-align: center;">О КОМПАНИИ</h2>
-        <ul>
+        
+
+
+        <div style="text-align: center; 
+        border: 2px solid #000; /* Цвет рамки */
+        background-color: #f2fa09; /* Цвет фона */
+        padding: 20px; /* Отступы внутри рамки */
+        border-radius: 10px;">
+        <h2 id="info"><em>Самые свежие новости автомобильного мира!</em></h2>
+        <p><em>Хотите узнать?</em></p>
+        <a href="#nav-title1"><strong><em>Перейти к последней опубликованной новости</em></strong></a>
+        </div>
+
+        <h1 id="main-title4" class="centered highlight" title="О КОМПАНИИ" style="text-align: center;">О КОМПАНИИ</h1>
+        <style>
+            .highlight {
+                background-color: rgb(7, 248, 111); /* Выделение фоном */
+                font-weight: bold;        /* Жирный шрифт */
+            }
+        </style>
+
+
+        <div style="text-align: center;">
+            <em>ВРЕМЯ ПОЗНАКОМИТЬСЯ С НАШЕЙ КОМПАНИЕЙ!</em>
+        </div>
+       
+        <h1 style="text-align: center;">Дата и время создания компании</h1>
+        <time datetime="2024-09-17" style="display: block; text-align: center;">17 сентября 2024 года</time>
+        
+        <h1 style="text-align: center;">Наша цитата</h1>
+        <blockquote style="text-align: center;">
+            <p>«Знание — сила.»</p>
+            <footer>— Фрэнсис Бэкон</footer>
+        </blockquote>
+        
+        <h1 style="text-align: center;">Девиз нашей компании</h1>
+        <pre style="text-align: center;">
+            Ветер шепчет нежно в траву,  
+            Листья танцуют в вышине.  
+            Солнце светит, мир вокруг,  
+            Жизнь полна волшебства во мгле.  
+        </pre>
+
+        <ul class="company-list">
             {% for company in companies %}
-                <li>
+                <li style="text-align: center;"> <!-- Центрируем элементы в каждом элементе списка -->
                     <h3>{{ company.information }}</h3>
+                    <p>SPARE — <abbr title="Компания автозапчастей">это ROLLS-ROYCE среди автомобилей </abbr>.</p>
+                  
                     {% if company.logo %}
                         <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
                     {% endif %}
@@ -45,16 +104,39 @@
                     <p><strong>История:</strong> {{ company.history }}</p>
                     <p><strong>Детали:</strong> {{ company.details }}</p>
                     {% if company.certificate %}
-                        <a href="{{ company.certificate.url }}">Скачать сертификат</a>
+                        <a href="{{ company.certificate.url }}">Просмотреть сертификат</a>
+                        <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
                     {% endif %}
                 </li>
             {% empty %}
-                <li>Нет доступных компаний.</li>
+                <li style="text-align: center;">Нет доступных компаний.</li>
             {% endfor %}
         </ul>
+        
+        <style>
+            .company-list {
+                list-style-type: none; /* Убираем маркеры списка */
+                padding: 0; /* Убираем отступы */
+                margin: 0; /* Убираем внешние отступы */
+                text-align: center; /* Центрируем текст в списке */
+            }
+            .company-list li {
+                margin-bottom: 20px; /* Отступы между элементами списка */
+            }
+        </style>
 
+        <h3 id="nav-title2" class="centered highlight" title="ПАРТНЕРЫ" style="text-align: center;">ПАРТНЕРЫ</h3>
 
-        <h3 style="text-align: center;">ПАРТНЕРЫ</h3>
+        <style>
+            .highlight {
+                background-color: rgb(9, 244, 126); /* Выделение фоном */
+                font-weight: bold;        /* Жирный шрифт */
+            }
+        </style>
+        <dl>
+            <dt><strong>SPARE</strong></dt>
+            <dd><strong>Верный друг вашего автомобиля.</strong></dd>
+        </dl>
         <ul>
             {% for partner in partners %}
                 <li>
@@ -67,6 +149,166 @@
                 <li>Нет доступных партнеров.</li>
             {% endfor %}
         </ul>
+        <h1 id="nav-title1" class="centered highlight" title="ПОСЛЕДНЯЯ ОПУБЛИКОВАННАЯ НОВОСТЬ" style="text-align: center;">ПОСЛЕДНЯЯ ОПУБЛИКОВАННАЯ НОВОСТЬ</h1>
+
+        <style>
+            .highlight {
+                background-color: rgb(9, 244, 126); /* Выделение фоном */
+                font-weight: bold;        /* Жирный шрифт */
+            }
+        </style>
+        <ul>
+            <h3>{{ latest_news.title }}</h3>
+            <p>{{ latest_news.text }}</p>
+            {% if latest_news.image %}
+                <img src="{{ latest_news.image.url }}" alt="{{latest_news.full_name}}" width="150" height="150">
+            {% endif %}
+            <a href="{{latest_news.link}}">
+                <p>Читать далее</p>
+            </a>
+        </ul>  
+        <title>Автозапчасти</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .parts-list {
+            max-height: 300px; /* Максимальная высота контейнера */
+            overflow-y: auto; /* Вертикальная прокрутка */
+            border: 1px solid #ccc; /* Рамка для контейнера */
+            padding: 10px; /* Отступы внутри контейнера */
+            margin: 20px 0; /* Отступы вокруг контейнера */
+        }
+        h2 {
+            text-align: center;
+        }
+        li {
+            margin: 5px 0; /* Отступы между элементами списка */
+        }
+    </style>
+</head>
+
+
+<h1 id="nav-title21" class="centered highlight" title="ПРОЧАЯ ИНФОРМАЦИЯ" style="text-align: center;">ПРОЧАЯ ИНФОРМАЦИЯ</h1>
+
+<style>
+    .highlight {
+        background-color: rgb(9, 244, 126); /* Выделение фоном */
+        font-weight: bold;        /* Жирный шрифт */
+    }
+</style>
+<h1><strong>АВТОМОБИЛИ ДЛЯ ПРОДАЖИ</strong></h1>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th id="model">Модель</th>
+            <th id="power">Мощность (л.с.)</th>
+            <th id="volume">Объем (л.)</th>
+            <th id="price">Цена (руб.)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td headers="model">Toyota Camry</td>
+            <td headers="power">150</td>
+            <td headers="volume">2.5</td>
+            <td headers="price">2,500,000</td>
+        </tr>
+        <tr>
+            <td headers="model">Honda Accord</td>
+            <td headers="power">190</td>
+            <td headers="volume">2.4</td>
+            <td headers="price">2,700,000</td>
+        </tr>
+        <tr>
+            <td headers="model">BMW 3 Series</td>
+            <td headers="power">250</td>
+            <td headers="volume">2.0</td>
+            <td headers="price">3,200,000</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+    <h1><strong>Ищите нас здесь!</strong></h1>
+    
+    <iframe src="https://www.youtube.com/" width="600" height="400" title="Пример iframe">
+        Ваш браузер не поддерживает iframe.
+    </iframe>
+    
+    </body>
+
+
+
+    <title>Автозапчасти</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Цвет фона страницы */
+            margin: 0;
+            padding: 20px;
+        }
+        .parts-list {
+            max-height: 300px; /* Максимальная высота контейнера */
+            overflow-y: auto; /* Вертикальная прокрутка */
+            border: 2px solid #007BFF; /* Цвет рамки */
+            border-radius: 10px; /* Закругленные углы */
+            background-color: #ffffff; /* Цвет фона внутри контейнера */
+            padding: 10px; /* Отступы внутри контейнера */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+            margin: 20px 0; /* Отступы вокруг контейнера */
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF; /* Цвет заголовка */
+        }
+        li {
+            margin: 5px 0; /* Отступы между элементами списка */
+            padding: 5px; /* Отступы внутри элементов списка */
+            border-bottom: 1px solid #ccc; /* Разделительная линия между пунктами */
+        }
+        li:last-child {
+            border-bottom: none; /* Убираем последнюю разделительную линию */
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    
+<h2>Список автозапчастей для индивидуального заказа</h2>
+
+<div class="parts-list">
+    <ul>
+        <li>Фильтр масла</li>
+        <li>Фильтр воздуха</li>
+        <li>Тормозные колодки</li>
+        <li>Амортизатор</li>
+        <li>Свечи зажигания</li>
+        <li>Ремень ГРМ</li>
+        <li>Радиатор</li>
+        <li>Насос охлаждающей жидкости</li>
+        <li>Бачок омывателя</li>
+        <li>Стеклоочиститель</li>
+        <li>Карбюратор</li>
+        <li>Топливный насос</li>
+        <li>Датчик температуры</li>
+        <li>Система выхлопа</li>
+        <li>Электродвигатель стеклоподъемника</li>
+        <li>Диск сцепления</li>
+        <li>Коробка передач</li>
+        <li>Колодки сцепления</li>
+        <li>Брызговики</li>
+        <li>Крышка радиатора</li>
+        <li>Штуцер топливопровода</li>
+    </ul>
+</div>
+
+</body>
     </form>
 {% endblock %} 
 

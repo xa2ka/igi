@@ -28,23 +28,43 @@ def get_cat_fact():
     else:
         return None
     
+# def CheckOrders(request):
+#     suppliers = list(Supplier.objects.all().order_by('name'))
+#     orders = list(Order.objects.all().order_by('-purchase_date'))
+#     order_items = list(OrderItem.objects.all().order_by('OrderId'))
+#     details = list(Detail.objects.all())
+#     pickup_addresses = list(PickupAddresses.objects.all()) 
+
+    
+#     context = {
+#         'suppliers': suppliers,
+#         'orders': orders,
+#         'order_items': order_items,
+#         'details': details,
+#         'pickup_addresses': pickup_addresses,
+#         'userId': int(request.session.get('user_id'))
+#     }
+#     return render(request, 'main/orders.html', context)
+
+
 def CheckOrders(request):
     suppliers = list(Supplier.objects.all().order_by('name'))
     orders = list(Order.objects.all().order_by('-purchase_date'))
-    order_items = list(OrderItem.objects.all().order_by('OrderId'))
-    details = list(Detail.objects.all())
+    order_items = list(OrderItem.objects.all())
     pickup_addresses = list(PickupAddresses.objects.all()) 
 
-    
     context = {
         'suppliers': suppliers,
         'orders': orders,
         'order_items': order_items,
-        'details': details,
         'pickup_addresses': pickup_addresses,
         'userId': int(request.session.get('user_id'))
     }
     return render(request, 'main/orders.html', context)
+
+
+
+
 
 def templateproduct(request, detail_id):
     # Получаем объект детали по ID
@@ -87,45 +107,59 @@ def add_to_cart(request, detail_id):
 
 def cart_view(request):
     items = cart.items
+
     return render(request, 'main/cart.html', {'items': items})
 
-from django.contrib import messages
-from django.shortcuts import redirect, render
-from django.contrib import messages
-from django.shortcuts import redirect
 
 
-def cart_update(request):
-    if request.method == 'POST':
-        action = request.POST.get('action')
-        item_id = request.POST.get('item_id')
+# def cart_update(request):
+#     if request.method == 'POST':
+#         action = request.POST.get('action')
+#         item_id = request.POST.get('item_id')
 
-        if action == 'remove':
-            cart.remove(item_id)
-            messages.success(request, "Товар удален из корзины.")
+#         if action == 'remove':
+#             cart.remove(item_id)
+#             messages.success(request, "Товар удален из корзины.")
 
-        elif action == 'increase':
-            order_item = cart.get(item_id)
-            if order_item:
-                order_item['quantity'] += 1
-                cart.update(order_item)
-                messages.success(request, "Количество товара увеличено.")
+#         elif action == 'increase':
+#             order_item = cart.get(item_id)
+#             if order_item:
+#                 order_item['quantity'] += 1
+#                 cart.update(order_item)
+#                 messages.success(request, "Количество товара увеличено.")
 
-        elif action == 'decrease':
-            order_item = cart.get(item_id)
-            if order_item and order_item['quantity'] > 1:
-                order_item['quantity'] -= 1
-                cart.update(order_item)
-                messages.success(request, "Количество товара уменьшено.")
-            elif order_item:
-                cart.remove(item_id)
-                messages.success(request, "Товар удален из корзины, так как количество стало 0.")
+#         elif action == 'decrease':
+#             order_item = cart.get(item_id)
+#             if order_item and order_item['quantity'] > 1:
+#                 order_item['quantity'] -= 1
+#                 cart.update(order_item)
+#                 messages.success(request, "Количество товара уменьшено.")
+#             elif order_item:
+#                 cart.remove(item_id)
+#                 messages.success(request, "Товар удален из корзины, так как количество стало 0.")
 
-        # Перенаправление на представление корзины
-        return redirect('cart')  # Убедитесь, что вы используете правильное имя маршрута
+#         # Перенаправление на представление корзины
+#         return redirect('cart')  # Убедитесь, что вы используете правильное имя маршрута
 
-    # Если не POST-запрос, просто перенаправьте на корзину
+#     # Если не POST-запрос, просто перенаправьте на корзину
+#     return redirect('cart')
+
+
+def cart_increment(request, item_id):
+    order_item = cart.get(item_id)
+    cart.add(order_item)
     return redirect('cart')
+
+
+def cart_decrement(request, item_id):
+    cart.decrement(item_id)
+    return redirect('cart')
+
+
+def cart_remove(request, item_id):
+    cart.remove(item_id)
+    return redirect('cart')
+
 
 
 
@@ -185,26 +219,37 @@ def employee(request):
     }
     return render(request, 'main/employee.html', context)
 
+
+from django.shortcuts import render
+from django.utils import timezone
+from .models import Supplier, Detail, Discount, Partner, Company, News  # Не забудьте импортировать модель News
+import logging
+
+logger = logging.getLogger(__name__)
+
 def index(request):
     logger.debug("Rendering index page")
-    # suppliers = list(Supplier.objects.all().order_by('name'))
-    # orders = list(Order.objects.all().order_by('-purchase_date'))
-    # order_items = list(OrderItem.objects.all().order_by('OrderId'))
-
 
     suppliers = list(Supplier.objects.all().order_by('name'))
     details = list(Detail.objects.all().order_by('name'))
     discounts = list(Discount.objects.all().order_by('min_quantity'))
 
-    # context = {
-    #     'suppliers': suppliers,
-    #     'orders': orders,
-    #     'order_items': order_items
-    # }
-
     partners = Partner.objects.all()  # Получаем всех партнеров
     companies = Company.objects.all()
-    return render(request, 'main/main.html',{'suppliers': suppliers, 'details': details, 'discounts': discounts, 'partners': partners, 'companies': companies})
+
+    # Получаем последнюю опубликованную новость
+    latest_news = News.objects.order_by('-id').first()
+
+    return render(request, 'main/main.html', {
+        'suppliers': suppliers,
+        'details': details,
+        'discounts': discounts,
+        'partners': partners,
+        'companies': companies,
+        'latest_news': latest_news  # Добавляем последнюю новость в контекст
+    })
+
+
 
 def about(request):
     logger.debug("Rendering about page")
@@ -452,7 +497,7 @@ def newall(request, detail_id):
     
 
 def news2(request):
-    logger.debug("Rendering news2 page")
+    # logger.debug("Rendering news2 page")
     new = News.objects.all()
     return render(request, 'main/usernews.html', {'new': new})
 

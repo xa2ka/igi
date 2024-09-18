@@ -1,15 +1,25 @@
 {% extends 'main/layout.html' %}
 
-{%block title%}Новости{% endblock %}
+{% block title %}Новости{% endblock %}
+
+{% block head %}
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+{% endblock %}
 
 {% block сontent %}
-    {% for el in new%}
-        <div class = "alert alert-warning">
-            <h3>{{ el.title }}</h3>
-            <p>{{ el.text }}</p>
+    {% for el in new %}
+        <div class="alert alert-warning" itemscope itemtype="http://schema.org/NewsArticle">
+            <h3 itemprop="headline">{{ el.title }}</h3>
+            <p itemprop="articleBody">{{ el.text }}</p>
             {% if el.image %}
-                <img src="{{ el.image.url }}" alt="{{el.full_name}}" width="150" height="150">
+                <img src="{{ el.image.url }}" alt="{{ el.full_name }}" itemprop="image" width="150" height="150">
             {% endif %}
+            <a href="{{ el.link }}" itemprop="url">
+                <p>Читать далее</p>
+            </a>
+            <meta itemprop="author" content="{{ el.author }}">
+            <meta itemprop="datePublished" content="{{ el.published_date|date:"Y-m-d" }}">
         </div>
-    {% endfor%}
+    {% endfor %}
 {% endblock %}

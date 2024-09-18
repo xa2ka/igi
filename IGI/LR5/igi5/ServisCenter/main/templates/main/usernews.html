@@ -1,4 +1,4 @@
-<!-- {% extends 'main/layout2.html' %}
+{% extends 'main/layout2.html' %}
 
 {%block title%}Новости{% endblock %}
 
@@ -10,23 +10,9 @@
             {% if el.image %}
                 <img src="{{ el.image.url }}" alt="{{el.full_name}}" width="150" height="150">
             {% endif %}
+            <a href="{{el.link}}">
+                <p>Читать далее</p>
+            </a>
         </div>
     {% endfor%}
-{% endblock %} -->
-
-{% extends 'main/layout2.html' %}
-
-{% block title %}Новости{% endblock %}
-
-{% block content %}
-    {% for el in new %}
-        <div class="alert alert-warning">
-            <h3>{{ el.title }}</h3>
-            <p>{{ el.text|truncatewords:20 }}</p>
-            {% if el.image %}
-                <img src="{{ el.image.url }}" alt="{{ el.full_name }}" width="150" height="150">
-            {% endif %}
-            <a href="{% url 'newall' el.id %}" class="btn btn-primary">Читать далее</a>
-        </div>
-    {% endfor %}
 {% endblock %}

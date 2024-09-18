@@ -44,6 +44,8 @@ class News(models.Model):
     title = models.TextField('Заголовок')
     text = models.TextField('Текст')
     image = models.ImageField(upload_to='images', null=True, blank=True)
+    link = models.URLField('Ссылка', null=True, blank=True)  # Новое поле для ссылки
+
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
