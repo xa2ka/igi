@@ -1,15 +1,17 @@
 {% extends 'main/layout.html' %}
 
-{%block title%}Главная страница{% endblock %}
 
 
 
-{% block head %}
+<head>
     <meta charset="UTF-8">
     <meta name="author" content="Довнар Александр">
     <meta name="group" content="253505">
     <link rel="shortcut icon" href="media/images/favicon.png" type="image/png" />
-{% endblock %}
+    <title>Главная страница</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+</head>
 
 
 

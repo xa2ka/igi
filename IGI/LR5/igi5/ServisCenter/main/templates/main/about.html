@@ -1,27 +1,28 @@
 
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Пример базовой HTML-страницы">
     <title>О нашей компании</title>
-    <link rel="stylesheet" href="/main/staticfiles/admin/css/vendor/style.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/about.css" %}">
+
 </head>
 <body>
 
     <header>
-        <h1>Добро пожаловать на нашу страницу!</h1>
+        <h1 class="gradient-title">Добро пожаловать!</h1>
     </header>
 
-    <main>
-        <p style="font-size: 20px; color: green">
-            Test paragraph.
-        </p>
+    <main class="main">
+
         
-        <p>Первый параграф.</p>
-        <p>Второй параграф с <strong>жирным текстом</strong>.</p>
-        <p>Третий параграф с <em>курсивом</em>.</p>
+        <p>Наша компания - ваш верный друг</p>
+        <p>Мы стремимся к <strong>качеству</strong> и <strong>доверию</strong></p>
+        <p>С нами вы всегда на шаг вперед</p>
 
         <div style="text-align: center;">
             <em>ВРЕМЯ ПОЗНАКОМИТЬСЯ С НАШЕЙ КОМПАНИЕЙ!</em>
@@ -33,7 +34,6 @@
         <h1 style="text-align: center;">Наша цитата</h1>
         <blockquote style="text-align: center;">
             <p>«Знание — сила.»</p>
-            <footer>— Фрэнсис Бэкон</footer>
         </blockquote>
         
         <h1 style="text-align: center;">Девиз нашей компании</h1>
@@ -63,8 +63,8 @@
                     <p><strong>История:</strong> {{ company.history }}</p>
                     <p><strong>Детали:</strong> {{ company.details }}</p>
                     {% if company.certificate %}
-                        <a href="{{ company.certificate.url }}">Просмотреть сертификат</a>
-                        <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
+                    <a href="{{ company.certificate.url }}" class="certificate-link">Просмотреть сертификат</a>
+                    <a href="/media/images/sertificat.png" class="download-link" download>Скачать сертификат</a>
                     {% endif %}
                 </li>
             {% empty %}
@@ -72,12 +72,14 @@
             {% endfor %}
         </ul>
         
-
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{% url 'home' %}" data-type="back">Вернуться на главную</a>
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2024 Все права защищены.</p>
+        <h3>&copy; 2024 Все права защищены.</h3>
     </footer>
 
 </body>
