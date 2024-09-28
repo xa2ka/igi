@@ -42,9 +42,9 @@ class FAQ(models.Model):
 
 class News(models.Model):
     title = models.TextField('Заголовок')
-    text = models.TextField('Текст')
+    text = models.TextField('Краткое содержание')
     image = models.ImageField(upload_to='images', null=True, blank=True)
-    link = models.URLField('Ссылка', null=True, blank=True)  # Новое поле для ссылки
+    FullText = models.TextField('Полный текст', default='')
 
     class Meta:
         verbose_name = 'Новость'

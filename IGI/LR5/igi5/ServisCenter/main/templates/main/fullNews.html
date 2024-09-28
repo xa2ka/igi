@@ -1,0 +1,21 @@
+{% block content %}
+<style>
+    body {
+        background-color: #add8e6; /* Голубой фон для всей страницы */
+        margin: 0; /* Удаление стандартных отступов */
+        padding: 0; /* Удаление стандартных отступов */
+    }
+    .news-container {
+        padding: 20px; /* Отступы для контейнера */
+    }
+</style>
+<div class="news-container">
+    <h1 class="news-title">{{ news_item.title }}</h1>
+    <p class="news-summary">{{ news_item.text }}</p>
+    {% if news_item.image %}
+    <img class="news-image" src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="width: 300px; height: 200px; object-fit: cover;">
+    {% endif %}
+    <p class="news-fulltext">{{ news_item.FullText }}</p>
+    <a class="back-link" href="{% url 'news' %}">Назад к новостям</a>
+</div>
+{% endblock %}

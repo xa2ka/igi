@@ -7,15 +7,17 @@
 {% block сontent %}
     {% for el in Qanswer%}
         <div class = "alert alert-warning">
-            <h3>-{{ el.question }}</h3>
-            <p>-{{ el.answer }}</p>
-            <p>Дата добавления ответа: {{ el.date }}</p>
+            <details>
+                <summary>{{el.question}}</summary>
+                <ul>
+                    <li>{{el.answer}}</li>
+                    <li>Дата добавления ответа: {{ el.date }}</li>
+                </ul>
+            </details>
         </div>
     {% endfor%}
 {% endblock %}
 
-<script>
-    document.getElementsByClassName("clicker")[0].addEventListener("click", () => {
-        document.getElementById("question{{el.answer}}").style.display = "block"
-    });
-</script>
+
+
+

@@ -200,6 +200,12 @@ def place_order(request):
     return render(request, 'main/place_order.html', {'cart': cart})
 
 
+from django.shortcuts import render
+
+def poligon(request):
+    return render(request, 'main/poligon.html')  # замените на ваш шаблон
+
+
 def employee(request):
     suppliers = list(Supplier.objects.all().order_by('name'))
     orders = list(Order.objects.all().order_by('-purchase_date'))
@@ -250,10 +256,21 @@ def index(request):
     })
 
 
+# def about(request):
+#     company = Company.objects.get(id=1)  # Это возвращает один объект
+#     return render(request, 'main/about.html', {'company': company})
+
 
 def about(request):
-    logger.debug("Rendering about page")
-    return render(request, 'main/about.html')
+    # Получаем все компании из базы данных
+    companies = Company.objects.all()
+    
+    # Передаем список компаний в шаблон
+    return render(request, 'main/about.html', {'companies': companies})
+
+# def about(request):
+#     logger.debug("Rendering about page")
+#     return render(request, 'main/about.html')
 
 def about2(request):
     logger.debug("Rendering about2 page")
@@ -281,6 +298,13 @@ def login(request):
 def registration(request):
     logger.debug("Rendering registration page")
     return render(request, 'main/registration.html')
+
+
+
+def full_news(request, id):
+    news_item = get_object_or_404(News, id=id)
+    return render(request, 'main/fullNews.html', {'news_item': news_item})
+
 
 def news(request):
     logger.debug("Rendering news page")

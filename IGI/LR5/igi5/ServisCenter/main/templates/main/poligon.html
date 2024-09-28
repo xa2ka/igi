@@ -1,0 +1,539 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Довнар Александр" />
+        <meta name="keywords" 
+                     content="Продажа автозапчастей, автомобили, важность" />
+        <meta name="description" 
+                     content="продажа деталей для автомобилей: Почему это важно?" />
+
+
+        <title>Sample of HTML</title>
+
+
+        <link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon">
+
+
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Полигон Довнар 253505</h1>
+        </header>
+        
+        <hr color="black" size="4">
+
+        <main>
+
+            <h1>Микроданные</h1>
+
+            <div itemscope itemtype="http://schema.org/Movie">
+                <h1>Аватар</h1>
+                <span>Режиссер: Джеймс Кэмерон (род. 16 августа 1954 г.)</span>
+            <span itemprop="genre">Фантастика</span>
+                <a href="/../movies/avatar-theatrical-trailer.html" 
+                                    itemprop="trailer">Трейлер</a>
+            </div>  
+            <br><br><br>
+            <a href="#n1">См.примечание в конце</a>
+            
+            <hr color="black" size="4">
+        
+            <h1>Глобальные атрибуты title lang dir accesskey contenteditable (style,id,class) </h1>
+            <p title="Это простой текст на русском языке." lang="ru">Наведись на меня(на русском).</p>
+            <p title="This is a simple text in English." lang="en" dir="rtl">Simple text in English</p>
+            <input type="button" accesskey="t" value="Нажми меня (alt+t)" />
+            <p contenteditable="true">It is raining</p>
+
+            <hr color="black" size="4">
+            
+            <h1>Навигация</h1>
+            <nav>
+                <ul>
+                    <li><a href="news">Новости</a></li>
+                    <li><a href="about">О нас</a></li>
+                </ul>
+            </nav>
+
+            <a href="{{ company.certificate.url }}">Просмотреть сертификат</a>
+            <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
+
+            <hr color="black" size="4">
+    
+            <h1><strong>Ищите нас здесь!</strong></h1>
+    
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4Mc80zgcgDQ?si=yniOGEL58whx8YfO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        
+            </iframe>
+
+            <hr color="black" size="4">
+            
+            <pre>
+                Это пример текста,
+                 где пробелы и
+                  переносы строк
+                   будут сохранены.
+            </pre>
+
+                <hr color="black" size="4">
+            
+                <form action="/submit" method="post">
+                    <fieldset>
+                        <legend>Личная информация</legend>
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name"><br>
+                
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email"><br>
+                        
+                        <label for="age">Возраст:</label>
+                        <input type="number" id="age" name="age"><br>
+                
+                        <input type="submit" value="Отправить">
+                    </fieldset>
+                
+                </form>
+
+                <hr color="black" size="4">
+            
+
+                <h1>Выпадающий список</h1>
+                <form action="http://server.com" method="post">
+                    <select size="4" name="s1">
+                      <option disabled>Choose a hero:</option>
+                      <option value="iron">Iron Man</option>
+                      <option selected value="captain">Captain America</option>
+                      <option value="thor">Thor</option>
+                    </select>
+                    <br>
+                    <select size="1" name="s2">
+                      <option disabled>Choose a hero:</option>
+                      <option value="iron">Iron Man</option>
+                      <option selected value="captain">Captain America</option>
+                      <option value="thor">Thor</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Send!">
+                   </form>
+                   
+                   <h1>Выберите фрукт</h1>
+                   <select>
+                       <optgroup label="Цитрусовые">
+                           <option value="orange">Апельсин</option>
+                           <option value="lemon">Лимон</option>
+                           <option value="lime">Лайм</option>
+                       </optgroup>
+                       <optgroup label="Яблоки">
+                           <option value="red_apple">Красное яблоко</option>
+                           <option value="green_apple">Зеленое яблоко</option>
+                       </optgroup>
+                       <optgroup label="Тропические">
+                           <option value="banana">Банан</option>
+                           <option value="mango">Манго</option>
+                       </optgroup>
+                   </select>
+
+
+                   <hr color="black" size="4">
+            
+
+
+                <form action="/submit" method="post">
+                    <label for="username">Имя пользователя:</label>
+                    <input type="text" id="username" name="username" required><br><br>
+                
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                
+                    <label>Выберите пол:</label><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Мужской</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Женский</label><br><br>
+                
+                    <input type="checkbox" id="subscribe" name="subscribe">
+                    <label for="subscribe">Подписаться на рассылку</label><br><br>
+                
+                    <input type="hidden" id="userId" name="userId" value="12345">
+                
+                    <input type="submit" value="Отправить">
+                    <input type="reset" value="Сбросить">
+                </form>
+
+                <hr color="black" size="4">
+            
+
+
+            <details>
+                <summary>Types of Coffee</summary>
+                <ul>
+                  <li>Espresso</li>
+                  <li>Americano</li>
+                  <li>Latte</li>
+                  <li>Cappuccino</li>
+                  <li>Mocha</li>
+                </ul>
+              </details>
+            
+              <br><br>
+            
+              <table border="5" align="center">
+                <tr>
+                    <td>Яблоко</td>
+                    <td span="2">Банан</td>
+                    <td>Груша</td>
+                    <td>Клубника</td>
+                    <td>Клубника</td>
+                </tr>
+                <tr>
+                    <td>Апельсин</td>
+                    <td>Киви</td>
+                    <td>Земляника</td>
+                    <td>Земляника</td>
+                </tr>
+                <tr>
+                    <td>Апельсин</td>
+                    <td>Киви</td>
+                    <td>Земляника</td>
+                    <td>Земляника</td>
+                </tr>
+            </table>
+
+            <br><br>
+            
+            <table border="1">
+                <tr>
+                    <th id="rank">Rank</th>
+                    <th id="name">Name</th>
+                    <th id="color">Color</th>
+                </tr>
+                <tr>
+                    <th id="first" headers="rank">Favorite:</th>
+                    <td headers="name first">Apples</td>
+                    <td headers="color first">Green</td>
+                </tr>
+                <tr>
+                    <th id="second" headers="rank">2nd Favorite:</th>
+                    <td headers="name second">Oranges</td>
+                    <td headers="color second">Orange</td>
+                </tr>
+            </table>
+            
+            <body>
+                <object width="560" height="349" 
+                  data="http://www.youtube.com/v/qzA60hHca9s?version=3"
+                  type="application/x-shockwave-flash">
+                  <param name="allowFullScreen" value="true">
+                    <b>Sorry!</b> We can't display this content
+                </object>
+               </body>
+
+               
+                        <video width="360" height="240" 
+                src="big-buck-bunny_trailer.webm"
+                autoplay controls preload="none" muted>
+            Video cannot be displayed
+            </video>
+
+
+            <h1>Выделение</h1>
+
+            <p>В HTML5 для выделения текста можно использовать различные элементы. Например, <strong>жирный текст</strong> создается с помощью тега <code>&lt;b&gt;</code>, а <em>курсивный текст</em> — с помощью тега <code>&lt;i&gt;</code>.</p>
+
+            <p>Если хотите подчеркнуть что-то, используйте <u>подчеркнутый текст</u>. Для отображения небольшого текста подойдёт <small>маленький текст</small>. Для химических формул можно использовать <sub>подстрочный текст</sub> и <sup>надстрочный текст</sup>.</p>
+            
+            <p>Для кода можно использовать <code>тег code</code>, а для переменных — <var>переменная</var>. Пример вывода данных: <samp>результат</samp>. Если нужно указать нажатие клавиш, используйте <kbd>Ctrl + C</kbd>.</p>
+            
+            <p>Для сокращений используйте <abbr title="HTML5">HTML</abbr>, а для определений — <dfn>определение</dfn>. Цитаты можно выделять с помощью <q>краткой цитаты</q>, а для более длинных — использовать <cite>ссылку на источник</cite>.</p>
+            
+            <p>Если вы хотите указать время, используйте <time datetime="2024-09-18">18 сентября 2024 года</time>.</p>
+            
+            <p>Для выделения важной информации можно применять <mark>подсветку текста</mark>.</p>
+            
+            <p>Таким образом, HTML5 предлагает множество способов для выделения текста, что позволяет улучшить восприятие информации.</p>        
+        
+            <hr color="black" size="4">
+        
+            <h1>Пример листинга</h1>
+
+            <p>
+                <code>
+                var fruits = ["apples", "oranges", "mangoes", "cherries"];<br>
+                document.writeln("I like " + fruits.length + " fruits");
+                </code>
+            </p>
+            <p>The variable in this example is <var>fruits</var></p>
+            <p>The output from the code is: <samp>I like 4 fruits</samp></p>
+            <p>When prompted for my favorite fruit, I typed: <kbd>cherries</kbd>
+            
+            <hr color="black" size="4">
+            
+            <h1>Сокращение/определение</h1>
+
+            <abbr title="United Nations Educational, Scientific and Cultural Organization">UNESCO</abbr>
+            <br><br><br>
+            The <dfn title="banana">banana</dfn> is a tropical fruit that is elongated and curved, with a soft and sweet flesh.
+            
+            <hr color="black" size="4">
+            
+            <h1>Цитата/Источник</h1>
+            <q cite="http://en.wikipedia.org/wiki/Apple">The apple is
+                the pomaceous fruit of the apple tree.</q>
+            
+            <br><br>
+            My favorite book on fruit is <cite>Fruit: Edible, Inedible, Incredible</cite>.
+
+
+            At <time datetime="15:00">3 o'clock</time>
+            on <time datetime="1984-12-7">December 7th</time>.
+            
+
+            <h1></h1>
+
+            <blockquote>
+                The sun sets gently over the horizon,<br>
+                Painting the sky in hues of orange and pink,<br>
+                As the waves softly lap against the shore,<br>
+                A tranquil moment, perfect for reflection.
+            </blockquote>
+
+            <h1></h1>
+            
+                Самое длинное слово из химии:<br>
+                метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин<wbr>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин<wbr>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>
+                
+            <h1></h1>   
+                Хочешь попасть на youtube.com? <br>
+                <a href="http://youtube.com">Жми сюда!</a>
+            
+                
+
+            <blockquote>
+            The apple forms a tree that is small and deciduous, 
+            reaching 3 to 12 meters (9.8 to 39 ft) tall, with a 
+            broad, often densely twiggy crown.
+            </blockquote>
+
+
+            <hr color="black" size="4">
+            <h1>Списки</h1>
+
+            <ol>
+                <li>List item one</li>
+                <li>
+                List item two with subitems:
+                <ul>
+                    <li>Subitem 1</li>
+                    <li>Subitem 2</li>
+                </ul>
+                </li>
+                <li>Final list item</li>
+            </ol>
+            
+            <br><br>
+
+            <ul type="square">
+                <li>One</li>
+                <li type="circle">Two</li>
+            </ul>
+            
+            <ol type="A" start="10">
+                <li>Son</li>
+                <li value="1">Mother</li>
+                <li>Father</li>
+            </ol>
+                
+            <br><br>
+
+            <dl>
+                <dt>CSS</dt>
+                <dd>
+                Cascading Style Sheets — это язык стилей, используемый для описания
+                внешнего вида документа, написанного на HTML или XML.
+                </dd>
+                <dt>JavaScript</dt>
+                <dd>
+                JavaScript — это язык программирования, который позволяет 
+                создавать интерактивные элементы на веб-страницах.
+                </dd>
+                <dt>API</dt>
+                <dd>
+                Application Programming Interface — это набор правил и протоколов,
+                который позволяет различным программам взаимодействовать друг с другом.
+                </dd>
+            </dl>
+
+
+
+            <figure>
+                <p><img src="/media/images/molotok.png" alt=""></p>
+                <figcaption>molotok logo</figcaption>
+            </figure>
+                
+            <br><br>
+         
+            
+            <h1>TEXTAREA</h1>
+            <form action="http://server.com" method="post">
+                <textarea name="desc" cols="45" rows="10"
+                        placeholder="Input description"
+                        required maxlength="450"></textarea>
+                <br><br>
+                <input type="submit" value="Send!">
+            </form>
+            
+
+
+
+
+            <h1>Форма с разными типами инпутов</h1>
+            <form>
+        
+                <!-- Текстовое поле -->
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                <br><br>
+        
+                <!-- Поле для пароля -->
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <br><br>
+        
+                <!-- Поле для электронной почты -->
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+        
+                <!-- Числовое поле -->
+                <label for="age">Возраст:</label>
+                <input type="number" id="age" name="age" min="1" max="100">
+                <br><br>
+        
+                <!-- Поле для выбора даты -->
+                <label for="birthdate">Дата рождения:</label>
+                <input type="date" id="birthdate" name="birthdate">
+                <br><br>
+        
+                <!-- Поле для выбора цвета -->
+                <label for="color">Выберите цвет:</label>
+                <input type="color" id="color" name="color">
+                <br><br>
+        
+                <!-- Чекбокс -->
+                <label>
+                    <input type="checkbox" name="subscribe" checked>
+                    Подписаться на новости
+                </label>
+                <br><br>
+        
+                <!-- Радиокнопки -->
+                <label>Пол:</label><br>
+                <label>
+                    <input type="radio" name="gender" value="male" required>
+                    Мужской
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female" checked>
+                    Женский
+                </label>
+                <br><br>
+        
+                <!-- Поле для загрузки файла -->
+                <label for="file">Загрузите файл:</label>
+                <input type="file" id="file" name="file">
+                <br><br>
+        
+                <!-- Кнопка отправки формы -->
+                <input type="submit" value="Отправить">
+                <br><br>
+        
+                <!-- Обычная кнопка -->
+                <input type="button" value="Нажмите меня" onclick="alert('Кнопка нажата!')">
+                <br><br>
+        
+                <!-- Поле для поиска -->
+                <label for="search">Поиск:</label>
+                <input type="search" id="search" name="search" placeholder="Введите запрос...">
+                <br><br>
+        
+            </form>
+
+
+            <br><br>
+
+            <section>
+                <h1>Main content</h1>
+                <article>
+                    <h2>First article</h2>
+                    <p>Text goes here...</p>
+                </article>
+                <article>
+                    <h2>Second article</h2>
+                    <p>Text goes here...</p>
+                </article>
+            </section>
+        
+
+            <hr color="black" size="4">
+
+            <p><a id="n1"></a>ИНФОРМАЦИЯ</p>
+
+            <embed
+            src="http://www.youtube.com/v/qzA60hHca9s?version=3"
+            type="application/x-shockwave-flash"
+            width="560" height="349"
+            allowfullscreen="true">
+            <!-- все "нестандартные" атрибуты - это параметры
+             для плагина -->
+        
+
+        </main>
+            <hr color="black" size="4">
+
+            <form action="http://example.com/app/profile.php" method="post">
+                Имя:
+                <input type="text" name="username"><br>
+                Адрес эл. почты:
+                <input type="text" name="email"><br>
+                Пол:<br>
+                <input type="radio" name="sex" value="male">мужской<br>
+                <input type="radio" name="sex" value="female">женский<br>
+              
+                <input type="submit" value="Отправить">
+                <input type="reset" value="Очистить">
+              </form>
+              
+              <hr color="black" size="4">
+
+
+
+              <img src="media/images/1.png" 
+              srcset="media/images/1.png 0.4x, 
+                      media/images/novost1.png 0.8x, 
+                      media/images/novost2.png 1.2x" 
+              alt="Описание изображения">
+
+              <picture>
+                <source media="(max-width: 20em)" 
+                       srcset="media/images/1.png 1x,
+                       media/images/novost1.png 2x,
+                       media/images/novost2.png 3x">
+                <source media="(max-width: 40em)" 
+                       srcset="media/images/1.png 1x,
+                       media/images/novost1.png 2x,
+                       media/images/novost2.png 3x"> 
+                <img       src="media/images/novost1.png" alt="Space Needle" >
+                </picture>
+                
+
+
+
+        <footer>
+            Copyright Довнар Александр
+        </footer>
+        
+    </body>
+
+</html>

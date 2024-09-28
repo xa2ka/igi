@@ -1,9 +1,84 @@
-{% extends 'main/layout.html' %}
 
-{%block title%}О нас{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Пример базовой HTML-страницы">
+    <title>О нашей компании</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-{% block content %}
-<h1>Информация о нашей компании</h1>
-<p>Наша компания занимается продажей, установкой и обслуживанием автомобильных запчастей. Мы предлагаем широкий ассортимент оригинальных и качественных запчастей для различных марок автомобилей.</p>
-<p>При первом обращении клиент оставляет о себе контактную информацию, включая ФИО, адрес и данные паспорта. Наши сотрудники обязаны ознакомить клиента с ассортиментом и перечнем оказываемых услуг. При заключении договора указываются его номер, дата заключения, фамилия клиента, срок выполнения работ, а также полный список приобретаемых запчастей или оказываемых услуг. Мы можем выполнить несколько видов работ в рамках одного договора. Вся полученная информация заносится в нашу базу данных.</p>
-{% endblock %}
+    <header>
+        <h1>Добро пожаловать на нашу страницу!</h1>
+    </header>
+
+    <main>
+        <p style="font-size: 20px; color: green">
+            Test paragraph.
+        </p>
+        
+        <p>Первый параграф.</p>
+        <p>Второй параграф с <strong>жирным текстом</strong>.</p>
+        <p>Третий параграф с <em>курсивом</em>.</p>
+
+        <div style="text-align: center;">
+            <em>ВРЕМЯ ПОЗНАКОМИТЬСЯ С НАШЕЙ КОМПАНИЕЙ!</em>
+        </div>
+       
+        <h1 style="text-align: center;">Дата и время создания компании</h1>
+        <time datetime="2024-09-17" style="display: block; text-align: center;">17 сентября 2024 года</time>
+        
+        <h1 style="text-align: center;">Наша цитата</h1>
+        <blockquote style="text-align: center;">
+            <p>«Знание — сила.»</p>
+            <footer>— Фрэнсис Бэкон</footer>
+        </blockquote>
+        
+        <h1 style="text-align: center;">Девиз нашей компании</h1>
+        <pre style="text-align: center;">
+            Ветер шепчет нежно в траву,  
+            Листья танцуют в вышине.  
+            Солнце светит, мир вокруг,  
+            Жизнь полна волшебства во мгле.  
+        </pre>
+
+        <ul class="company-list">
+            {% for company in companies %}
+                <li style="text-align: center;"> <!-- Центрируем элементы в каждом элементе списка -->
+                    <h3>{{ company.information }}</h3>
+                    <p>SPARE — <abbr title="Компания автозапчастей">это ROLLS-ROYCE среди автомобилей </abbr>.</p>
+                  
+                    {% if company.logo %}
+                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
+                    {% endif %}
+                    {% if company.video %}
+                        <video width="320" height="240" controls autoplay>
+                            <br><br><br><br>
+                            <source src="{{ company.video.url }}" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    {% endif %}
+                    <p><strong>История:</strong> {{ company.history }}</p>
+                    <p><strong>Детали:</strong> {{ company.details }}</p>
+                    {% if company.certificate %}
+                        <a href="{{ company.certificate.url }}">Просмотреть сертификат</a>
+                        <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <li style="text-align: center;">Нет доступных компаний.</li>
+            {% endfor %}
+        </ul>
+        
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Все права защищены.</p>
+    </footer>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
 
 
 {% block head %}
+    <meta charset="UTF-8">
     <meta name="author" content="Довнар Александр">
     <meta name="group" content="253505">
     <link rel="shortcut icon" href="media/images/favicon.png" type="image/png" />
@@ -44,7 +45,11 @@
             {% endfor %}
         </ul>
         
-
+        <figure style="width: 150px; text-align: center;">
+            <img src="/media/images/molotok.png" alt="" style="width: 100%; height: auto;">
+            <figcaption>Инструмент для работы</figcaption>
+        </figure>
+          
 
         <div style="text-align: center; 
         border: 2px solid #000; /* Цвет рамки */
@@ -198,49 +203,83 @@
     }
 </style>
 <h1><strong>АВТОМОБИЛИ ДЛЯ ПРОДАЖИ</strong></h1>
-
-<table border="1" cellpadding="10">
-    <thead>
-        <tr>
-            <th id="model">Модель</th>
-            <th id="power">Мощность (л.с.)</th>
-            <th id="volume">Объем (л.)</th>
-            <th id="price">Цена (руб.)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td headers="model">Toyota Camry</td>
-            <td headers="power">150</td>
-            <td headers="volume">2.5</td>
-            <td headers="price">2,500,000</td>
-        </tr>
-        <tr>
-            <td headers="model">Honda Accord</td>
-            <td headers="power">190</td>
-            <td headers="volume">2.4</td>
-            <td headers="price">2,700,000</td>
-        </tr>
-        <tr>
-            <td headers="model">BMW 3 Series</td>
-            <td headers="power">250</td>
-            <td headers="volume">2.0</td>
-            <td headers="price">3,200,000</td>
-        </tr>
-    </tbody>
-</table>
-
+<section>
+    <h2>Пример таблицы</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th width="40">Модель</th>
+                <th colspan="4">Характеристики</th>
+                <th>Цена (руб.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Toyota Camry</td>
+                <td>150</td>
+                <td>2.5</td>
+                <td>2019</td>
+                <td>Седан</td>
+                <td>2,500,000</td>
+            </tr>
+            <tr>
+                <td>Honda Accord</td>
+                <td>190</td>
+                <td>2.4</td>
+                <td>2020</td>
+                <td>Седан</td>
+                <td>2,700,000</td>
+            </tr>
+            <tr height="100" bgcolor="red" bordercolor="red">
+                <td></td>
+                <td></td>
+                <td colspan="2" rowspan="1" align="center">ВНИМАНИЕ! ПРОДАНО! ВНИМАНИЕ!</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>BMW 3 Series</td>
+                <td>250</td>
+                <td>2.0</td>
+                <td>2021</td>
+                <td>Седан</td>
+                <td>3,200,000</td>
+            </tr>
+            <tr>
+                <td>Ford Focus</td>
+                <td>150</td>
+                <td>1.5</td>
+                <td>2018</td>
+                <td>Хэтчбек</td>
+                <td>1,500,000</td>
+            </tr>
+            <tr>
+                <td>Volkswagen Golf</td>
+                <td>130</td>
+                <td>1.4</td>
+                <td>2019</td>
+                <td>Хэтчбек</td>
+                <td>1,800,000</td>
+            </tr>
+        </tbody>
+    </table>    
+</section>
+<hr>
 
 
     <h1><strong>Ищите нас здесь!</strong></h1>
     
-    <iframe src="https://www.youtube.com/" width="600" height="400" title="Пример iframe">
-        Ваш браузер не поддерживает iframe.
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4Mc80zgcgDQ?si=yniOGEL58whx8YfO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
     </iframe>
     
     </body>
 
 
+
+
+
+    
 
     <title>Автозапчасти</title>
     <style>
@@ -274,14 +313,25 @@
         }
     </style>
 </head>
+
 <body>
-
-
-
+    <section>
+        <h1>Прочему вы должны выбрать именно нас?</h1>
+        <article>
+            <h2>Мы самая крупная компания по продаже автозапчастей</h2>
+            <p>Мы предлагаем широкий ассортимент запчастей для всех марок автомобилей, гарантируя высокое качество.</p>
+        </article>
+        <article>
+            <h2>Наши цены являются конкурентоспособными</h2>
+            <p>Мы регулярно проводим акции и скидки, чтобы сделать покупки более доступными для наших клиентов.</p>
+        </article>
+    </section>
+    
 
     
-<h2>Список автозапчастей для индивидуального заказа</h2>
 
+
+    <h2 style="background-color: rgb(9, 242, 9); color: black; padding: 10px;">Список автозапчастей для индивидуального заказа</h2>
 <div class="parts-list">
     <ul>
         <li>Фильтр масла</li>
@@ -307,6 +357,16 @@
         <li>Штуцер топливопровода</li>
     </ul>
 </div>
+
+<details>
+    <summary>Бонусы при покупке у нас в первый раз.</summary>
+    <ul>
+        <li>Карта клиента с 10% скидкой</li>
+        <li>Пахучка в автомобиль</li>
+        <li>Микрофибра для салона</li>
+        <li>Бесплатная мойка у наших партнеров</li>
+    </ul>
+</details>
 
 </body>
     </form>

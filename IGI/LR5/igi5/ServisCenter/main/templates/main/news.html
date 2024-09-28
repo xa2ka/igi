@@ -15,8 +15,9 @@
             {% if el.image %}
                 <img src="{{ el.image.url }}" alt="{{ el.full_name }}" itemprop="image" width="150" height="150">
             {% endif %}
-            <a href="{{ el.link }}" itemprop="url">
+            <a href="{% url 'fullNews' el.id %}" itemprop="url">
                 <p>Читать далее</p>
+            </a>
             </a>
             <meta itemprop="author" content="{{ el.author }}">
             <meta itemprop="datePublished" content="{{ el.published_date|date:"Y-m-d" }}">
