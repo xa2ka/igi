@@ -37,4 +37,4 @@ urlpatterns = [
     path('cart/dec/<int:item_id>', views.cart_decrement, name='cart_dec'),
     path('fullNews/<int:id>/', views.full_news, name='fullNews'),
     path('poligon/', views.poligon, name='poligon'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
