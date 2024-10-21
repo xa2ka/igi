@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: radial-gradient(red, blue);
+}
+.contacts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматическое заполнение колонок */
+    grid-gap: 20px; /* Отступы между карточками */
+    padding: 20px;
+}
+
+.alert.alert-warning {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов внутри карточки */
+    justify-content: flex-start; /* Начало по вертикали */
+    padding: 10px; /* Внутренний отступ */
+    margin: 10px; /* Отступ между карточками */
+    border: 2px solid #f0ad4e; /* Рамка */
+    border-radius: 5px; /* Скругленные углы */
+    background-color: #fff3cd; /* Фоновый цвет */
+    width: 320px; /* Ширина карточки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
+    transition: transform 0.2s; /* Плавный эффект при наведении */
+}
+
+.alert.alert-warning:hover {
+    transform: scale(1.02); /* Увеличение при наведении */
+}
+
+.divider {
+    border: none;
+    height: 4px;
+    background-color: black;
+    margin: 20px 0;
+}

@@ -84,10 +84,7 @@ input:disabled {
 }
 
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
+
 
 p {    font-size: 1.5em; /* Размер текста */    }   
 q:lang(de) {    quotes: "\201E" "\201C";     }   
@@ -122,9 +119,9 @@ input[type="radio"]:checked {
 
 
 body {
-    font-family: 'Roboto', 'Georgia', sans-serif;
-    line-height: 1.6;
-    margin: 20px;
+    background-image: url('media/images/FON.png'); /* Устанавливает изображение фона */
+    background-size: cover; /* Изображение будет масштабироваться */
+    background-repeat: no-repeat; /* Изображение не будет повторяться */
 }
 
 /* Выделение первой буквы */
@@ -166,3 +163,90 @@ ul li::before {
     background-color: #41ff3b; /* Желтый фон */
     color: #000; /* Черный текст */
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+button {
+    background-color: #4CAF50; /* Зеленый фон */
+    color: white; /* Белый текст */
+    border: none; /* Без границы */
+    padding: 15px 32px; /* Отступы */
+    text-align: center; /* Центрирование текста */
+    text-decoration: none; /* Без подчеркивания */
+    display: inline-block; /* Инлайн-блок */
+    font-size: 16px; /* Размер шрифта */
+    margin: 4px 2px; /* Отступы между кнопками */
+    cursor: pointer; /* Курсор по умолчанию */
+    border-radius: 5px; /* Закругление углов */
+}
+
+/* Изменение вида курсора при наведении */
+button:hover {
+    cursor: pointer; /* Указатель при наведении */
+    background-color: #45a049; /* Темнее при наведении */
+}
+
+/* Медиа-запросы */
+@media (max-width: 600px) {
+    body {
+        background-color: lightyellow; /* Светлый фон для маленьких экранов */
+    }
+
+    button {
+        width: 100%; /* Кнопки занимают 100% ширины */
+        font-size: 18px; /* Увеличенный размер шрифта */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    body {
+        background-color: rgb(56, 197, 245); /* Светлый фон для средних экранов */
+    }
+
+    button {
+        width: auto; /* Обычная ширина для кнопок */
+        font-size: 16px; /* Обычный размер шрифта */
+    }
+}
+
+@media (min-height: 800px) {
+    body {
+        background-color: lightgreen; /* Светлый фон для высоких экранов */
+    }
+}
+
+
+
+/*ДЛЯ ОТОБРАЖЕНИЯ ТЕКСТОВОГО ФРАГМЕНТА*/
+.text-block {
+    font-family: Arial, sans-serif; /* Основной шрифт */
+    background-color: white; /* Белый фон блока */
+    border: 1px solid #ccc; /* Серая рамка */
+    border-radius: 10px; /* Закругленные углы */
+    padding: 20px; /* Отступы внутри блока */
+    margin: 20px 0; /* Поля сверху и снизу */
+    line-height: 1.6; /* Межстрочный интервал */
+    text-align: justify; /* Выравнивание текста по ширине */
+    word-spacing: 0.1em; /* Интервал между словами */
+    letter-spacing: 0.05em; /* Интервал между символами */
+    text-indent: 30px; /* Красная строка */
+}
+.text-block h1 {
+    text-transform: uppercase; /* Преобразование заголовка в верхний регистр */
+    font-size: 2em; /* Размер шрифта заголовка */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+.text-block h2 {
+    font-variant: small-caps; /* Капитель для подзаголовка */
+    margin: 15px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрирование текста */
+}
+.text-block p {
+    word-break: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Разрыв слов для длинных строк */
+}
+

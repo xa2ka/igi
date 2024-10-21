@@ -1,0 +1,327 @@
+.nav-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    display: flex; /* Делаем список горизонтальным */
+    justify-content: center; /* Центрируем элементы */
+}
+
+
+.nav-container {
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0; /* Прикрепить к верхней части страницы */
+    left: 0; /* Прикрепить к левому краю */
+    width: 100%; /* На всю ширину экрана */
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    z-index: 1000; /* Убедитесь, что навигация поверх других элементов */
+}
+
+.nav-button {
+    display: flex; /* Используем flex для центрирования текста */
+    align-items: center; /* Центрируем текст по вертикали */
+    justify-content: center; /* Центрируем текст по горизонтали */
+    background-color: rgb(111, 236, 111); /* Зеленый фон */
+    color: white; /* Белый текст */
+    padding: 10px; /* Убираем горизонтальные отступы */
+    width: 90px; /* Фиксированная ширина кнопки */
+    height: 50px; /* Фиксированная высота кнопки */
+    margin: 0; /* Убираем отступы между кнопками */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 8px; /* Скругленные углы */
+    transition: background-color 0.7s, transform 0.5s; /* Плавные переходы */
+}
+
+.nav-button:hover {
+    background-color: rgb(255, 144, 84); /* Цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+body {
+    background-color: lightblue; 
+}
+
+aside ul a {
+    color: #007bff; 
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
+    gap: 10px; /* Отступы между картинками */
+    justify-items: center; /* Центрирование элементов по горизонтали */
+}
+
+.banner img {
+    width: 200px; /* Фиксированная ширина */
+    height: 150px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезка изображения для сохранения пропорций */
+    border-radius: 5px; /* Скругление углов */
+}
+
+.highlight {
+    background-color: rgb(9, 244, 126); /* Выделение фоном */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.nav-list li {
+    margin: 0; /* Убираем отступы между элементами */
+}
+
+.nav-list a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: black; /* Цвет текста */
+}
+
+.nav-list a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: radial-gradient(rgb(136, 248, 76), rgb(248, 123, 60));
+}
+
+
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .suppliers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .supplier {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .detail {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
+    text-align: center;
+  }
+  
+  .detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+
+  style p {
+    color: rgb(9, 82, 20); /* Все <p> внутри .container будут синими */
+}
+
+.company-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    text-align: center; /* Центрируем текст в списке */
+}
+.company-list li {
+    margin-bottom: 20px; /* Отступы между элементами списка */
+}
+
+.highlight {
+    background-color: rgb(9, 244, 126); /* Выделение фоном */
+    font-weight: bold;        /* Жирный шрифт */
+}
+
+strong {
+    color: black; /* Цвет текста для названий деталей */
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .suppliers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .supplier {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .detail {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
+    text-align: center;
+  }
+  
+  .detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .partner-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .partner-item {
+    background-color: #f1f1f1; /* Цвет фона */
+    border-radius: 50%; /* Круглая форма */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: transform 0.3s ease; /* Плавный переход */
+  }
+  
+  .partner-item:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+  }
+  
+  .partner-logo {
+    max-width: 80px; /* Максимальная ширина логотипа */
+    height: auto; /* Автоматическая высота */
+    border-radius: 50%; /* Круглая форма логотипа */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+  
+  .partner-item h3 {
+    font-size: 16px; /* Размер шрифта заголовка */
+    margin: 0; /* Убираем отступы */
+    color: #333; /* Цвет текста */
+  }
+  
+  .partner-item a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: inherit; /* Унаследовать цвет */
+  }
+  
+.header2-name {
+    text-align: center;
+    font-family: 'Arial', sans-serif;  /* Укажите желаемый шрифт */
+    font-size: 36px;                   /* Размер шрифта */
+    letter-spacing: 0.05em;            /* Кернинг (межбуквенный интервал) */
+    line-height: 1.2;                  /* Высота строки */
+    color: #d61818;                       /* Цвет текста */
+}
+
+
+.latest-news {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем отступы */
+    left: 1500px; /* Позиционирование слева */
+    top: 2000px; /* Позиционирование сверху */
+}
+
+.news-item {
+    position: absolute; /* Устанавливаем относительное позиционирование для вложенных элементов */
+    background-color: #ffffff; /* Белый фон для новостного блока */
+    border: 1px solid #ddd; /* Серый бордер */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ снизу между новостями */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Лёгкая тень для объема */
+    transition: transform 0.3s; /* Плавный переход для эффекта наведения */
+    right: 0;
+}
+
+.news-item:hover {
+    transform: translateY(-5px); /* Поднимаем блок вверх при наведении */
+}
+
+.news-image {
+    display: block; /* Блоковое отображение */
+    margin: 10px 0; /* Отступы вокруг изображения */
+    border-radius: 4px; /* Закругленные углы изображения */
+}
+
+.read-more {
+    display: inline-block; /* Inline-block для стилизации */
+    margin-top: 10px; /* Отступ сверху */
+    padding: 10px 15px; /* Внутренние отступы */
+    background-color: #0eebe0; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы кнопки */
+    transition: background-color 0.3s; /* Плавный переход для цвета фона */
+}
+
+.read-more:hover {
+    background-color: #0ab8b5; /* Цвет фона при наведении */
+}
+
+
+.loader2 {
+    
+    position: relative; /* Change to relative for positioning child elements */
+    width: 80px; /* Increased size of loader2 */
+    aspect-ratio: 1; /* Maintain aspect ratio */
+    border-radius: 50%;
+    border: 10px solid lightblue; /* Border thickness */
+    border-right-color: orange;
+    animation: l2 1s infinite linear;
+}
+
+.loader1 {
+    position: absolute; /* Position relative to loader2 */
+    width: 40px; /* Decreased size of loader1 */
+    aspect-ratio: 2; /* Maintain aspect ratio */
+    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
+    background: 
+      var(--_g) 0%   50%,
+      var(--_g) 50%  50%,
+      var(--_g) 100% 50%;
+    background-size: calc(100%/3) 50%;
+    animation: l3 1s infinite linear;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to center */
+}
+
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+
+@keyframes l2 {
+    to { transform: rotate(1turn); }
+}

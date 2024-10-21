@@ -16,66 +16,60 @@
 
 
 {% block сontent %}
+<body>
     <h1 id="main-title1" class="centered highlight" title="Это главная страница" style="text-align: center;">ГЛАВНАЯ СТРАНИЦА</h1>
 
-    <style>
-        .highlight {
-            background-color: rgb(7, 248, 111); /* Выделение фоном */
-            font-weight: bold;        /* Жирный шрифт */
-        }
-    </style>
+    <div class="catalog">
         {% csrf_token %}
-        <ul>
+        <div class="suppliers-grid">
             {% for supplier in suppliers %}
-                <li>
-                    <p>{{ supplier.name }}</p>
-                    <ul>
+                <div class="supplier">
+                    <h3>{{ supplier.name }}</h3>
+                    <div class="details-grid">
                         {% for detail in details %}
                             {% if detail.SupplierId == supplier.id %}
-                                <li style="color: #6c757d;">
+                                <div class="detail">
                                     {% if detail.image %}
-                                        <img src="{{ detail.image.url }}" alt="{{ detail.name }}" style="max-width: 100px; margin-right: 10px;">
+                                        <img src="{{ detail.image.url }}" alt="{{ detail.name }}" class="detail-image">
                                     {% endif %}
                                     <a href="{% url 'registration' %}">
-                                        <strong style="color: black;">{{ detail.name }}</strong>
+                                        <strong>{{ detail.name }}</strong>
                                     </a>
-                                </li> 
+                                </div>
                             {% endif %}
                         {% endfor %}
-                    </ul>
-                </li>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
+    </div>
         
-        <figure style="width: 150px; text-align: center;">
+        <!-- <figure style="width: 150px; text-align: center;">
             <img src="/media/images/molotok.png" alt="" style="width: 100%; height: auto;">
             <figcaption>Инструмент для работы</figcaption>
-        </figure>
+        </figure> -->
           
 
-        <div style="text-align: center; 
+        <!-- <div style="text-align: center; 
         border: 2px solid #000; /* Цвет рамки */
         background-color: #f2fa09; /* Цвет фона */
         padding: 20px; /* Отступы внутри рамки */
-        border-radius: 10px;">
+        border-radius: 10px;"> -->
         <h2 id="info"><em>Самые свежие новости автомобильного мира!</em></h2>
         <p><em>Хотите узнать?</em></p>
         <a href="#nav-title1"><strong><em>Перейти к последней опубликованной новости</em></strong></a>
         </div>
 
         <h1 id="main-title4" class="centered highlight" title="О КОМПАНИИ" style="text-align: center;">О КОМПАНИИ</h1>
-        <style>
-            .highlight {
-                background-color: rgb(7, 248, 111); /* Выделение фоном */
-                font-weight: bold;        /* Жирный шрифт */
-            }
-        </style>
 
+        
 
-        <div style="text-align: center;">
-            <em>ВРЕМЯ ПОЗНАКОМИТЬСЯ С НАШЕЙ КОМПАНИЕЙ!</em>
+        <div class="loader2">
+            <div class="loader1"></div> 
         </div>
-       
+
+        <h1 class="header2-name">Spare</h1>
+
         <h1 style="text-align: center;">Дата и время создания компании</h1>
         <time datetime="2024-09-17" style="display: block; text-align: center;">17 сентября 2024 года</time>
         
@@ -120,80 +114,45 @@
             {% endfor %}
         </ul>
         
-        <style>
-            .company-list {
-                list-style-type: none; /* Убираем маркеры списка */
-                padding: 0; /* Убираем отступы */
-                margin: 0; /* Убираем внешние отступы */
-                text-align: center; /* Центрируем текст в списке */
-            }
-            .company-list li {
-                margin-bottom: 20px; /* Отступы между элементами списка */
-            }
-        </style>
+
 
         <h3 id="nav-title2" class="centered highlight" title="ПАРТНЕРЫ" style="text-align: center;">ПАРТНЕРЫ</h3>
 
-        <style>
-            .highlight {
-                background-color: rgb(9, 244, 126); /* Выделение фоном */
-                font-weight: bold;        /* Жирный шрифт */
-            }
-        </style>
         <dl>
             <dt><strong>SPARE</strong></dt>
             <dd><strong>Верный друг вашего автомобиля.</strong></dd>
         </dl>
-        <ul>
+        <ul class="partner-list">
             {% for partner in partners %}
-                <li>
+                <li class="partner-item">
                     <a href="{{ partner.link }}">
-                        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" style="max-width: 100px;">
-                        <h3>{{ partner.name }}</h3>
+                        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo">
+                        <h3 class="partner-name">{{ partner.name }}</h3>
                     </a>
                 </li>
             {% empty %}
-                <li>Нет доступных партнеров.</li>
+                <li class="partner-item">Нет доступных партнеров.</li>
             {% endfor %}
         </ul>
         <h1 id="nav-title1" class="centered highlight" title="ПОСЛЕДНЯЯ ОПУБЛИКОВАННАЯ НОВОСТЬ" style="text-align: center;">ПОСЛЕДНЯЯ ОПУБЛИКОВАННАЯ НОВОСТЬ</h1>
 
-        <style>
-            .highlight {
-                background-color: rgb(9, 244, 126); /* Выделение фоном */
-                font-weight: bold;        /* Жирный шрифт */
-            }
-        </style>
-        <ul>
-            <h3>{{ latest_news.title }}</h3>
-            <p>{{ latest_news.text }}</p>
-            {% if latest_news.image %}
-                <img src="{{ latest_news.image.url }}" alt="{{latest_news.full_name}}" width="150" height="150">
-            {% endif %}
-            <a href="{{latest_news.link}}">
-                <p>Читать далее</p>
-            </a>
-        </ul>  
+
+        <ul class="latest-news">
+            <li class="news-item">
+                <h3>{{ latest_news.title }}</h3>
+                <p>{{ latest_news.text }}</p>
+                {% if latest_news.image %}
+                    <img src="{{ latest_news.image.url }}" alt="{{ latest_news.full_name }}" width="150" height="150" class="news-image">
+                {% endif %}
+                <a href="{{ latest_news.link }}" class="read-more">
+                    <p>Читать далее</p>
+                </a>
+            </li>
+        </ul>
+
         <title>Автозапчасти</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .parts-list {
-            max-height: 300px; /* Максимальная высота контейнера */
-            overflow-y: auto; /* Вертикальная прокрутка */
-            border: 1px solid #ccc; /* Рамка для контейнера */
-            padding: 10px; /* Отступы внутри контейнера */
-            margin: 20px 0; /* Отступы вокруг контейнера */
-        }
-        h2 {
-            text-align: center;
-        }
-        li {
-            margin: 5px 0; /* Отступы между элементами списка */
-        }
-    </style>
-</head>
+
+
 
 
 <h1 id="nav-title21" class="centered highlight" title="ПРОЧАЯ ИНФОРМАЦИЯ" style="text-align: center;">ПРОЧАЯ ИНФОРМАЦИЯ</h1>
@@ -277,46 +236,8 @@
     
     </body>
 
-
-
-
-
-    
-
     <title>Автозапчасти</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* Цвет фона страницы */
-            margin: 0;
-            padding: 20px;
-        }
-        .parts-list {
-            max-height: 300px; /* Максимальная высота контейнера */
-            overflow-y: auto; /* Вертикальная прокрутка */
-            border: 2px solid #007BFF; /* Цвет рамки */
-            border-radius: 10px; /* Закругленные углы */
-            background-color: #ffffff; /* Цвет фона внутри контейнера */
-            padding: 10px; /* Отступы внутри контейнера */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
-            margin: 20px 0; /* Отступы вокруг контейнера */
-        }
-        h2 {
-            text-align: center;
-            color: #007BFF; /* Цвет заголовка */
-        }
-        li {
-            margin: 5px 0; /* Отступы между элементами списка */
-            padding: 5px; /* Отступы внутри элементов списка */
-            border-bottom: 1px solid #ccc; /* Разделительная линия между пунктами */
-        }
-        li:last-child {
-            border-bottom: none; /* Убираем последнюю разделительную линию */
-        }
-    </style>
-</head>
 
-<body>
     <section>
         <h1>Прочему вы должны выбрать именно нас?</h1>
         <article>
@@ -333,7 +254,7 @@
     
 
 
-    <h2 style="background-color: rgb(9, 242, 9); color: black; padding: 10px;">Список автозапчастей для индивидуального заказа</h2>
+    <!-- <h2 style="background-color: rgb(9, 242, 9); color: black; padding: 10px;">Список автозапчастей для индивидуального заказа</h2>
 <div class="parts-list">
     <ul>
         <li>Фильтр масла</li>
@@ -358,7 +279,7 @@
         <li>Крышка радиатора</li>
         <li>Штуцер топливопровода</li>
     </ul>
-</div>
+</div> -->
 
 <details>
     <summary>Бонусы при покупке у нас в первый раз.</summary>

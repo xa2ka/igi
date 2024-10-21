@@ -3,10 +3,19 @@
 {%block title%}Вакансии{% endblock %}
 
 {% block сontent %}
-{% for el in vacancion%}
-      <div class = "alert alert-warning">
+<head>
+{% load static %}
+<link rel="stylesheet" href="{% static "css/vacancies.css" %}">
+</head>
+<body>
+<div class="vacancy-list">
+    {% for el in vacancion %}
+        <div class="vacancy-item">
             <h3>{{ el.title }}</h3>
             <p>{{ el.text }}</p>
         </div>
-    {% endfor%}
+    {% endfor %}
+    <div style="clear: both;"></div> <!-- Очистка после плавающих элементов -->
+</div>
+</body>
 {% endblock %}

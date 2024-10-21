@@ -1,3 +1,170 @@
 style p {
     color: rgb(9, 82, 20); /* Все <p> внутри .container будут синими */
 }
+
+.company-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+    text-align: center; /* Центрируем текст в списке */
+}
+.company-list li {
+    margin-bottom: 20px; /* Отступы между элементами списка */
+}
+
+.highlight {
+    background-color: rgb(9, 244, 126); /* Выделение фоном */
+    font-weight: bold;        /* Жирный шрифт */
+}
+
+strong {
+    color: black; /* Цвет текста для названий деталей */
+}
+
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .suppliers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .supplier {
+    background-color: #62d727;
+    padding: 20px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .detail {
+    background-color: rgb(107, 233, 29);
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: 5px;
+    text-align: center;
+  }
+  
+  .detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .partner-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+.partner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10px; /* Ширина блока */
+    height: 10px; /* Высота блока */
+    margin: 20px;
+    background-color: #20ff7d; /* Цвет фона блока */
+    border-radius: 50%; /* Делает блок круглым */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+    transition: transform 0.3s; /* Плавный эффект при наведении */
+}
+
+.partner-item:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+.partner-logo {
+    max-width: 80px; /* Максимальная ширина логотипа */
+    max-height: 80px; /* Максимальная высота логотипа */
+}
+
+.partner-name {
+    font-size: 14px; /* Размер шрифта для названия */
+    color: #fff; /* Цвет текста */
+    margin-top: 10px;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Цвет фона страницы */
+    margin: 0;
+    padding: 20px;
+}
+.parts-list {
+    max-height: 300px; /* Максимальная высота контейнера */
+    overflow-y: auto; /* Вертикальная прокрутка */
+    border: 2px solid #007BFF; /* Цвет рамки */
+    border-radius: 10px; /* Закругленные углы */
+    background-color: #ffffff; /* Цвет фона внутри контейнера */
+    padding: 10px; /* Отступы внутри контейнера */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    margin: 20px 0; /* Отступы вокруг контейнера */
+}
+
+li {
+    margin: 5px 0; /* Отступы между элементами списка */
+    padding: 5px; /* Отступы внутри элементов списка */
+    border-bottom: 1px solid #ccc; /* Разделительная линия между пунктами */
+}
+li:last-child {
+    border-bottom: none; /* Убираем последнюю разделительную линию */
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Цвет фона страницы */
+    margin: 0;
+    padding: 20px;
+}
+.parts-list {
+    max-height: 300px; /* Максимальная высота контейнера */
+    overflow-y: auto; /* Вертикальная прокрутка */
+    border: 2px solid #007BFF; /* Цвет рамки */
+    border-radius: 10px; /* Закругленные углы */
+    background-color: #ffffff; /* Цвет фона внутри контейнера */
+    padding: 10px; /* Отступы внутри контейнера */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для глубины */
+    margin: 20px 0; /* Отступы вокруг контейнера */
+}
+h2 {
+    text-align: center;
+    color: #007BFF; /* Цвет заголовка */
+}
+li {
+    margin: 5px 0; /* Отступы между элементами списка */
+    padding: 5px; /* Отступы внутри элементов списка */
+    border-bottom: 1px solid #ccc; /* Разделительная линия между пунктами */
+}
+li:last-child {
+    border-bottom: none; /* Убираем последнюю разделительную линию */
+}
+
+.header2-name {
+    font-family: 'Arial', sans-serif;  /* Укажите желаемый шрифт */
+    font-size: 36px;                   /* Размер шрифта */
+    letter-spacing: 0.05em;            /* Кернинг (межбуквенный интервал) */
+    line-height: 1.2;                  /* Высота строки */
+    color: #d61818;                       /* Цвет текста */
+}
+

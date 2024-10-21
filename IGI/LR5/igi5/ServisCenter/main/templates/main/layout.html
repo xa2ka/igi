@@ -8,29 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Главная страница</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-                body {
-            background-color: lightblue; 
-        }
-        aside ul a {
-            color: #007bff; 
-        }
-    </style>
-    <title>Баннер из нескольких картинок</title>
-    <style>
-        .banner {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
-            gap: 10px; /* Отступы между картинками */
-            justify-items: center; /* Центрирование элементов по горизонтали */
-        }
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/layout.css" %}">
 
-        .banner img {
-            width: 200px; /* Фиксированная ширина */
-            height: 150px; /* Фиксированная высота */
-            object-fit: cover; /* Обрезка изображения для сохранения пропорций */
-            border-radius: 5px; /* Скругление углов */
-        }
+
     </style>
 
 
@@ -49,48 +30,23 @@
     <aside>
         <h1 id="nav-title" class="centered highlight" title="Это навигация" style="text-align: center;">НАВИГАЦИЯ</h1>
     
-        <style>
-            .highlight {
-                background-color: rgb(9, 244, 126); /* Выделение фоном */
-                font-weight: bold; /* Жирный шрифт */
-            }
-    
-            /* Стили для горизонтальной навигации */
-            .nav-list {
-                list-style-type: none; /* Убираем маркеры списка */
-                padding: 0; /* Убираем отступы */
-                display: flex; /* Делаем список горизонтальным */
-                justify-content: center; /* Центрируем элементы */
-            }
-    
-            .nav-list li {
-                margin: 0 15px; /* Добавляем отступы между элементами */
-            }
-    
-            .nav-list a {
-                text-decoration: none; /* Убираем подчеркивание */
-                color: black; /* Цвет текста */
-            }
-    
-            .nav-list a:hover {
-                text-decoration: underline; /* Подчеркивание при наведении */
-            }
-        </style>
-    
+
+    <nav class="nav-container">
         <ul class="nav-list">
-            <li><a href="{% url 'home' %}">MAIN</a></li>
-            <li><a href="{% url 'about' %}">О компании</a></li>
-            <li><a href="{% url 'news' %}">Новости</a></li>
-            <li><a href="{% url 'faq' %}">FAQ</a></li>
-            <li><a href="{% url 'contacts' %}">Контакты</a></li>
-            <li><a href="{% url 'policy' %}">Политика конфиденциальности</a></li>
-            <li><a href="{% url 'vacancies' %}">Вакансии</a></li>
-            <li><a href="{% url 'feedback' %}">Отзывы</a></li>
-            <li><a href="{% url 'discounts' %}">Скидки и акции</a></li>
-            <li><a href="{% url 'poligon' %}">Полигон</a></li>
-            <li><a href="{% url 'login' %}">Вход</a></li>
-            <li><a href="{% url 'registration' %}">Регистрация</a></li>
+            <li><a href="{% url 'home' %}" class="nav-button">MAIN</a></li>
+            <li><a href="{% url 'about' %}" class="nav-button">О компании</a></li>
+            <li><a href="{% url 'news' %}" class="nav-button">Новости</a></li>
+            <li><a href="{% url 'faq' %}" class="nav-button">FAQ</a></li>
+            <li><a href="{% url 'contacts' %}" class="nav-button">Контакты</a></li>
+            <li><a href="{% url 'policy' %}" class="nav-button">Политика конфиденц.</a></li>
+            <li><a href="{% url 'vacancies' %}" class="nav-button">Вакансии</a></li>
+            <li><a href="{% url 'feedback' %}" class="nav-button">Отзывы</a></li>
+            <li><a href="{% url 'discounts' %}" class="nav-button">Скидки и акции</a></li>
+            <li><a href="{% url 'poligon' %}" class="nav-button">Полигон</a></li>
+            <li><a href="{% url 'login' %}" class="nav-button">Вход</a></li>
+            <li><a href="{% url 'registration' %}" class="nav-button">Регистрация</a></li>
         </ul>
+    </nav>
     </aside>
 
     

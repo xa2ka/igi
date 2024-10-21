@@ -3,14 +3,23 @@
 {%block title%}Контакты{% endblock %}
 
 {% block сontent %}
-    {% for el in Contact%}
-        <div class = "alert alert-warning">
-            <h3>{{ el.full_name }}</h3>
-            <p>Номер телефона: {{ el.phone }}</p>
-            <p>Выполняемые работы: {{el.description}}</p>
-            {% if el.image %}
-                <img src="{{ el.image.url }}" alt="{{el.full_name}}" width="150" height="150">
-            {% endif %}
-        </div>
-    {% endfor%}
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/contacts.css" %}">
+</head>
+<body>
+    <hr class="divider">
+    <div class="contacts-container">
+        {% for el in Contact %}
+            <div class="alert alert-warning">
+                {% if el.image %}
+                    <img src="{{ el.image.url }}" alt="{{ el.full_name }}" width="150" height="150">
+                {% endif %}
+                <h3>{{ el.full_name }}</h3>
+                <p>Номер телефона: {{ el.phone }}</p>
+                <p>Выполняемые работы: {{ el.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
 {% endblock %}
