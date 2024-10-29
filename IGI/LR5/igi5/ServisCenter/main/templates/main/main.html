@@ -10,6 +10,8 @@
     <link rel="shortcut icon" href="media/images/favicon.png" type="image/png" />
     <title>Главная страница</title>
     {% load static %}
+    
+    <link rel="stylesheet" href="{% static "css/layout.css" %}">
     <link rel="stylesheet" href="{% static "css/main.css" %}">
 </head>
 
@@ -62,6 +64,22 @@
 
         <h1 id="main-title4" class="centered highlight" title="О КОМПАНИИ" style="text-align: center;">О КОМПАНИИ</h1>
 
+        <div class="animation-container">
+            <div class="box">
+                <div class="details-label">ЗАПЧАСТИ ДЛЯ РЕМОНТА</div>
+                <div class="lid"></div>
+            </div>
+            <img class="part" src="/media/images/detail1.png">
+            <img class="part1" src="/media/images/detail2.png">
+            <img class="part2" src="/media/images/detail3.png">
+            <img class="part3" src="/media/images/detail4.png">
+            <img class="part4" src="/media/images/detail5.png">
+            <img class="part5" src="/media/images/detail6.png">
+            <img class="part6" src="/media/images/detail7.png">
+            <div class="floor-line"></div> <!-- Линия пола -->
+            <div class="company3-name">Запчасти SPARE</div> <!-- Перемещаем сюда -->
+
+        </div>
         
 
         <div class="loader2">
@@ -94,7 +112,7 @@
                     <p>SPARE — <abbr title="Компания автозапчастей">это ROLLS-ROYCE среди автомобилей </abbr>.</p>
                   
                     {% if company.logo %}
-                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
+                        <img class="logo" src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
                     {% endif %}
                     {% if company.video %}
                         <video width="320" height="240" controls>
@@ -251,7 +269,56 @@
     </section>
     
 
-    
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th id="aboba" width="40">Код запчасти</th>
+                <th colspan="4">Название запчасти</th>
+                <th>Цена (руб.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A001</td>
+                <td>Тормозные колодки</td>
+                <td>Передние</td>
+                <td>Для Audi A4</td>
+                <td>1200</td>
+                <td>1500</td>
+            </tr>
+            <tr>
+                <td headers="aboba">B002</td>
+                <td>Масляный фильтр</td>
+                <td>Для Toyota Corolla</td>
+                <td>Модель 2020</td>
+                <td>600</td>
+                <td>800</td>
+            </tr>
+            <tr height="100" bgcolor="red" bordercolor="red">
+                <td></td>
+                <td></td>
+                <td colspan="2" rowspan="1" align="center">Объединенная ячейка: Скидки</td>
+                <td>Скидка 10%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>C003</td>
+                <td>Свечи зажигания</td>
+                <td>Бензиновые</td>
+                <td>Для Ford Focus</td>
+                <td>300</td>
+                <td>350</td>
+            </tr>
+            <tr>
+                <td>D004</td>
+                <td>Фильтр салона</td>
+                <td>Для Hyundai Elantra</td>
+                <td>Модель 2021</td>
+                <td>700</td>
+                <td>900</td>
+            </tr>
+        </tbody>
+    </table>
 
 
     <!-- <h2 style="background-color: rgb(9, 242, 9); color: black; padding: 10px;">Список автозапчастей для индивидуального заказа</h2>

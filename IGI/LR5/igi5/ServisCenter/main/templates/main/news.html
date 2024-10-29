@@ -4,23 +4,26 @@
 
 {% block head %}
 <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+{% load static %}
 
+<link rel="stylesheet" href="{% static "css/news.css" %}"> <!-- Подключаем news.css после layout.css -->
 {% endblock %}
 
 {% block сontent %}
+<div class="news2-container">
     {% for el in new %}
-        <div class="alert alert-warning" itemscope itemtype="http://schema.org/NewsArticle">
+        <div class="alert alert-warning news2-item" itemscope itemtype="http://schema.org/NewsArticle">
             <h3 itemprop="headline">{{ el.title }}</h3>
-            <p itemprop="articleBody">{{ el.text }}</p>
-            {% if el.image %}
-                <img src="{{ el.image.url }}" alt="{{ el.full_name }}" itemprop="image" width="150" height="150">
-            {% endif %}
-            <a href="{% url 'fullNews' el.id %}" itemprop="url">
-                <p>Читать далее</p>
-            </a>
-            </a>
+            <div class="news2-content">
+                {% if el.image %}
+                    <img src="{{ el.image.url }}" alt="{{ el.full_name }}" itemprop="image" class="news2-image">
+                {% endif %}
+                <p itemprop="articleBody" class="news2-excerpt">{{ el.text }}</p>
+            </div>
+            <a href="{% url 'fullNews' el.id %}" itemprop="url" class="read2-more">Читать далее</a>
             <meta itemprop="author" content="{{ el.author }}">
             <meta itemprop="datePublished" content="{{ el.published_date|date:"Y-m-d" }}">
         </div>
     {% endfor %}
+</div>
 {% endblock %}

@@ -134,6 +134,13 @@ class Detail(models.Model):
         verbose_name = 'Деталь'
         verbose_name_plural = 'Детали'
 
+class CompanyHistory(models.Model):
+    information = models.CharField(max_length=255)
+    year = models.CharField(max_length=255)
+    class Meta:
+        verbose_name = 'История компании'
+        verbose_name_plural = 'Истории Компании'
+
 
 # class Order(models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)

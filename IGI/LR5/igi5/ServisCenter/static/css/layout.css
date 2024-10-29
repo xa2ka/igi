@@ -251,7 +251,8 @@ strong {
 }
 
 .news-item {
-    position: absolute; /* Устанавливаем относительное позиционирование для вложенных элементов */
+    position: absolute;
+    left: 1000px; /* Смещение вправо на 20 пикселей */
     background-color: #ffffff; /* Белый фон для новостного блока */
     border: 1px solid #ddd; /* Серый бордер */
     border-radius: 8px; /* Закругленные углы */
@@ -325,3 +326,384 @@ strong {
 @keyframes l2 {
     to { transform: rotate(1turn); }
 }
+
+
+.question-item {
+    background-color: #fff3cd; /* Цвет фона для вопроса */
+    border: 1px solid #ffeeba; /* Цвет границы */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ снизу между элементами */
+    transition: transform 0.3s; /* Плавный переход при наведении */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.question-item:hover {
+    transform: translateY(-5px); /* Поднимаем блок вверх при наведении */
+}
+
+.question-details {
+    cursor: pointer; /* Указатель для интерактивного элемента */
+}
+
+.question-summary {
+    font-weight: bold; /* Жирный шрифт для заголовка вопроса */
+    padding: 10px; /* Отступы вокруг заголовка */
+    background-color: #ffc107; /* Цвет фона для заголовка */
+    border-radius: 5px; /* Закругленные углы */
+    margin-bottom: 10px; /* Отступ снизу заголовка */
+}
+
+.question-summary:hover {
+    background-color: #e0a800; /* Темнее цвет фона при наведении */
+}
+
+.answer-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding-left: 0; /* Убираем отступы слева */
+}
+
+.answer-item {
+    margin-bottom: 5px; /* Отступ между пунктами списка */
+}
+
+.answer-date {
+    font-size: 0.9em; /* Меньший шрифт для даты */
+    color: #6c757d; /* Серый цвет текста для даты */
+}
+
+
+
+
+.news2-container {
+    display: grid; /* Используем сетку для многоколоночного макета */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматическое заполнение колонок */
+    gap: 20px; /* Отступы между элементами */
+}
+
+.news2-item {
+    background-color: #fff; /* Белый фон для каждой статьи */
+    border: 1px solid #dee2e6; /* Граница */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: transform 0.3s; /* Плавный переход */
+}
+
+.news2-image {
+    width: 100%; /* Ширина изображения 100% */
+    height: auto; /* Автоматическая высота */
+    border-radius: 5px; /* Закругленные углы для изображения */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.news2-content {
+    display: flex; /* Используем flexbox для размещения изображения и текста */
+    flex-direction: column; /* Элементы в колонку */
+}
+
+.news2-excerpt {
+    overflow: hidden; /* Скрываем переполнение */
+    text-overflow: ellipsis; /* Многоточие при обрезке текста */
+    display: -webkit-box; /* Используем многоколоночный макет */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+    -webkit-line-clamp: 3; /* Ограничиваем количество строк */
+    max-height: 4.5em; /* Максимальная высота для 3 строк */
+    line-height: 1.5em; /* Высота строки */
+}
+
+.read2-more {
+    display: inline-block; /* Блок для кнопки */
+    margin-top: 10px; /* Отступ сверху */
+    padding: 8px 12px; /* Внутренние отступы */
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+}
+
+.read2-more:hover {
+    background-color: #0056b3; /* Темнее цвет фона при наведении */
+}
+
+
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Высота экрана для центровки по вертикали */
+    margin-top: 0; /* Удаляем отступ сверху */
+  }
+  
+  .box {
+    position: relative;
+    width: 150px;
+    height: 250px;
+    background-color: #14f335;
+    border: 5px solid #b21212;
+    border-radius: 15px;
+    z-index: 2; /* Убедитесь, что значение z-index выше чем у .part */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 3);
+    animation: fadeOut 1s linear forwards 12.5s;
+  }
+  
+  .details-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 3; 
+    animation: fadeOut 1s linear forwards 12.5s;
+  }
+  
+  .lid {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: -40px;
+    left: 0;
+    background-color: #bb1818;
+    border-radius: 15px 15px 0 0;
+    transform-origin: bottom;
+    animation: openLid 1s linear forwards, fadeOut 1s linear forwards;
+    z-index: 3; /* Задаем более высокий z-index для крышки */
+  }
+  
+  .part {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOut 3s linear 1.5s forwards, fadeOut 1s ease-in-out 7.5s forwards;
+  }
+  
+  .part1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOut3 2s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+  }
+  
+  .part2 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOutLeft 4s linear 4.5s forwards, fadeOut 1s ease-in-out 10.5s forwards;
+  }
+  
+  .part3 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    opacity: 0;
+    margin-left: 100px;
+    z-index: 1;
+    animation: flyOut3 5.5s linear 5.5s forwards, fadeOut 1s ease-in-out 11.5s forwards;
+  }
+  
+  .part4 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOutLeft2 6s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+  }
+
+  .part5 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOut 5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+  }
+
+  .part6 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    opacity: 0;
+    z-index: 1;
+    animation: flyOut3 2.5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+  }
+
+  .company3-name {
+    font-family: 'Roboto', sans-serif; /* Применяем шрифт */
+    position: absolute;
+    top: 1400px;
+    font-size: 128px;
+    font-weight: bold;
+    color: #ff0000;
+    z-index: 3;
+    text-transform: uppercase;
+    opacity: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    animation: appear 2s ease-in-out forwards;
+    animation-delay: 12.5s;
+    transform: scale(0.8);
+    margin-bottom: 20px; /* Добавляем отступ снизу для разделения с полом */  
+}
+  
+  @keyframes openLid {
+    0% { transform: rotate(0); }
+    100% { transform: translateX(-50px) rotate(-45deg); }
+  }
+  
+  @keyframes flyOut {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    20% { transform: translate(75px, -150px) rotate(90deg); opacity: 1; }
+    40% { transform: translate(150px, -75px) rotate(180deg); opacity: 1; }
+    60% { transform: translate(225px, 0px) rotate(270deg); opacity: 1;}
+    80% { transform: translate(300px, 75px) rotate(360deg); opacity: 1;}
+    100% { transform: translate(375px, 150px) rotate(450deg); opacity: 1;}
+  }
+  
+  @keyframes flyOut2 {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    20% { transform: translate(50px, -150px) rotate(90deg); opacity: 1; }
+    40% { transform: translate(100px, -75px) rotate(180deg); opacity: 1; }
+    60% { transform: translate(150px, 0px) rotate(270deg); opacity: 1;}
+    80% { transform: translate(200px, 75px) rotate(360deg); opacity: 1;}
+    100% { transform: translate(250px, 150px) rotate(450deg); opacity: 1;}
+  }
+  
+  
+  @keyframes flyOutLeft {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    20% { transform: translate(-75px, -150px) rotate(-90deg); opacity: 1; }
+    40% { transform: translate(-150px, -75px) rotate(-180deg); opacity: 1; }
+    60% { transform: translate(-225px, -0px) rotate(-27deg); opacity: 1;}
+    80% { transform: translate(-300px, 75px) rotate(-360deg); opacity: 1;}
+    100% { transform: translate(-375px, 150px) rotate(-450deg); opacity: 1;}
+  }
+  
+  @keyframes flyOutLeft2 {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    20% { transform: translate(-50px, -150px) rotate(-90deg); opacity: 1; }
+    40% { transform: translate(-100px, -75px) rotate(-180deg); opacity: 1; }
+    60% { transform: translate(-150px, -0px) rotate(-270deg); opacity: 1;}
+    80% { transform: translate(-200px, 75px) rotate(-360deg); opacity: 1;}
+    100% { transform: translate(-250px, 150px) rotate(-450deg); opacity: 1;}
+  }
+
+
+  @keyframes flyOut3 {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    20% { transform: translate(-230px, -150px) rotate(-150deg); opacity: 1; }
+    40% { transform: translate(-150px, -75px) rotate(-190deg); opacity: 1; }
+    60% { transform: translate(-100px, -0px) rotate(-279deg); opacity: 1;}
+    80% { transform: translate(-100px, 75px) rotate(-720deg); opacity: 1;}
+    100% { transform: translate(-250px, 150px) rotate(-490deg); opacity: 1;}
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  @keyframes appear {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  
+ 
+  
+  /* Общие стили для всех арок */
+  .arc {
+    position: absolute;
+    border: 8px solid transparent; /* Прозрачная граница */
+    border-top-left-radius: 100px; /* Сглаживание краев */
+    border-top-right-radius: 100px; /* Сглаживание краев */
+    box-sizing: border-box;
+    transform-origin: 50% 100%; /* Указываем точку вращения */
+  }
+  
+  /* arc1 - первая часть */
+  .arc1 {
+    width: 60px; /* Ширина первой части */
+    height: 60px; /* Высота первой части */
+    border-top-color: #007bff; /* Цвет для первой части */
+    transform: rotate(0deg); /* Поворачиваем на 0 градусов */
+  }
+  
+  /* arc2 - вторая часть */
+  .arc2 {
+    width: 80px; /* Ширина второй части */
+    height: 80px; /* Высота второй части */
+    border-top-color: #5c5c74; /* Цвет для второй части */
+    transform: rotate(0deg); /* Поворачиваем на 120 градусов */
+  }
+  
+  /* arc3 - третья часть */
+  .arc3 {
+    width: 100px; /* Ширина третьей части */
+    height: 100px; /* Высота третьей части */
+    border-top-color: #f57c20; /* Цвет для третьей части */
+    transform: rotate(0deg); /* Поворачиваем на 240 градусов */
+  }
+  
+ /* arc3 - третья часть */
+ .arc4 {
+    width: 100px; /* Ширина третьей части */
+    height: 100px; /* Высота третьей части */
+    border-top-color: #f57c20; /* Цвет для третьей части */
+    transform: rotate(0deg); /* Поворачиваем на 240 градусов */
+  }
+
+.arc5 {
+    width: 100px; /* Ширина третьей части */
+    height: 100px; /* Высота третьей части */
+    border-top-color: #f57c20; /* Цвет для третьей части */
+    transform: rotate(0deg); /* Поворачиваем на 240 градусов */
+  }
+
+.arc6 {
+    width: 100px; /* Ширина третьей части */
+    height: 100px; /* Высота третьей части */
+    border-top-color: #f57c20; /* Цвет для третьей части */
+    transform: rotate(0deg); /* Поворачиваем на 240 градусов */
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .floor-line {
+    position: absolute;
+    top: 1600px;
+    bottom: 20px; /* Устанавливаем на 20px от низа контейнера */
+    left: 0;
+    width: 100%;
+    height: 10px; /* Высота линии */
+    background-color: #000000; /* Цвет линии пола */
+    z-index: 1; /* Уровень наложения ниже, чем у коробки */
+}
+
+
+

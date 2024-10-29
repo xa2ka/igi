@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="ru">
@@ -9,7 +8,6 @@
     <title>О нашей компании</title>
     {% load static %}
     <link rel="stylesheet" href="{% static "css/about.css" %}">
-
 </head>
 <body>
 
@@ -19,21 +17,13 @@
 
     <main class="main">
 
-        
-        <p>Наша компания - ваш верный друг</p>
-        <p>Мы стремимся к <strong>качеству</strong> и <strong>доверию</strong></p>
-        <p>С нами вы всегда на шаг вперед</p>
-
-        <div style="text-align: center;">
-            <em>ВРЕМЯ ПОЗНАКОМИТЬСЯ С НАШЕЙ КОМПАНИЕЙ!</em>
-        </div>
-       
         <h1 style="text-align: center;">Дата и время создания компании</h1>
         <time datetime="2024-09-17" style="display: block; text-align: center;">17 сентября 2024 года</time>
         
         <h1 style="text-align: center;">Наша цитата</h1>
         <blockquote style="text-align: center;">
             <p>«Знание — сила.»</p>
+            <footer>— Фрэнсис Бэкон</footer>
         </blockquote>
         
         <h1 style="text-align: center;">Девиз нашей компании</h1>
@@ -46,32 +36,60 @@
 
         <ul class="company-list">
             {% for company in companies %}
-                <li style="text-align: center;"> <!-- Центрируем элементы в каждом элементе списка -->
+                <li style="text-align: center;">
                     <h3>{{ company.information }}</h3>
                     <p>SPARE — <abbr title="Компания автозапчастей">это ROLLS-ROYCE среди автомобилей </abbr>.</p>
                   
                     {% if company.logo %}
-                        <img src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
+                        <img class="logo" src="{{ company.logo.url }}" alt="Логотип {{ company.information }}" style="max-width: 200px;">
                     {% endif %}
                     {% if company.video %}
-                        <video width="320" height="240" controls autoplay>
-                            <br><br><br><br>
+                        <video width="320" height="240" controls>
                             <source src="{{ company.video.url }}" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
                     {% endif %}
-                    <p><strong>История:</strong> {{ company.history }}</p>
+                    
+                    <h4>История:</h4>
+                    <ul class="history-list">
+                        {% for history in company_histories %}
+                            <li>
+                                <strong>{{ history.year }}</strong>: {{ history.information }}
+                            </li>
+                        {% empty %}
+                            <li>Нет доступной истории.</li>
+                        {% endfor %}
+                    </ul>
+                    
                     <p><strong>Детали:</strong> {{ company.details }}</p>
                     {% if company.certificate %}
-                    <a href="{{ company.certificate.url }}" class="certificate-link">Просмотреть сертификат</a>
-                    <a href="/media/images/sertificat.png" class="download-link" download>Скачать сертификат</a>
+                        <a href="{% url 'certificate' %}" target="_blank">Просмотреть сертификат</a>
+                        <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
                     {% endif %}
                 </li>
             {% empty %}
                 <li style="text-align: center;">Нет доступных компаний.</li>
             {% endfor %}
         </ul>
-        
+
+        <h3 id="nav-title2" class="centered highlight" title="ПАРТНЕРЫ" style="text-align: center;">ПАРТНЕРЫ</h3>
+
+        <dl>
+            <dt><strong>SPARE</strong></dt>
+            <dd><strong>Верный друг вашего автомобиля.</strong></dd>
+        </dl>
+        <ul class="partner-list">
+            {% for partner in partners %}
+                <li class="partner-item">
+                    <a href="{{ partner.link }}">
+                        <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" class="partner-logo">
+                        <h3 class="partner-name">{{ partner.name }}</h3>
+                    </a>
+                </li>
+            {% empty %}
+                <li class="partner-item">Нет доступных партнеров.</li>
+            {% endfor %}
+        </ul>
         <div style="text-align: center; margin-top: 20px;">
             <a href="{% url 'home' %}" data-type="back">Вернуться на главную</a>
         </div>

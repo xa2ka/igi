@@ -1,0 +1,82 @@
+
+.question-item {
+    background-color: #fff3cd; /* Цвет фона для вопроса */
+    border: 1px solid #ffeeba; /* Цвет границы */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ снизу между элементами */
+    transition: transform 0.3s; /* Плавный переход при наведении */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.question-item:hover {
+    transform: translateY(-5px); /* Поднимаем блок вверх при наведении */
+}
+
+.question-details {
+    cursor: pointer; /* Указатель для интерактивного элемента */
+}
+
+.question-summary {
+    font-weight: bold; /* Жирный шрифт для заголовка вопроса */
+    padding: 10px; /* Отступы вокруг заголовка */
+    background-color: #ffc107; /* Цвет фона для заголовка */
+    border-radius: 5px; /* Закругленные углы */
+    margin-bottom: 10px; /* Отступ снизу заголовка */
+}
+
+.question-summary:hover {
+    background-color: #e0a800; /* Темнее цвет фона при наведении */
+}
+
+.answer-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding-left: 0; /* Убираем отступы слева */
+}
+
+.answer-item {
+    margin-bottom: 5px; /* Отступ между пунктами списка */
+}
+
+.answer-date {
+    font-size: 0.9em; /* Меньший шрифт для даты */
+    color: #6c757d; /* Серый цвет текста для даты */
+}
+
+
+.news2-container {
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание элементов */
+}
+
+.news2-item {
+    margin: 10px 0; /* Отступы между новостями */
+    padding: 15px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 5px; /* Закругление углов */
+    background-color: #f9f9f9; /* Фоновый цвет */
+    overflow: hidden; /* Скрыть переполнение */
+}
+
+.news2-content {
+    display: flex; /* Используем Flexbox для выравнивания */
+}
+
+.news2-image {
+    max-width: 100px; /* Ограничиваем ширину изображения */
+    margin-right: 10px; /* Отступ между изображением и текстом */
+}
+
+.news2-excerpt {
+    flex: 1; /* Занимает оставшееся пространство */
+    height: 60px; /* Фиксированная высота для обрезки текста */
+    overflow: hidden; /* Скрытие переполнения */
+    text-overflow: ellipsis; /* Добавление многоточия */
+    white-space: nowrap; /* Запрет переноса строки */
+    margin: 0; /* Убираем отступы */
+}
+
+.read2-more {
+    display: inline-block; /* Для корректного отображения */
+    margin-top: 10px; /* Отступ сверху */
+}

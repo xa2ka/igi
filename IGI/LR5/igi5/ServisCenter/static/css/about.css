@@ -129,3 +129,33 @@ h1,
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень */
 }
 
+
+
+/*ТРАНСФОРМАЦИЯ ЛОГОТИПА*/
+.logo {
+    transition: transform 1s; /* Плавный переход */
+}
+
+.logo:hover {
+    transform: rotate(360deg); /* Поворачивает логотип на 360 градусов при наведении */
+}
+
+
+.history-list {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.history-list li {
+    padding: 5px 0; /* Внутренние отступы для элементов списка */
+    border-bottom: 1px solid #ccc; /* Нижняя граница для отделения элементов */
+}
+
+.history-list li strong {
+    color: #007bff; /* Цвет для года */
+}
+
+.history-list li:last-child {
+    border-bottom: none; /* Убираем нижнюю границу у последнего элемента */
+}

@@ -1,3 +1,263 @@
+/*СЕЛЕКТОРЫ*/
+
+/* Селектор элемента */
+        h1 {
+            color: blue;
+        }
+
+        /* Селектор класса */
+        .highlight {
+            background-color: yellow;
+        }
+
+        /* Селектор атрибута (начинается с подстроки) */
+        a[href^="https"] {
+            color: green;
+        }
+
+        /* Селектор атрибута (заканчивается подстрокой) */
+        img[src$=".jpg"] {
+            border: 2px solid red;
+        }
+
+        /* Селектор атрибута (с определенным значением) */
+        input[type="text"] {
+            border: 1px solid black;
+        }
+
+        /* Комбинация селекторов (объединение - AND) */
+        p.highlight {
+            font-weight: bold;
+        }
+
+        /* Селектор потомков */
+        div p {
+            color: purple;
+        }
+
+        /* Селектор дочерних элементов */
+        ul > li {
+            list-style-type: square; /* Квадратные маркеры для дочерних элементов списка */
+        }
+
+
+
+
+
+
+
+
+
+/*ПСЕВДОКЛАССЫ*/
+        /* Стили для ссылок */
+        a {
+            color: blue; /* Цвет для обычных ссылок */
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+        a:visited {
+            color: purple; /* Цвет для посещенных ссылок */
+        }
+        a:hover {
+            color: red; /* Цвет при наведении курсора */
+        }
+        a:active {
+            color: orange; /* Цвет при нажатии на ссылку */
+        }
+
+        /* Стили для элементов списка */
+        ul li:first-child {
+            font-weight: bold; /* Выделение первого элемента списка */
+        }
+        ul li:last-child {
+            font-style: italic; /* Курсив для последнего элемента списка */
+        }
+        ul li:nth-child(2) {
+            color: green; /* Цвет для второго элемента списка */
+        }
+
+        /* Стили для форм */
+        input:required {
+            border: 2px solid red; /* Обязательные поля */
+        }
+        input:optional {
+            border: 2px solid green; /* Необязательные поля */
+        }
+        input:disabled {
+            background-color: lightgray; /* Заблокированные поля */
+        }
+        input:out-of-range {
+            border: 2px solid orange; /* Поля со значениями вне диапазона */
+        }
+        input:checked {
+            background-color: yellow; /* Включенные флажки и переключатели */
+        }
+
+        /* Отображение кавычек в зависимости от языка цитаты */
+        blockquote {
+            quotes: "«" "»" "‘" "’"; /* Русские кавычки */
+        }
+        blockquote:before {
+            content: open-quote; /* Открывающая кавычка */
+        }
+        blockquote:after {
+            content: close-quote; /* Закрывающая кавычка */
+        }
+
+
+
+
+
+
+/*ПСЕВДОЭЛЕМЕНТЫ*/
+
+.pseudo-element-section {
+    font-family: 'Times New Roman', Arial, sans-serif; /* Основной шрифт Roboto, альтернативный Arial */
+    font-size: 16px; /* Размер шрифта */
+    line-height: 1.5; /* Междустрочный интервал */
+    margin: 20px; /* Отступы вокруг блока */
+}
+
+.pseudo-element-section p {
+    font-size: 18px; /* Размер шрифта абзаца */
+    line-height: 1.5; /* Междустрочный интервал */
+    margin: 20px 0; /* Отступы вокруг абзаца */
+}
+
+/* Выделение первой буквы абзаца */
+.pseudo-element-section p::first-letter {
+    font-size: 24px; /* Увеличение размера первой буквы */
+    font-weight: bold; /* Жирный шрифт */
+    color: darkblue; /* Цвет первой буквы */
+    float: left; /* Обтекание текста вокруг буквы */
+    margin-right: 5px; /* Отступ справа от буквы */
+}
+
+/* Добавление контекста в начале и конце абзаца */
+.pseudo-element-section p::before {
+    content: "Внимание: "; /* Текст перед абзацем */
+    font-weight: bold; /* Жирный шрифт */
+    color: red; /* Цвет текста */
+}
+.pseudo-element-section p::after {
+    content: " — это важно."; /* Текст после абзаца */
+    font-style: italic; /* Курсив для текста */
+    color: gray; /* Цвет текста */
+}
+
+/* Стили для списка с маркерами Юникода */
+.pseudo-element-section ul.custom-list {
+    list-style-type: none; /* Убираем стандартные маркеры */
+    padding: 0; /* Убираем отступы */
+}
+.pseudo-element-section ul.custom-list li::before {
+    content: "✔ "; /* Символ Юникода для маркера */
+    color: green; /* Цвет маркера */
+}
+
+/* Изменение стиля при выделении текста */
+.pseudo-element-section ::selection {
+    background: yellow; /* Цвет фона выделенного текста */
+    color: black; /* Цвет текста выделенного текста */
+}
+
+
+
+
+
+
+
+
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6; /* Межстрочный интервал */
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container2 {
+    max-width: 800px;
+    margin: auto; /* Центрирование контейнера */
+    padding: 20px;
+    background: white; /* Фоновый цвет контейнера */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+.main-title {
+    text-transform: uppercase; /* Преобразование текста в верхний регистр */
+    text-align: center; /* Выравнивание текста по центру */
+    margin-bottom: 20px;
+}
+
+.section-title {
+    text-transform: capitalize; /* Преобразование текста в заглавный регистр */
+    margin-top: 30px;
+}
+
+/* Текстовые фрагменты */
+.intro-text, .benefit-text, .note-text {
+    margin: 20px 0; /* Отступы */
+    padding: 10px; /* Поля */
+    text-indent: 20px; /* Красная строка */
+    word-spacing: 2px; /* Интервал между словами */
+    letter-spacing: 1px; /* Интервал между символами */
+    overflow-wrap: break-word; /* Перенос слов */
+}
+
+/* Капитель */
+.capitalized {
+    font-variant: small-caps; /* Оформление капителью */
+}
+
+/* Кнопки */
+.action-button {
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    padding: 10px 20px;
+    margin: 10px 5px; /* Отступы */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Закругление углов */
+    cursor: pointer; /* Изменение курсора при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход */
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+}
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+    .container2 {
+        padding: 10px; /* Уменьшаем поля на маленьких экранах */
+    }
+    
+    .action-button {
+        width: 100%; /* Кнопки на всю ширину */
+        margin: 5px 0; /* Убираем отступы между кнопками */
+    }
+}
+
+@media (max-height: 600px) {
+    .intro-text {
+        font-size: 14px; /* Уменьшаем размер шрифта для маленькой высоты */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .text-highlighting p {
     color: rgb(34, 88, 4); /* Изменяем цвет всех <p> внутри .text-highlighting */
     font-size: 20px; /* Задаем размер шрифта для <p> */

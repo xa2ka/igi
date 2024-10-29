@@ -1,20 +1,39 @@
+body {
+    font-family: Arial, sans-serif; /* Основной шрифт */
+    margin: 20px; /* Отступы вокруг тела страницы */
+}
+
 .vacancy-list {
-    width: 100%; /* Ширина родительского контейнера */
+    overflow: hidden; /* Для обтекания плавающих элементов */
 }
 
 .vacancy-item {
-    float: left; /* Плавающее позиционирование для элементов списка */
-    width: 100%; /* Ширина каждого блока вакансии */
-    margin-bottom: 20px; /* Отступ между вакансиями */
+    float: left; /* Плавающий элемент */
+    width: calc(33.33% - 10px); /* Ширина блока с учетом отступов */
+    margin: 10px; /* Отступы между блоками */
     padding: 15px; /* Внутренние отступы */
-    background-color: #f9f9f9; /* Цвет фона */
-    border: 1px solid #ddd; /* Обводка */
-    border-radius: 5px; /* Закругленные углы */
+    border: 1px solid #ccc; /* Рамка блока */
+    border-radius: 5px; /* Закругление углов */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень блока */
+    background-color: #f9f9f9; /* Фоновый цвет */
 }
 
-/* Альтернатива для мобильных устройств */
-@media (max-width: 600px) {
+.vacancy-item h3 {
+    margin-top: 0; /* Убираем верхний отступ у заголовка */
+}
+
+.clear {
+    clear: both; /* Очищаем плавающие элементы */
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
     .vacancy-item {
-        width: 100%; /* Полная ширина на мобильных устройствах */
+        width: calc(33.33% - 20px); /* Три колонки на средних экранах */
+    }
+}
+@media (max-width: 480px) {
+    .vacancy-item {
+        width: 100%; /* Одна колонка на маленьких экранах */
     }
 }

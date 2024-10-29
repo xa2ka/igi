@@ -1,0 +1,100 @@
+
+/* Общие стили для сертификата */
+.certificate {
+    width: 90%; /* Увеличена ширина сертификата */
+    max-width: 1300px; /* Максимальная ширина */
+    margin: 40px auto; /* Центрирование сертификата на странице */
+    padding: 100px; /* Отступы внутри сертификата */
+    border: 20px solid transparent; /* Границы для добавления фонового изображения */
+    background-color: rgba(133, 244, 29, 0.5); /* Полупрозрачный фон */
+     background-size: cover; /* Заполнение всего фона */
+    background-position: center; /* Центрирование изображения */
+    background-repeat: no-repeat; /* Избегаем повторений */
+    position: relative; /* Позиционирование для z-index */
+    z-index: 1; /* Уровень наложения */
+    font-family: 'Arial', sans-serif; /* Шрифт для текста */
+    text-align: center; /* Центрирование текста */
+    border: 10px solid transparent;
+    -webkit-border-image: url("/static/css/granica.png") 30 round round;
+    -moz-border-image: url("/static/css/granica.png") 30 round round;
+    -ms-border-image: url("/static/css/granica.png") 30 round round;
+    border-image: url("/static/css/granica.png") 30 round round;
+    color: white;
+    background-image: url("/static/css/sertif.png");
+    background-size: cover;
+  }
+  
+  /* Стили для заголовков */
+  .certificate h1 {
+    font-size: 2.5em; /* Размер шрифта заголовка */
+    margin: 10px 0; /* Отступы */
+    color: #333; /* Цвет текста */
+  }
+  
+  .certificate h2 {
+    font-size: 2em; /* Размер шрифта подзаголовка */
+    margin: 5px 0; /* Отступы */
+    color: #007bff; /* Цвет текста */
+  }
+  
+  .certificate h3 {
+    font-size: 1.5em; /* Размер шрифта третьего заголовка */
+    margin: 5px 0; /* Отступы */
+    color: #555; /* Цвет текста */
+  }
+  
+  /* Стили для параграфов */
+  .certificate p {
+    font-size: 1.2em; /* Размер шрифта для параграфов */
+    margin: 5px 0; /* Отступы */
+    color: #666; /* Цвет текста */
+  }
+  
+  /* Стили для расположения города и даты */
+  .certificate .location-date {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  /* Стили для имени и фамилии */
+  .certificate .signature {
+    margin-top: 40px;
+    font-size: 1.2em;
+    color: #000000;
+  }
+  
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 3px solid #ccc;
+  }
+  
+  .bottom-section .image-container {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .bottom-section .image-container img {
+    max-width: 150px; /* Adjust the size as needed */
+    height: auto;
+  }
+  
+  .bottom-section .contact-info {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .bottom-section .contact-info h4 {
+    margin-bottom: 10px;
+  }
+  
+  .bottom-section .contact-info p {
+    margin: 5px 0;
+  }
+  
+  
+

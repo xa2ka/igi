@@ -1,20 +1,20 @@
-
-
 {% extends 'main/layout.html' %}
 
 {%block title%}Ответы на вопросы{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/faq.css" %}">
 
 {% block сontent %}
-    {% for el in Qanswer%}
-        <div class = "alert alert-warning">
-            <details>
-                <summary>{{el.question}}</summary>
-                <ul>
-                    <li>{{el.answer}}</li>
-                    <li>Дата добавления ответа: {{ el.date }}</li>
-                </ul>
-            </details>
-        </div>
+    {% for el in Qanswer %}
+    <div class="alert alert-warning question-item"> <!-- Класс для вопроса -->
+        <details class="question-details"> <!-- Класс для деталей -->
+            <summary class="question-summary">{{ el.question }}</summary> <!-- Класс для заголовка вопроса -->
+            <ul class="answer-list"> <!-- Класс для списка ответов -->
+                <li class="answer-item">{{ el.answer }}</li> <!-- Класс для каждого ответа -->
+                <li class="answer-date">Дата добавления ответа: {{ el.date }}</li> <!-- Класс для даты -->
+            </ul>
+        </details>
+    </div>
     {% endfor%}
 {% endblock %}
 

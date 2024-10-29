@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company
+from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company,CompanyHistory
 from django.contrib import messages
 from django.db.models import Sum, Count
 from django.utils import timezone
@@ -200,10 +200,13 @@ def place_order(request):
     return render(request, 'main/place_order.html', {'cart': cart})
 
 
-from django.shortcuts import render
 
 def poligon(request):
     return render(request, 'main/poligon.html')  # замените на ваш шаблон
+
+
+def certificate(request):
+    return render(request, 'main/certificate.html')  # замените на ваш шаблон
 
 
 def employee(request):
@@ -264,9 +267,12 @@ def index(request):
 def about(request):
     # Получаем все компании из базы данных
     companies = Company.objects.all()
-    
-    # Передаем список компаний в шаблон
-    return render(request, 'main/about.html', {'companies': companies})
+    company_histories = CompanyHistory.objects.all()  # Получаем истории компаний
+    # Передаем список компаний и их истории в шаблон
+    return render(request, 'main/about.html', {
+        'companies': companies,
+        'company_histories': company_histories,
+    })
 
 # def about(request):
 #     logger.debug("Rendering about page")

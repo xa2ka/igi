@@ -64,25 +64,28 @@ strong {
     border-radius: 5px;
   }
   
+
+
+
+  /*ПАРТНЕРЫ*/
   .partner-list {
+    width: 50%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 100px;
     list-style-type: none;
     padding: 0;
 }
+
 .partner-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 10px; /* Ширина блока */
-    height: 10px; /* Высота блока */
-    margin: 20px;
-    background-color: #20ff7d; /* Цвет фона блока */
-    border-radius: 50%; /* Делает блок круглым */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
-    transition: transform 0.3s; /* Плавный эффект при наведении */
+    width: 100px; /* Устанавливаем фиксированную ширину */
+    height: 100px; /* Устанавливаем фиксированную высоту */
+    border-radius: 50%; /* Радиус скругления для круга */
+    border: 3px solid green; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    display: flex; /* Выравнивание содержимого по центру */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
 }
 
 .partner-item:hover {
@@ -90,18 +93,16 @@ strong {
 }
 
 .partner-logo {
-    max-width: 80px; /* Максимальная ширина логотипа */
-    max-height: 80px; /* Максимальная высота логотипа */
+    max-width: 80%; /* Максимальная ширина логотипа */
+    max-height: 80%; /* Максимальная высота логотипа */
 }
 
 .partner-name {
     font-size: 14px; /* Размер шрифта для названия */
     color: #fff; /* Цвет текста */
     margin-top: 10px;
+    text-align: center; /* Центрируем текст */
 }
-
-
-
 
 body {
     font-family: Arial, sans-serif;
@@ -168,3 +169,46 @@ li:last-child {
     color: #d61818;                       /* Цвет текста */
 }
 
+
+* Оформление заголовка таблицы */
+table {
+    width: 100%; /* Занимает всю ширину контейнера */
+    border-collapse: collapse; /* Убирает двойные линии между ячейками */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Стилизация заголовков таблицы */
+thead th {
+    background-color: #007bff; /* Цвет фона заголовка */
+    color: white; /* Цвет текста заголовка */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+    padding: 10px; /* Внутренние отступы */
+}
+
+/* Стилизация ячеек таблицы */
+td, th {
+    border: 1px solid #ccc; /* Рамка ячеек */
+    padding: 10px; /* Внутренние отступы */
+    vertical-align: middle; /* Вертикальное выравнивание по центру */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+}
+
+/* Изменение фона пустых ячеек */
+td:empty {
+    background-color: #f89e9e; /* Цвет фона для пустых ячеек */
+}
+
+/* Стилизация строк таблицы */
+tr:nth-child(even) {
+    background-color: #8a8989; /* Цвет фона для четных строк */
+}
+
+tr:hover {
+    background-color: #f1f4ac; /* Цвет фона при наведении на строку */
+}
+
+/* Выравнивание таблицы на странице */
+.table-container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование таблицы */
+}
