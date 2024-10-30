@@ -1,45 +1,52 @@
+/* Стили для общего контейнера, который будет содержать элементы */
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .supplier {
-    background-color: #f1f1f1;
-    padding: 20px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 10px;
-  }
-  
-  .supplier h3 {
-    margin-top: 0;
-  }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 10px;
-  }
-  
-  .detail {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 5px;
-    text-align: center;
-  }
-  
-  .detail img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .detail a {
-    color: black;
-    text-decoration: none;
-  }
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+  grid-gap: 20px; /* Отступы между элементами сетки */
+}
+
+/* Стили для блока поставщика */
+.supplier {
+  background-color: #f1f1f1; /* Цвет фона для блока поставщика */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы блока */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первого ряда, остальное занимает оставшееся пространство */
+  grid-gap: 10px; /* Пробел между строками сетки внутри блока */
+}
+
+/* Стили для заголовка (h3) внутри блока поставщика */
+.supplier h3 {
+  margin-top: 0; /* Убираем верхний отступ для заголовка, чтобы он прилегал к верхнему краю блока */
+}
+
+/* Стили для сетки деталей внутри блока поставщика */
+.details-grid {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
+  grid-gap: 10px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента детали */
+.detail {
+  background-color: white; /* Цвет фона для элемента детали */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы элемента детали */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первого ряда, остальное занимает оставшееся пространство */
+  grid-gap: 5px; /* Пробел между строками сетки внутри детали */
+  text-align: center; /* Центрируем текст внутри элемента детали */
+}
+
+/* Стили для изображений внутри элемента детали */
+.detail img {
+  max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
+  height: auto; /* Автоматическая высота для сохранения пропорций изображения */
+  border-radius: 5px; /* Скругляем углы изображения */
+}
+
+/* Стили для ссылок внутри элемента детали */
+.detail a {
+  color: black; /* Устанавливаем цвет текста для ссылок */
+  text-decoration: none; /* Убираем подчеркивание для ссылок */
+}

@@ -1,36 +1,42 @@
+/* Устанавливаем отступы и высоту для всего тела документа */
 body {
-    margin: 0;
-    height: 100vh;
-    background-image: radial-gradient(red, blue);
-}
-.contacts-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматическое заполнение колонок */
-    grid-gap: 20px; /* Отступы между карточками */
-    padding: 20px;
+    margin: 0; /* Убираем внешние отступы */
+    height: 100vh; /* Устанавливаем высоту тела на 100% высоты окна браузера */
+    background-image: radial-gradient(red, blue); /* Фоновый градиент от красного к синему */
 }
 
+/* Стили для контейнера контактов */
+.contacts-container {
+    display: grid; /* Используем CSS Grid для раскладки элементов */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматическое заполнение колонок с минимальной шириной 300px */
+    grid-gap: 20px; /* Отступы между карточками */
+    padding: 20px; /* Внутренние отступы для контейнера */
+}
+
+/* Стили для предупреждающих карточек */
 .alert.alert-warning {
-    display: flex;
+    display: flex; /* Используем Flexbox для расположения элементов внутри карточки */
     flex-direction: column; /* Вертикальное расположение элементов внутри карточки */
-    justify-content: flex-start; /* Начало по вертикали */
+    justify-content: flex-start; /* Начало по вертикали (элементы будут выравнены сверху) */
     padding: 10px; /* Внутренний отступ */
     margin: 10px; /* Отступ между карточками */
-    border: 2px solid #f0ad4e; /* Рамка */
+    border: 2px solid #f0ad4e; /* Рамка с заданным цветом */
     border-radius: 5px; /* Скругленные углы */
-    background-color: #fff3cd; /* Фоновый цвет */
-    width: 320px; /* Ширина карточки */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень */
-    transition: transform 0.2s; /* Плавный эффект при наведении */
+    background-color: #fff3cd; /* Фоновый цвет карточки */
+    width: 320px; /* Фиксированная ширина карточки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для создания эффекта глубины */
+    transition: transform 0.2s; /* Плавный эффект изменения масштаба при наведении */
 }
 
+/* Эффект при наведении на карточку */
 .alert.alert-warning:hover {
-    transform: scale(1.02); /* Увеличение при наведении */
+    transform: scale(1.02); /* Увеличение карточки на 2% при наведении */
 }
 
+/* Стили для разделителей */
 .divider {
-    border: none;
-    height: 4px;
-    background-color: black;
-    margin: 20px 0;
+    border: none; /* Убираем рамку (по умолчанию) */
+    height: 4px; /* Высота разделителя */
+    background-color: black; /* Цвет фона разделителя */
+    margin: 20px 0; /* Отступы сверху и снизу */
 }

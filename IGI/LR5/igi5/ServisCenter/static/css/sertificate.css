@@ -1,100 +1,102 @@
-
 /* Общие стили для сертификата */
 .certificate {
-    width: 90%; /* Увеличена ширина сертификата */
-    max-width: 1300px; /* Максимальная ширина */
-    margin: 40px auto; /* Центрирование сертификата на странице */
-    padding: 100px; /* Отступы внутри сертификата */
-    border: 20px solid transparent; /* Границы для добавления фонового изображения */
-    background-color: rgba(133, 244, 29, 0.5); /* Полупрозрачный фон */
-     background-size: cover; /* Заполнение всего фона */
-    background-position: center; /* Центрирование изображения */
-    background-repeat: no-repeat; /* Избегаем повторений */
-    position: relative; /* Позиционирование для z-index */
-    z-index: 1; /* Уровень наложения */
-    font-family: 'Arial', sans-serif; /* Шрифт для текста */
-    text-align: center; /* Центрирование текста */
-    border: 10px solid transparent;
-    -webkit-border-image: url("/static/css/granica.png") 30 round round;
-    -moz-border-image: url("/static/css/granica.png") 30 round round;
-    -ms-border-image: url("/static/css/granica.png") 30 round round;
-    border-image: url("/static/css/granica.png") 30 round round;
-    color: white;
-    background-image: url("/static/css/sertif.png");
-    background-size: cover;
-  }
-  
-  /* Стили для заголовков */
-  .certificate h1 {
-    font-size: 2.5em; /* Размер шрифта заголовка */
-    margin: 10px 0; /* Отступы */
-    color: #333; /* Цвет текста */
-  }
-  
-  .certificate h2 {
-    font-size: 2em; /* Размер шрифта подзаголовка */
-    margin: 5px 0; /* Отступы */
-    color: #007bff; /* Цвет текста */
-  }
-  
-  .certificate h3 {
-    font-size: 1.5em; /* Размер шрифта третьего заголовка */
-    margin: 5px 0; /* Отступы */
-    color: #555; /* Цвет текста */
-  }
-  
-  /* Стили для параграфов */
-  .certificate p {
-    font-size: 1.2em; /* Размер шрифта для параграфов */
-    margin: 5px 0; /* Отступы */
-    color: #666; /* Цвет текста */
-  }
-  
-  /* Стили для расположения города и даты */
-  .certificate .location-date {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-  }
-  
-  /* Стили для имени и фамилии */
-  .certificate .signature {
-    margin-top: 40px;
-    font-size: 1.2em;
-    color: #000000;
-  }
-  
-  .bottom-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 3px solid #ccc;
-  }
-  
-  .bottom-section .image-container {
-    flex: 1;
-    text-align: left;
-  }
-  
-  .bottom-section .image-container img {
-    max-width: 150px; /* Adjust the size as needed */
-    height: auto;
-  }
-  
-  .bottom-section .contact-info {
-    flex: 1;
-    text-align: right;
-  }
-  
-  .bottom-section .contact-info h4 {
-    margin-bottom: 10px;
-  }
-  
-  .bottom-section .contact-info p {
-    margin: 5px 0;
-  }
-  
-  
+  width: 90%; /* Увеличена ширина сертификата для адаптации к разным экранам */
+  max-width: 1300px; /* Устанавливаем максимальную ширину сертификата */
+  margin: 40px auto; /* Центрируем сертификат на странице с отступами сверху и снизу */
+  padding: 100px; /* Внутренние отступы для создания пространства внутри сертификата */
+  border: 20px solid transparent; /* Границы для добавления фонового изображения (прозрачные) */
+  background-color: rgba(133, 244, 29, 0.5); /* Полупрозрачный фон для сертификата */
+  background-size: cover; /* Заполнение всего фона сертификата */
+  background-position: center; /* Центрирование фонового изображения */
+  background-repeat: no-repeat; /* Избегаем повторений фонового изображения */
+  position: relative; /* Позиционирование для использования z-index */
+  z-index: 1; /* Уровень наложения для элементов с абсолютным позиционированием */
+  font-family: 'Arial', sans-serif; /* Устанавливаем шрифт для текста */
+  text-align: center; /* Центрирование текста внутри сертификата */
+  border: 10px solid transparent; /* Дополнительная прозрачная граница для фонового изображения */
+  -webkit-border-image: url("/static/css/granica.png") 30 round round; /* Используем изображение для границы (Webkit) */
+  -moz-border-image: url("/static/css/granica.png") 30 round round; /* Используем изображение для границы (Mozilla) */
+  -ms-border-image: url("/static/css/granica.png") 30 round round; /* Используем изображение для границы (Microsoft) */
+  border-image: url("/static/css/granica.png") 30 round round; /* Используем изображение для границы */
+  color: white; /* Цвет текста внутри сертификата */
+  background-image: url("/static/css/sertif.png"); /* Фоновое изображение сертификата */
+  background-size: cover; /* Заполнение всего фона изображением */
+}
 
+/* Стили для заголовков */
+.certificate h1 {
+  font-size: 2.5em; /* Размер шрифта заголовка */
+  margin: 10px 0; /* Отступы сверху и снизу для заголовка */
+  color: #333; /* Цвет текста заголовка */
+}
+
+.certificate h2 {
+  font-size: 2em; /* Размер шрифта подзаголовка */
+  margin: 5px 0; /* Отступы сверху и снизу для подзаголовка */
+  color: #007bff; /* Цвет текста подзаголовка */
+}
+
+.certificate h3 {
+  font-size: 1.5em; /* Размер шрифта третьего заголовка */
+  margin: 5px 0; /* Отступы сверху и снизу для третьего заголовка */
+  color: #555; /* Цвет текста третьего заголовка */
+}
+
+/* Стили для параграфов */
+.certificate p {
+  font-size: 1.2em; /* Размер шрифта для параграфов */
+  margin: 5px 0; /* Отступы сверху и снизу для параграфов */
+  color: #666; /* Цвет текста параграфов */
+}
+
+/* Стили для расположения города и даты */
+.certificate .location-date {
+  display: flex; /* Используем Flexbox для расположения элементов */
+  justify-content: space-between; /* Размещаем элементы по краям контейнера */
+  margin: 20px 0; /* Отступы сверху и снизу для блока с городом и датой */
+}
+
+/* Стили для имени и фамилии */
+.certificate .signature {
+  margin-top: 40px; /* Отступ сверху для имени и фамилии */
+  font-size: 1.2em; /* Размер шрифта для имени и фамилии */
+  color: #000000; /* Цвет текста для имени и фамилии */
+}
+
+/* Стили для нижней секции сертификата */
+.bottom-section {
+  display: flex; /* Используем Flexbox для расположения элементов в нижней секции */
+  justify-content: space-between; /* Размещаем элементы по краям контейнера */
+  align-items: center; /* Вертикальное выравнивание элементов по центру */
+  margin-top: 40px; /* Отступ сверху для нижней секции */
+  padding-top: 20px; /* Внутренние отступы сверху в нижней секции */
+  border-top: 3px solid #ccc; /* Верхняя граница для разделения */
+}
+
+/* Стили для контейнера изображений в нижней секции */
+.bottom-section .image-container {
+  flex: 1; /* Занимает равное пространство в Flex-контейнере */
+  text-align: left; /* Выравнивание текста влево */
+}
+
+/* Стили для изображений в нижней секции */
+.bottom-section .image-container img {
+  max-width: 150px; /* Максимальная ширина изображения */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+}
+
+/* Стили для контактной информации в нижней секции */
+.bottom-section .contact-info {
+  flex: 1; /* Занимает равное пространство в Flex-контейнере */
+  text-align: right; /* Выравнивание текста вправо */
+}
+
+/* Стили для заголовков контактной информации */
+.bottom-section .contact-info h4 {
+  margin-bottom: 10px; /* Отступ снизу для заголовка контактной информации */
+}
+
+/* Стили для параграфов контактной информации */
+.bottom-section .contact-info p {
+  margin: 5px 0; /* Отступы сверху и снизу для параграфов контактной информации */
+}

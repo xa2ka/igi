@@ -1,69 +1,80 @@
-style p {
-    color: rgb(9, 82, 20); /* Все <p> внутри .container будут синими */
+/* Устанавливаем цвет текста для всех <p> внутри контейнера */
+p {
+    color: rgb(9, 82, 20); /* Все <p> внутри будут синими */
 }
 
+/* Стили для списка компаний */
 .company-list {
     list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренние отступы */
     margin: 0; /* Убираем внешние отступы */
     text-align: center; /* Центрируем текст в списке */
 }
+
+/* Стили для каждого элемента списка компаний */
 .company-list li {
-    margin-bottom: 20px; /* Отступы между элементами списка */
+    margin-bottom: 20px; /* Задаем отступы между элементами списка */
 }
 
+/* Стили для выделенных элементов с классом highlight */
 .highlight {
     background-color: rgb(9, 244, 126); /* Выделение фоном */
-    font-weight: bold;        /* Жирный шрифт */
+    font-weight: bold; /* Делает текст жирным */
 }
 
+/* Стили для элементов <strong> */
 strong {
-    color: black; /* Цвет текста для названий деталей */
+    color: black; /* Устанавливаем цвет текста для названий деталей */
 }
 
+/* Стили для общего каталога */
 .catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .suppliers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .supplier {
-    background-color: #62d727;
-    padding: 20px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 10px;
-  }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 10px;
-  }
-  
-  .detail {
-    background-color: rgb(107, 233, 29);
-    padding: 10px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 5px;
-    text-align: center;
-  }
-  
-  .detail-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
+    display: grid; /* Используем CSS Grid для раскладки элементов */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+    grid-gap: 20px; /* Пробел между элементами сетки */
+}
+
+/* Стили для сетки поставщиков */
+.suppliers-grid {
+    display: grid; /* Используем CSS Grid для раскладки элементов */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+    grid-gap: 20px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента поставщика */
+.supplier {
+    background-color: #62d727; /* Устанавливаем цвет фона для элемента поставщика */
+    padding: 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругляем углы */
+    display: grid; /* Используем CSS Grid для раскладки элементов внутри поставщика */
+    grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+    grid-gap: 10px; /* Пробел между строками сетки */
+}
+
+/* Стили для общей сетки деталей */
+.details-grid {
+    display: grid; /* Используем CSS Grid для раскладки элементов */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
+    grid-gap: 10px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента детали */
+.detail {
+    background-color: rgb(107, 233, 29); /* Устанавливаем цвет фона для элемента детали */
+    padding: 10px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругляем углы */
+    display: grid; /* Используем CSS Grid для раскладки элементов внутри детали */
+    grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+    grid-gap: 5px; /* Пробел между строками сетки */
+    text-align: center; /* Центрируем текст внутри детали */
+}
+
+/* Стили для изображений деталей */
+.detail-image {
+    max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 5px; /* Скругляем углы изображения */
+}
 
 
 
@@ -170,45 +181,3 @@ li:last-child {
 }
 
 
-* Оформление заголовка таблицы */
-table {
-    width: 100%; /* Занимает всю ширину контейнера */
-    border-collapse: collapse; /* Убирает двойные линии между ячейками */
-    margin: 20px 0; /* Отступы сверху и снизу */
-}
-
-/* Стилизация заголовков таблицы */
-thead th {
-    background-color: #007bff; /* Цвет фона заголовка */
-    color: white; /* Цвет текста заголовка */
-    text-align: center; /* Горизонтальное выравнивание по центру */
-    padding: 10px; /* Внутренние отступы */
-}
-
-/* Стилизация ячеек таблицы */
-td, th {
-    border: 1px solid #ccc; /* Рамка ячеек */
-    padding: 10px; /* Внутренние отступы */
-    vertical-align: middle; /* Вертикальное выравнивание по центру */
-    text-align: center; /* Горизонтальное выравнивание по центру */
-}
-
-/* Изменение фона пустых ячеек */
-td:empty {
-    background-color: #f89e9e; /* Цвет фона для пустых ячеек */
-}
-
-/* Стилизация строк таблицы */
-tr:nth-child(even) {
-    background-color: #8a8989; /* Цвет фона для четных строк */
-}
-
-tr:hover {
-    background-color: #f1f4ac; /* Цвет фона при наведении на строку */
-}
-
-/* Выравнивание таблицы на странице */
-.table-container {
-    max-width: 800px; /* Максимальная ширина контейнера */
-    margin: 0 auto; /* Центрирование таблицы */
-}

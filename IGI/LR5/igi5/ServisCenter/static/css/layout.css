@@ -35,171 +35,196 @@
     transform: scale(1.05); /* Увеличение при наведении */
 }
 
+/* Устанавливаем цвет фона для всего тела документа */
 body {
-    background-color: lightblue; 
+  background-color: lightblue; 
 }
 
+/* Стили для ссылок в элементе <aside> */
 aside ul a {
-    color: #007bff; 
+  color: #007bff; /* Устанавливаем цвет текста для ссылок */
 }
 
+/* Стили для баннера, который будет отображать изображения */
 .banner {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
-    gap: 10px; /* Отступы между картинками */
-    justify-items: center; /* Центрирование элементов по горизонтали */
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
+  gap: 10px; /* Отступы между картинками */
+  justify-items: center; /* Центрирование элементов по горизонтали */
 }
 
+/* Стили для изображений в баннере */
 .banner img {
-    width: 200px; /* Фиксированная ширина */
-    height: 150px; /* Фиксированная высота */
-    object-fit: cover; /* Обрезка изображения для сохранения пропорций */
-    border-radius: 5px; /* Скругление углов */
+  width: 200px; /* Фиксированная ширина для изображений */
+  height: 150px; /* Фиксированная высота для изображений */
+  object-fit: cover; /* Обрезка изображения для сохранения пропорций */
+  border-radius: 5px; /* Скругление углов изображений */
 }
 
+/* Стили для выделенных элементов */
 .highlight {
-    background-color: rgb(9, 244, 126); /* Выделение фоном */
-    font-weight: bold; /* Жирный шрифт */
+  background-color: rgb(9, 244, 126); /* Выделение фоном */
+  font-weight: bold; /* Жирный шрифт для выделенных элементов */
 }
 
+/* Стили для списка навигации */
 .nav-list li {
-    margin: 0; /* Убираем отступы между элементами */
+  margin: 0; /* Убираем отступы между элементами списка */
 }
 
+/* Стили для ссылок в навигационном списке */
 .nav-list a {
-    text-decoration: none; /* Убираем подчеркивание */
-    color: black; /* Цвет текста */
+  text-decoration: none; /* Убираем подчеркивание для ссылок */
+  color: black; /* Устанавливаем цвет текста для ссылок */
 }
 
+/* Стили для ссылок при наведении */
 .nav-list a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
+  text-decoration: underline; /* Подчеркивание при наведении на ссылку */
 }
 
+/* Стили для тела документа с дополнительными настройками */
 body {
-    margin: 0;
-    height: 100vh;
-    background-image: radial-gradient(rgb(136, 248, 76), rgb(248, 123, 60));
+  margin: 0; /* Убираем внешние отступы для тела документа */
+  height: 100vh; /* Устанавливаем высоту тела на 100% высоты окна браузера */
+  background-image: radial-gradient(rgb(136, 248, 76), rgb(248, 123, 60)); /* Фоновый градиент */
 }
 
-
-
+/* Стили для каталога */
 .catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .suppliers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .supplier {
-    background-color: #f1f1f1;
-    padding: 20px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 10px;
-  }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 10px;
-  }
-  
-  .detail {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 5px;
-    text-align: center;
-  }
-  
-  .detail-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-
-
-  style p {
-    color: rgb(9, 82, 20); /* Все <p> внутри .container будут синими */
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+  grid-gap: 20px; /* Пробел между элементами сетки */
 }
 
+/* Стили для сетки поставщиков */
+.suppliers-grid {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+  grid-gap: 20px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента поставщика */
+.supplier {
+  background-color: #f1f1f1; /* Цвет фона для элемента поставщика */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+  grid-gap: 10px; /* Пробел между строками сетки */
+}
+
+/* Стили для общей сетки деталей */
+.details-grid {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
+  grid-gap: 10px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента детали */
+.detail {
+  background-color: white; /* Цвет фона для элемента детали */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+  grid-gap: 5px; /* Пробел между строками сетки */
+  text-align: center; /* Центрируем текст внутри детали */
+}
+
+/* Стили для изображений деталей */
+.detail-image {
+  max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  border-radius: 5px; /* Скругляем углы изображения */
+}
+
+/* Стили для абзацев внутри контейнера */
+style p {
+  color: rgb(9, 82, 20); /* Устанавливаем цвет текста для абзацев */
+}
+
+/* Стили для списка компаний */
 .company-list {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
-    margin: 0; /* Убираем внешние отступы */
-    text-align: center; /* Центрируем текст в списке */
+  list-style-type: none; /* Убираем маркеры списка */
+  padding: 0; /* Убираем внутренние отступы */
+  margin: 0; /* Убираем внешние отступы */
+  text-align: center; /* Центрируем текст в списке */
 }
+
+/* Стили для каждого элемента списка компаний */
 .company-list li {
-    margin-bottom: 20px; /* Отступы между элементами списка */
+  margin-bottom: 20px; /* Отступы между элементами списка */
 }
 
+/* Стили для выделенных элементов с классом highlight */
 .highlight {
-    background-color: rgb(9, 244, 126); /* Выделение фоном */
-    font-weight: bold;        /* Жирный шрифт */
+  background-color: rgb(9, 244, 126); /* Выделение фоном */
+  font-weight: bold; /* Жирный шрифт */
 }
 
+/* Стили для элементов <strong> */
 strong {
-    color: black; /* Цвет текста для названий деталей */
+  color: black; /* Цвет текста для названий деталей */
 }
 
+/* Стили для каталога (повторяются) */
 .catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .suppliers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  .supplier {
-    background-color: #f1f1f1;
-    padding: 20px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 10px;
-  }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 10px;
-  }
-  
-  .detail {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-gap: 5px;
-    text-align: center;
-  }
-  
-  .detail-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+  grid-gap: 20px; /* Пробел между элементами сетки */
+}
 
-  .partner-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 20px;
-    list-style: none;
-    padding: 0;
-  }
+/* Стили для сетки поставщиков (повторяются) */
+.suppliers-grid {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
+  grid-gap: 20px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента поставщика (повторяются) */
+.supplier {
+  background-color: #f1f1f1; /* Цвет фона для элемента поставщика */
+  padding: 20px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+  grid-gap: 10px; /* Пробел между строками сетки */
+}
+
+/* Стили для общей сетки деталей (повторяются) */
+.details-grid {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
+  grid-gap: 10px; /* Пробел между элементами сетки */
+}
+
+/* Стили для каждого элемента детали (повторяются) */
+.detail {
+  background-color: white; /* Цвет фона для элемента детали */
+  padding: 10px; /* Внутренние отступы */
+  border-radius: 5px; /* Скругляем углы */
+  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
+  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
+  grid-gap: 5px; /* Пробел между строками сетки */
+  text-align: center; /* Центрируем текст внутри детали */
+}
+
+/* Стили для изображений деталей (повторяются) */
+.detail-image {
+  max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  border-radius: 5px; /* Скругляем углы изображения */
+}
+
+/* Стили для контейнера партнеров */
+.partner-container {
+  display: grid; /* Используем CSS Grid для раскладки элементов */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
+  grid-gap: 20px; /* Пробел между элементами сетки */
+  list-style: none; /* Убираем маркеры списка */
+  padding: 0; /* Убираем внутренние отступы */
+}
   
   .partner-item {
     background-color: #f1f1f1; /* Цвет фона */
@@ -289,44 +314,48 @@ strong {
 }
 
 
+
+
+/* Стили для внешнего загрузчика */
 .loader2 {
-    
-    position: relative; /* Change to relative for positioning child elements */
-    width: 80px; /* Increased size of loader2 */
-    aspect-ratio: 1; /* Maintain aspect ratio */
-    border-radius: 50%;
-    border: 10px solid lightblue; /* Border thickness */
-    border-right-color: orange;
-    animation: l2 1s infinite linear;
+  position: relative; /* Устанавливаем относительное позиционирование для дочерних элементов */
+  width: 80px; /* Увеличиваем размер loader2 */
+  aspect-ratio: 1; /* Сохраняем соотношение сторон (круг) */
+  border-radius: 50%; /* Закругляем углы для создания круга */
+  border: 10px solid lightblue; /* Устанавливаем толщину и цвет границы */
+  border-right-color: orange; /* Задаем цвет правой границы для эффекта анимации */
+  animation: l2 1s infinite linear; /* Применяем анимацию l2 с длительностью 1 секунда, бесконечно и с линейным ускорением */
 }
 
+/* Стили для внутреннего загрузчика */
 .loader1 {
-    position: absolute; /* Position relative to loader2 */
-    width: 40px; /* Decreased size of loader1 */
-    aspect-ratio: 2; /* Maintain aspect ratio */
-    --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);
-    background: 
-      var(--_g) 0%   50%,
-      var(--_g) 50%  50%,
-      var(--_g) 100% 50%;
-    background-size: calc(100%/3) 50%;
-    animation: l3 1s infinite linear;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust to center */
+  position: absolute; /* Устанавливаем абсолютное позиционирование относительно loader2 */
+  width: 40px; /* Уменьшаем размер loader1 */
+  aspect-ratio: 2; /* Сохраняем соотношение сторон (прямоугольник) */
+  --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000); /* Определяем переменную для радиального градиента */
+  background: 
+    var(--_g) 0%   50%, /* Задаем фоновое изображение для трех позиций */
+    var(--_g) 50%  50%, 
+    var(--_g) 100% 50%;
+  background-size: calc(100%/3) 50%; /* Устанавливаем размер фона */
+  animation: l3 1s infinite linear; /* Применяем анимацию l3 с длительностью 1 секунда, бесконечно и с линейным ускорением */
+  top: 50%; /* Центрируем по вертикали */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translate(-50%, -50%); /* Корректируем позицию для центрирования */
 }
 
+/* Определяем анимацию для внутреннего загрузчика */
 @keyframes l3 {
-    20%{background-position:0%   0%, 50%  50%,100%  50%}
-    40%{background-position:0% 100%, 50%   0%,100%  50%}
-    60%{background-position:0%  50%, 50% 100%,100%   0%}
-    80%{background-position:0%  50%, 50%  50%,100% 100%}
+  20% { background-position: 0%   0%, 50%  50%, 100%  50%; } /* Анимация перемещения фона в 20% */
+  40% { background-position: 0% 100%, 50%   0%, 100%  50%; } /* Анимация перемещения фона в 40% */
+  60% { background-position: 0%  50%, 50% 100%, 100%   0%; } /* Анимация перемещения фона в 60% */
+  80% { background-position: 0%  50%, 50%  50%, 100% 100%; } /* Анимация перемещения фона в 80% */
 }
 
+/* Определяем анимацию для внешнего загрузчика */
 @keyframes l2 {
-    to { transform: rotate(1turn); }
+  to { transform: rotate(1turn); } /* Полное вращение на 360 градусов */
 }
-
 
 .question-item {
     background-color: #fff3cd; /* Цвет фона для вопроса */
@@ -428,208 +457,229 @@ strong {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/*АНИМАЦИЯ*/
+/* Контейнер для анимации, центрирует содержимое по вертикали и горизонтали */
 .animation-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Высота экрана для центровки по вертикали */
-    margin-top: 0; /* Удаляем отступ сверху */
-  }
-  
-  .box {
-    position: relative;
-    width: 150px;
-    height: 250px;
-    background-color: #14f335;
-    border: 5px solid #b21212;
-    border-radius: 15px;
-    z-index: 2; /* Убедитесь, что значение z-index выше чем у .part */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 3);
-    animation: fadeOut 1s linear forwards 12.5s;
-  }
-  
-  .details-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    z-index: 3; 
-    animation: fadeOut 1s linear forwards 12.5s;
-  }
-  
-  .lid {
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    top: -40px;
-    left: 0;
-    background-color: #bb1818;
-    border-radius: 15px 15px 0 0;
-    transform-origin: bottom;
-    animation: openLid 1s linear forwards, fadeOut 1s linear forwards;
-    z-index: 3; /* Задаем более высокий z-index для крышки */
-  }
-  
-  .part {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    margin-left: 100px;
-    margin-bottom: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOut 3s linear 1.5s forwards, fadeOut 1s ease-in-out 7.5s forwards;
-  }
-  
-  .part1 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOut3 2s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
-  }
-  
-  .part2 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOutLeft 4s linear 4.5s forwards, fadeOut 1s ease-in-out 10.5s forwards;
-  }
-  
-  .part3 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    opacity: 0;
-    margin-left: 100px;
-    z-index: 1;
-    animation: flyOut3 5.5s linear 5.5s forwards, fadeOut 1s ease-in-out 11.5s forwards;
-  }
-  
-  .part4 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOutLeft2 6s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
-  }
-
-  .part5 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOut 5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
-  }
-
-  .part6 {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    margin-bottom: 100px;
-    margin-right: 100px;
-    opacity: 0;
-    z-index: 1;
-    animation: flyOut3 2.5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
-  }
-
-  .company3-name {
-    font-family: 'Roboto', sans-serif; /* Применяем шрифт */
-    position: absolute;
-    top: 1400px;
-    font-size: 128px;
-    font-weight: bold;
-    color: #ff0000;
-    z-index: 3;
-    text-transform: uppercase;
-    opacity: 0;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    animation: appear 2s ease-in-out forwards;
-    animation-delay: 12.5s;
-    transform: scale(0.8);
-    margin-bottom: 20px; /* Добавляем отступ снизу для разделения с полом */  
+  display: flex; /* Используем Flexbox для центрирования */
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center; /* Вертикальное центрирование */
+  height: 100vh; /* Высота экрана для центровки по вертикали */
+  margin-top: 0; /* Удаляем отступ сверху */
 }
-  
-  @keyframes openLid {
-    0% { transform: rotate(0); }
-    100% { transform: translateX(-50px) rotate(-45deg); }
-  }
-  
-  @keyframes flyOut {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    20% { transform: translate(75px, -150px) rotate(90deg); opacity: 1; }
-    40% { transform: translate(150px, -75px) rotate(180deg); opacity: 1; }
-    60% { transform: translate(225px, 0px) rotate(270deg); opacity: 1;}
-    80% { transform: translate(300px, 75px) rotate(360deg); opacity: 1;}
-    100% { transform: translate(375px, 150px) rotate(450deg); opacity: 1;}
-  }
-  
-  @keyframes flyOut2 {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    20% { transform: translate(50px, -150px) rotate(90deg); opacity: 1; }
-    40% { transform: translate(100px, -75px) rotate(180deg); opacity: 1; }
-    60% { transform: translate(150px, 0px) rotate(270deg); opacity: 1;}
-    80% { transform: translate(200px, 75px) rotate(360deg); opacity: 1;}
-    100% { transform: translate(250px, 150px) rotate(450deg); opacity: 1;}
-  }
-  
-  
-  @keyframes flyOutLeft {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    20% { transform: translate(-75px, -150px) rotate(-90deg); opacity: 1; }
-    40% { transform: translate(-150px, -75px) rotate(-180deg); opacity: 1; }
-    60% { transform: translate(-225px, -0px) rotate(-27deg); opacity: 1;}
-    80% { transform: translate(-300px, 75px) rotate(-360deg); opacity: 1;}
-    100% { transform: translate(-375px, 150px) rotate(-450deg); opacity: 1;}
-  }
-  
-  @keyframes flyOutLeft2 {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    20% { transform: translate(-50px, -150px) rotate(-90deg); opacity: 1; }
-    40% { transform: translate(-100px, -75px) rotate(-180deg); opacity: 1; }
-    60% { transform: translate(-150px, -0px) rotate(-270deg); opacity: 1;}
-    80% { transform: translate(-200px, 75px) rotate(-360deg); opacity: 1;}
-    100% { transform: translate(-250px, 150px) rotate(-450deg); opacity: 1;}
-  }
 
+/* Основной элемент (коробка), который содержит детали */
+.box {
+  position: relative; /* Позволяет дочерним элементам позиционироваться относительно этой коробки */
+  width: 150px; /* Ширина коробки */
+  height: 250px; /* Высота коробки */
+  background-color: #14f335; /* Цвет фона коробки */
+  border: 5px solid #b21212; /* Граница коробки */
+  border-radius: 15px; /* Скругляем углы коробки */
+  z-index: 2; /* Уровень наложения выше, чем у деталей */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 3); /* Тень для коробки */
+  animation: fadeOut 1s linear forwards 12.5s; /* Анимация исчезновения через 12,5 секунд */
+}
 
-  @keyframes flyOut3 {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    20% { transform: translate(-230px, -150px) rotate(-150deg); opacity: 1; }
-    40% { transform: translate(-150px, -75px) rotate(-190deg); opacity: 1; }
-    60% { transform: translate(-100px, -0px) rotate(-279deg); opacity: 1;}
-    80% { transform: translate(-100px, 75px) rotate(-720deg); opacity: 1;}
-    100% { transform: translate(-250px, 150px) rotate(-490deg); opacity: 1;}
-  }
-  
-  @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  
-  @keyframes appear {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
-  }
-  
+/* Метка для деталей, размещенная в центре коробки */
+.details-label {
+  position: absolute; /* Абсолютное позиционирование относительно родителя */
+  top: 50%; /* Центрируем вертикально */
+  left: 50%; /* Центрируем горизонтально */
+  transform: translate(-50%, -50%); /* Смещение для точного центрирования */
+  font-size: 20px; /* Размер шрифта */
+  font-weight: bold; /* Жирный текст */
+  color: #fff; /* Цвет текста */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Тень текста для улучшения читаемости */
+  z-index: 3; /* Уровень наложения выше, чем у коробки */
+  animation: fadeOut 1s linear forwards 12.5s; /* Анимация исчезновения */
+}
+
+/* Крышка коробки, которая открывается */
+.lid {
+  position: absolute; /* Абсолютное позиционирование */
+  width: 100%; /* Занимает всю ширину коробки */
+  height: 20%; /* Высота крышки */
+  top: -40px; /* Положение выше коробки */
+  left: 0; /* Выровнено по левому краю */
+  background-color: #bb1818; /* Цвет крышки */
+  border-radius: 15px 15px 0 0; /* Скругление верхних углов */
+  transform-origin: bottom; /* Точка вращения снизу */
+  animation: openLid 1s linear forwards, fadeOut 1s linear forwards; /* Анимация открытия и исчезновения */
+  z-index: 3; /* Более высокий уровень наложения для крышки */
+}
+
+/* Элемент, который вылетает из коробки */
+.part {
+  position: absolute; /* Абсолютное позиционирование */
+  width: 60px; /* Ширина детали */
+  height: 60px; /* Высота детали */
+  margin-left: 100px; /* Отступ слева */
+  margin-bottom: 100px; /* Отступ снизу */
+  opacity: 0; /* Начальная прозрачность (невидимо) */
+  z-index: 1; /* Уровень наложения ниже, чем у коробки */
+  animation: flyOut 3s linear 1.5s forwards, fadeOut 1s ease-in-out 7.5s forwards; /* Анимация вылета и исчезновения */
+}
+
+/* Другие детали с аналогичными стилями */
+.part1 {
+  position: absolute; /* Абсолютное позиционирование */
+  width: 80px; /* Ширина детали */
+  height: 80px; /* Высота детали */
+  margin-bottom: 100px; /* Отступ снизу */
+  margin-right: 100px; /* Отступ справа */
+  opacity: 0; /* Начальная прозрачность (невидимо) */
+  z-index: 1; /* Уровень наложения ниже, чем у коробки */
+  animation: flyOut3 2s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards; /* Анимация вылета и исчезновения */
+}
+
+/* Аналогичные стили для других частей (part2, part3 и т. д.) */
+.part2 {
+  position: absolute; /* Абсолютное позиционирование */
+  width: 80px; /* Ширина детали */
+  height: 80px; /* Высота детали */
+  margin-bottom: 100px; /* Отступ снизу */
+  margin-right: 100px; /* Отступ справа */
+  opacity: 0; /* Начальная прозрачность (невидимо) */
+  z-index: 1; /* Уровень наложения ниже, чем у коробки */
+  animation: flyOutLeft 4s linear 4.5s forwards, fadeOut 1s ease-in-out 10.5s forwards; /* Анимация вылета и исчезновения */
+}
+
+.part3 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 100px;
+  opacity: 0;
+  margin-left: 100px;
+  z-index: 1;
+  animation: flyOut3 5.5s linear 5.5s forwards, fadeOut 1s ease-in-out 11.5s forwards;
+}
+
+.part4 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  opacity: 0;
+  z-index: 1;
+  animation: flyOutLeft2 6s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+}
+
+.part5 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  opacity: 0;
+  z-index: 1;
+  animation: flyOut 5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+}
+
+.part6 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 100px;
+  margin-right: 100px;
+  opacity: 0;
+  z-index: 1;
+  animation: flyOut3 2.5s linear 2.5s forwards, fadeOut 1s ease-in-out 8.5s forwards;
+}
+
+/* Название компании, которое появляется после анимации */
+.company3-name {
+  font-family: 'Roboto', sans-serif; /* Применяем шрифт */
+  position: absolute; /* Абсолютное позиционирование */
+  top: 1400px; /* Положение текста */
+  font-size: 128px; /* Размер шрифта */
+  font-weight: bold; /* Жирный текст */
+  color: #ff0000; /* Цвет текста */
+  z-index: 3; /* Уровень наложения выше, чем у коробки */
+  text-transform: uppercase; /* Преобразуем текст в верхний регистр */
+  opacity: 0; /* Начальная прозрачность (невидимо) */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Тень текста для улучшения читаемости */
+  animation: appear 2s ease-in-out forwards; /* Анимация появления */
+  animation-delay: 12.5s; /* Задержка перед началом анимации */
+  transform: scale(0.8); /* Начальное масштабирование */
+  margin-bottom: 20px; /* Отступ снизу для разделения с полом */  
+}
+
+/* Анимация открытия крышки коробки */
+@keyframes openLid {
+  0% { transform: rotate(0); } /* Начальное состояние */
+  100% { transform: translateX(-50px) rotate(-45deg); } /* Конечное состояние */
+}
+
+/* Анимация вылета для деталей */
+@keyframes flyOut {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; } /* Начальное состояние */
+  20% { transform: translate(75px, -150px) rotate(90deg); opacity: 1; } /* Положение на 20% */
+  40% { transform: translate(150px, -75px) rotate(180deg); opacity: 1; } /* Положение на 40% */
+  60% { transform: translate(225px, 0px) rotate(270deg); opacity: 1; } /* Положение на 60% */
+  80% { transform: translate(300px, 75px) rotate(360deg); opacity: 1; } /* Положение на 80% */
+  100% { transform: translate(375px, 150px) rotate(450deg); opacity: 1; } /* Конечное состояние */
+}
+
+/* Другие анимации вылета с различными эффектами */
+@keyframes flyOut2 {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { transform: translate(50px, -150px) rotate(90deg); opacity: 1; }
+  40% { transform: translate(100px, -75px) rotate(180deg); opacity: 1; }
+  60% { transform: translate(150px, 0px) rotate(270deg); opacity: 1; }
+  80% { transform: translate(200px, 75px) rotate(360deg); opacity: 1; }
+  100% { transform: translate(250px, 150px) rotate(450deg); opacity: 1; }
+}
+
+@keyframes flyOutLeft {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { transform: translate(-75px, -150px) rotate(-90deg); opacity: 1; }
+  40% { transform: translate(-150px, -75px) rotate(-180deg); opacity: 1; }
+  60% { transform: translate(-225px, -0px) rotate(-27deg); opacity: 1; }
+  80% { transform: translate(-300px, 75px) rotate(-360deg); opacity: 1; }
+  100% { transform: translate(-375px, 150px) rotate(-450deg); opacity: 1; }
+}
+
+@keyframes flyOutLeft2 {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { transform: translate(-50px, -150px) rotate(-90deg); opacity: 1; }
+  40% { transform: translate(-100px, -75px) rotate(-180deg); opacity: 1; }
+  60% { transform: translate(-150px, -0px) rotate(-270deg); opacity: 1; }
+  80% { transform: translate(-200px, 75px) rotate(-360deg); opacity: 1; }
+  100% { transform: translate(-250px, 150px) rotate(-450deg); opacity: 1; }
+}
+
+@keyframes flyOut3 {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  20% { transform: translate(-230px, -150px) rotate(-150deg); opacity: 1; }
+  40% { transform: translate(-150px, -75px) rotate(-190deg); opacity: 1; }
+  60% { transform: translate(-100px, -0px) rotate(-279deg); opacity: 1; }
+  80% { transform: translate(-100px, 75px) rotate(-720deg); opacity: 1; }
+  100% { transform: translate(-250px, 150px) rotate(-490deg); opacity: 1; }
+}
+
+/* Анимация исчезновения */
+@keyframes fadeOut {
+  0% { opacity: 1; } /* Начальная прозрачность */
+  100% { opacity: 0; } /* Конечная прозрачность */
+}
+
+/* Анимация появления текста */
+@keyframes appear {
+  0% { opacity: 0; transform: scale(0.8); } /* Начальное состояние: невидимо и уменьшено */
+  100% { opacity: 1; transform: scale(1); } /* Конечное состояние: видимо и нормального размера */
+}
   
  
   
@@ -707,3 +757,56 @@ strong {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* Оформление заголовка таблицы */
+table {
+    width: 100%; /* Занимает всю ширину контейнера */
+    border-collapse: collapse; /* Убирает двойные линии между ячейками */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Стилизация заголовков таблицы */
+thead th {
+    background-color: #007bff; /* Цвет фона заголовка */
+    color: white; /* Цвет текста заголовка */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+    padding: 10px; /* Внутренние отступы */
+}
+
+/* Стилизация ячеек таблицы */
+td, th {
+    border: 1px solid #ccc; /* Рамка ячеек */
+    padding: 20px; /* Внутренние отступы */
+    vertical-align: middle; /* Вертикальное выравнивание по центру */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+}
+
+/* Изменение фона пустых ячеек */
+td:empty {
+    background-color: #0aef0a; /* Цвет фона для пустых ячеек */
+
+}
+
+/* Стилизация строк таблицы */
+tr:nth-child(even) {
+    background-color: #8a8989; /* Цвет фона для четных строк */
+}
+
+tr:hover {
+    background-color: #f3ff0d; /* Цвет фона при наведении на строку */
+}
+
+/* Выравнивание таблицы на странице */
+.table-container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование таблицы */
+}

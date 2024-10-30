@@ -142,7 +142,9 @@ h1,
 
 
 .history-list {
-    list-style-type: none; /* Убираем маркеры списка */
+    list-style-type: square; /* Убираем маркеры списка */
+    list-style-image : url('http://basicweb.ru/images/mini5.png'); 
+
     padding: 0; /* Убираем отступы */
     margin: 0; /* Убираем внешние отступы */
 }

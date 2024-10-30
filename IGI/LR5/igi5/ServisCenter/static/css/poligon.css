@@ -510,3 +510,26 @@ button:hover {
     overflow-wrap: break-word; /* Разрыв слов для длинных строк */
 }
 
+
+
+.panda-section img {
+    width: 10%; /* от родительского элемента */
+}
+
+.panda-section h2 {
+    text-align: center;
+}
+
+.panda-section .floatLeft {
+    float: left; 
+    padding: 5px 5px 5px 0;
+}
+
+.panda-section .floatRight {
+    float: right; 
+    padding: 5px 0 5px 5px; /* внутренние отступы */
+}
+
+.panda-section p {
+    text-align: justify; /* по ширине */
+}
