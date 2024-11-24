@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import FAQ, Contaсts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company,CompanyHistory
+from .models import FAQ, Contacts, News, Vacancion, Discount, User,  Comment, Supplier, Detail, Order,OrderItem,Time,PickupAddresses,Partner,Company,CompanyHistory
 from django.contrib import messages
 from django.db.models import Sum, Count
 from django.utils import timezone
@@ -28,6 +28,29 @@ def get_cat_fact():
     else:
         return None
     
+
+def workers(request):
+    contacts = list(Contacts.objects.all().order_by('full_name'))
+    context = {
+        'employees': contacts
+    }
+    return render(request, 'main/workers.html', context)
+
+
+
+def catalog(request):
+    # Получаем всех поставщиков и сортируем по имени
+    suppliers = list(Supplier.objects.all().order_by('name'))
+    details = list(Detail.objects.all().order_by('name'))
+    # Передаем список поставщиков в контексте
+    context = {
+        'suppliers': suppliers,
+        'products': details
+    }
+    return render(request, 'main/catalog.html', context)
+
+
+
 # def CheckOrders(request):
 #     suppliers = list(Supplier.objects.all().order_by('name'))
 #     orders = list(Order.objects.all().order_by('-purchase_date'))
@@ -202,7 +225,14 @@ def place_order(request):
 
 
 def poligon(request):
-    return render(request, 'main/poligon.html')  # замените на ваш шаблон
+    suppliers = list(Supplier.objects.all().order_by('name'))
+    
+    context = {
+        'suppliers': suppliers
+    }
+    
+    return render(request, 'main/poligon.html', context)
+
 
 
 def certificate(request):

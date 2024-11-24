@@ -533,3 +533,17 @@ button:hover {
 .panda-section p {
     text-align: justify; /* по ширине */
 }
+
+
+
+.box {
+    width: 100px; /* Начальная ширина */
+    height: 100px; /* Начальная высота */
+    background-color: red; /* Начальный цвет */
+    transition: background-color 0.5s ease, transform 0.5s ease; /* Параметры перехода */
+}
+
+.box:hover {
+    background-color: blue; /* Цвет при наведении */
+    transform: scale(1.2); /* Увеличение размера при наведении */
+}

@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif; /* Шрифт для всего тела */
+    background-color: #f8f9fa; /* Светлый фон для страницы */
+    margin: 0; /* Удаление стандартных отступов */
+    padding: 20px; /* Отступы вокруг содержимого */
+}
+
+form {
+    margin-bottom: 20px; /* Отступ снизу для формы */
+    padding: 15px; /* Отступы внутри формы */
+    background-color: #ffffff; /* Белый фон для формы */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для формы */
+}
+
+label {
+    font-weight: bold; /* Жирный шрифт для меток */
+    display: block; /* Отображение меток как блочные элементы */
+    margin-bottom: 5px; /* Отступ снизу для меток */
+}
+
+textarea, input[type="number"] {
+    width: 100%; /* Ширина на всю доступную ширину */
+    padding: 10px; /* Отступы внутри полей */
+    margin-bottom: 15px; /* Отступ снизу для полей */
+    border: 1px solid #ccc; /* Цвет границы */
+    border-radius: 4px; /* Скругление углов полей */
+    font-size: 16px; /* Размер шрифта */
+    transition: border-color 0.3s; /* Плавный переход цвета границы */
+}
+
+textarea:focus, input[type="number"]:focus {
+    border-color: #007bff; /* Цвет границы при фокусе */
+    outline: none; /* Убираем стандартный контур */
+}
+
+button {
+    background-color: #007bff; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем границу */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Скругление углов кнопки */
+    cursor: pointer; /* Курсор-указатель при наведении */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+}
+
+button:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+
+.alert {
+    background-color: #fff3cd; /* Цвет фона для отзывов */
+    border: 1px solid #ffeeba; /* Цвет границы для отзывов */
+    border-radius: 8px; /* Скругление углов для отзывов */
+    padding: 15px; /* Отступы внутри блока отзыва */
+    margin-bottom: 15px; /* Отступ снизу для отзывов */
+}
+
+.alert h1 {
+    font-size: 1.5em; /* Размер заголовка отзыва */
+    margin: 0 0 10px; /* Отступы сверху и снизу */
+}
+
+.alert p {
+    margin: 5px 0; /* Отступы для параграфов в отзывах */
+}

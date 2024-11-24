@@ -1,10 +1,22 @@
 {% extends 'main/layout.html' %}
 
+{%block extraheader%}
+{% load static %}
+<script src="{% static "js/confirmation-forms.js" %}" defer></script>
+
+<link rel="stylesheet" href="{% static "css/confirmation-forms.css" %} {{ now|date:'U' }}" >
+{%endblock%} 
+
+
 {%block title%}Регистрация{% endblock %}
 
 {% block сontent %}
 {% if error_message %}
     
+
+
+
+
     <div class="error-message" style="color: red; margin-bottom: 20px;">
         {{ error_message }}
     </div>
@@ -33,10 +45,92 @@
         <label for="login">Are you 18 years old?</label>
         <input type="checkbox" id="ageCheck" name="ageCheck">
 
+
+
         <label for="login">Are you employee?</label>
         <input type="checkbox" id="EmployeeOrNot" name="EmployeeOrNot">
 
 
         <button type="submit">Register</button>
     </form>
+    
+
+
+<style>.confirmation-form-container {
+    max-width: 400px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование контейнера */
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Цвет фона */
+    border: 1px solid #ddd; /* Граница */
+    border-radius: 8px; /* Закругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.confirmation-form-header {
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-size: 24px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+}
+
+.confirmation-form-group {
+    margin-bottom: 15px; /* Отступ снизу для группы */
+}
+
+.confirmation-form-group label {
+    display: block; /* Отображение метки как блочный элемент */
+    margin-bottom: 5px; /* Отступ снизу */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+.confirmation-form-group input[type="date"] {
+    width: 100%; /* Ширина 100% */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 4px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+}
+
+.confirmation-button {
+    width: 100%; /* Кнопка на всю ширину */
+    padding: 10px; /* Внутренние отступы */
+    background-color: #28a745; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 4px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+.confirmation-button:hover {
+    background-color: #218838; /* Цвет кнопки при наведении */
+}
+
+.confirmation-result {
+    margin-top: 20px; /* Отступ сверху для результата */
+    text-align: center; /* Центрирование текста результата */
+    font-size: 18px; /* Размер шрифта результата */
+    color: #333; /* Цвет текста результата */
+}</style>
+
+
+
+
+
+
+
+    <section>
+        <div class="confirmation-form-container">
+            <h1 class="confirmation-form-header">Проверьте ваш возраст</h1>
+            <div class="confirmation-form-group">
+                <label for="dob">Введите вашу дату рождения:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <button class="confirmation-button" onclick="checkAge()">Проверить возраст</button>
+            <div id="confirmation-result" class="confirmation-result"></div>
+        </div>
+    </section>
+
+
 {% endblock %}

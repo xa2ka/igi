@@ -38,4 +38,6 @@ urlpatterns = [
     path('fullNews/<int:id>/', views.full_news, name='fullNews'),
     path('poligon/', views.poligon, name='poligon'),
     path('certificate/', views.certificate, name='certificate'),
+    path('catalog/',views.catalog,name='catalog'),
+    path('workers/',views.workers,name='workers')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

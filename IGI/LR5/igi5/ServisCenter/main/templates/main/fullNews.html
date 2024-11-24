@@ -1,21 +1,78 @@
 {% block content %}
+
 <style>
     body {
         background-color: #add8e6; /* Голубой фон для всей страницы */
         margin: 0; /* Удаление стандартных отступов */
         padding: 0; /* Удаление стандартных отступов */
     }
+
     .news-container {
         padding: 20px; /* Отступы для контейнера */
     }
+
+    .column {
+        -webkit-columns: 200px 3; /* 3 колонки по 200px */
+        -moz-columns: 200px 3; /* Поддержка для Firefox */
+        columns: 200px 3; /* Основная поддержка */
+        -webkit-column-gap: 30px; /* Зазор между колонками для WebKit */
+        -moz-column-gap: 30px; /* Зазор между колонками для Firefox */
+        column-gap: 30px; /* Зазор между колонками */
+        -webkit-column-rule: 1px solid #ccc; /* Правило между колонками для WebKit */
+        -moz-column-rule: 1px solid #ccc; /* Правило между колонками для Firefox */
+        column-rule: 1px solid #ccc; /* Правило между колонками */
+    }
+
+    .news-title {
+        font-size: 2em; /* Размер заголовка */
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+
+    .news-summary {
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+
+    .news-image {
+        width: 100%; /* Ширина картинки */
+        height: auto; /* Автоматическая высота для сохранения пропорций */
+        object-fit: cover; /* Обтекание изображения */
+        margin-bottom: 10px; /* Отступ снизу от картинки */
+        break-inside: avoid; /* Избегать разрыва текста вокруг картинки */
+    }
+
+    .news-fulltext {
+        break-inside: avoid; /* Избегать разрыва текста внутри колонок */
+    }
+
+    .back-link {
+        display: inline-block; /* Сделать ссылку блочным элементом */
+        padding: 10px 15px; /* Отступы для кнопки */
+        background-color: #007bff; /* Цвет фона кнопки */
+        color: white; /* Цвет текста кнопки */
+        text-decoration: none; /* Убрать подчеркивание */
+        border-radius: 5px; /* Скругление углов кнопки */
+        margin-top: 20px; /* Отступ сверху */
+        transition: background-color 0.3s; /* Плавный переход цвета */
+    }
+
+    .back-link:hover {
+        background-color: #0056b3; /* Цвет кнопки при наведении */
+    }
 </style>
+
 <div class="news-container">
     <h1 class="news-title">{{ news_item.title }}</h1>
     <p class="news-summary">{{ news_item.text }}</p>
     {% if news_item.image %}
-    <img class="news-image" src="{{ news_item.image.url }}" alt="{{ news_item.title }}" style="width: 300px; height: 200px; object-fit: cover;">
+    <img class="news-image" src="{{ news_item.image.url }}" alt="{{ news_item.title }}">
     {% endif %}
-    <p class="news-fulltext">{{ news_item.FullText }}</p>
+    <div class="column"> <!-- Обернули текст в div с классом column -->
+        <p class="news-fulltext">{{ news_item.FullText }}</p>
+        <p class="news-fulltext">{{ news_item.FullText }}</p>
+        <p class="news-fulltext">{{ news_item.FullText }}</p>
+        <p class="news-fulltext">{{ news_item.FullText }}</p>
+    </div>
     <a class="back-link" href="{% url 'news' %}">Назад к новостям</a>
 </div>
+
 {% endblock %}

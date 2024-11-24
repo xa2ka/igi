@@ -11,1020 +11,345 @@
 
         <title>Sample of HTML</title>
         {% load static %}
-        <link rel="stylesheet" href="{% static "css/poligon.css" %}">
 
         <link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon">
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+
+        <script src="{% static "js/slaider.js" %}" defer></script>
+
+        <link rel="stylesheet" href="{% static "css/scrolldemo.css" %}" />
+        <link rel="stylesheet" href="{% static "css/row.css" %}" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{% static "js/row.js" %}"></script>
 
 
         
     </head>
 
     <body>
-        <h1>Пример посещенных сайтов</h1>
-        <a href="https://www.google.com">Google</a>
-        <a href="https://twitter.com">Twitter</a>
-        <a href="https://www.facebook.com">Facebook</a>
-        <a href="https://www.mozilla.org">Mozilla</a>
-        <a href="https://www.youtube.com">Yotube</a>
-        <a href="https://www.yandex.com">Яндекс</a>
-   
 
-        <div class="panda-section">
-            <h2>Панды</h2> 		
-            <img src="/media/images/panda1.png" class="floatLeft" alt="Большая панда">
-            <p>Большая панда, также известная как гигантская панда, является одним из самых известных видов медведей.
-                Эти милые создания обитают в горных районах Китая и питаются в основном бамбуком. Панды известны своим черно-белым окрасом 
-                и дружелюбным характером, что делает их популярными среди людей. Они могут весить до 160 кг и имеют отличительные черные пятна вокруг глаз.</p>
-            
-            <img src="/media/images/panda2.png" class="floatRight" alt="Панда на дереве">
-            <p>Большие панды проводят большую часть своего времени на деревьях и в лесах, где могут легко находить пищу и избегать хищников.
-                Несмотря на то что панды в основном едят бамбук, они также могут потреблять фрукты и другие растительные продукты. 
-                Из-за разрушения их естественной среды обитания и низкой рождаемости панды находятся под угрозой исчезновения, и различные организации работают над их защитой и сохранением.</p>
-        </div>
-
-
-
-
-
-        <div class="text-block">
-            <h1>Заголовок(пример отображения текстового фрагмента)</h1>
-            <h2 class="centered">Подзаголовок с капителью</h2>
-            <p>
-                Это пример текстового фрагмента, который демонстрирует различные стили оформления. 
-                Мы используем <strong>отступы</strong>, <em>поля</em>, <span style="text-transform: uppercase;">заглавные буквы</span>, 
-                <span style="text-variant: small-caps;">капитель</span>, и другие стили. 
-                Обратите внимание на красную строку и межстрочный интервал.
-            </p>
-        </div>
-
-
-
-
-        <hr color="black" size="4">
-<!-- СЕЛЕКТОРЫ -->
-        <h1>СЕЛЕКТОРОРЫ</h1>
-        <p class="highlight">Этот текст выделен.</p>
-        <p>Это обычный текст.</p>
+        <style>.slider-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
         
-        <div>
-            <p>Этот текст внутри div.</p>
-            <p class="highlight">Этот текст также выделен.</p>
-        </div>
-    
-        <ul>
-            <li>Первый элемент списка</li>
-            <li>Второй элемент списка</li>
-        </ul>
-    
-        <a href="https://example.com">Ссылка на сайт</a>
-        <a href="http://example.com">Ссылка на сайт без HTTPS</a>
-    
-        <input type="text" placeholder="Введите текст">
-        <input type="password" placeholder="Введите пароль">
-    
-        <img src="image.jpg" alt="Пример изображения">
-        <img src="image.png" alt="Пример изображения без рамки">
-
-
-        <hr color="black" size="4">
-
-
-
-
-
-
-<!-- ПСЕВДОКЛАССЫ -->
-        <hr color="black" size="4">
+        .slider {
+            position: relative;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
         
-        <h1>ПСЕВДОКЛАССЫ</h1>
-
-        <h1>Пример посещенных сайтов</h1>
-        <a href="https://www.google.com">Google</a>
-        <a href="https://twitter.com">Twitter</a>
-        <a href="https://www.facebook.com">Facebook</a>
-        <a href="https://www.mozilla.org">Mozilla</a>
-        <a href="https://www.youtube.com">Yotube</a>
-        <a href="https://www.yandex.com">Яндекс</a>
-   
-        <h2>Список</h2>
-        <ul>
-            <li>Первый элемент</li>
-            <li>Второй элемент</li>
-            <li>Третий элемент</li>
-            <li>Последний элемент</li>
-        </ul>
-    
-        <h2>Форма</h2>
-        <form>
-            <label for="name">Имя (обязательное):</label>
-            <input type="text" id="name" required>
-            <br><br>
-    
-            <label for="age">Возраст (необязательное):</label>
-            <input type="number" id="age" optional>
-            <br><br>
-    
-            <label for="range">Число (от 1 до 10):</label>
-            <input type="number" id="range" min="1" max="10" required>
-            <br><br>
-    
-            <label>
-                <input type="checkbox"> Подписаться на рассылку
-            </label>
-            <br><br>
-    
-            <button type="submit">Отправить</button>
-        </form>
-    
-        <h2>Цитата</h2>
-        <blockquote>
-            Это пример цитаты, которая отображается с русскими кавычками.
-        </blockquote>
-
-        <hr color="black" size="4">
-
-
-
-
-
-
-
-
-        <div class="pseudo-element-section">
-            <h1>ПСЕВДОЭЛЕМЕНТЫ</h1>
-    
-            <p>
-                В этом абзаце мы используем псевдоэлементы для выделения первой буквы, добавления контекста и изменения стиля выделения текста. 
-                Это может помочь сделать текст более привлекательным для читателя.
-            </p>
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
-            <h2>Список с маркерами Юникода</h2>
-            <ul class="custom-list">
-                <li>Первый элемент списка</li>
-                <li>Второй элемент списка</li>
-                <li>Третий элемент списка</li>
-            </ul>
+        .prev-button,
+        .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+        }
         
-            <p>
-                Попробуйте выделить этот текст, чтобы увидеть изменение стиля. 
-                Псевдоэлементы позволяют управлять стилем частей текста без необходимости добавления дополнительных элементов в HTML.
-            </p>
-        </div>
+        .prev-button {
+            left: 10px;
+        }
+        
+        .next-button {
+            right: 10px;
+        }
+        
+        .indicators {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 10px; 
+            left: 50%;
+            transform: translateX(-50%); 
+            z-index: 1;  
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black; 
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;  
+        }
+        
+        .indicator.active {
+            background-color: red;  
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .slide-text {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+            z-index: 10;}
 
 
-
-        <h1>МЕДИА-ЗАПРОСЫ</h1>
-        <div class="container2">
-            <h1 class="main-title">Добро пожаловать в нашу новую компанию!</h1>
-            
-            <p class="intro-text">Мы рады представить вам наши услуги, которые помогут вам добиться успеха в вашем бизнесе.</p>
-            
-            <button class="action-button">Узнать больше</button>
-            <button class="action-button">Связаться с нами</button>
-            
-            <h2 class="section-title">Наши Преимущества</h2>
-            <p class="benefit-text">Мы предлагаем высококачественные услуги, <span class="capitalized">которые</span> соответствуют современным стандартам.</p>
-            
-            <p class="note-text">Мы гарантируем индивидуальный подход к каждому клиенту, что является нашим <span class="capitalized">главным</span> приоритетом.</p>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <h1>Пример медиа-запросов и изменения курсора</h1>
-        <button>Кнопка 1</button>
-        <button>Кнопка 2</button>
-        <button>Кнопка 3</button>
-
-        <h1>Пример использования :active и :focus</h1>
-
-        <form>
-            <label for="name">Имя:</label>
-            <input type="text" id="name" placeholder="Введите ваше имя">
-            <br><br>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/media/images/turbina.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden;
+            height: 100%;
+        }
+        
+        #top {
+            position: relative;
+            text-align: center;
+            padding: 50px 0;
+            z-index: -1; 
+        }
+        
+        #top img {
+            width: 100%; 
+            height: auto;
+        }
+        
+        #content {
+            text-align: center;
+            padding: 50px;
+            z-index: 1;
+            position: relative;
+        }
+        
+        #top img,
+        #content img {
+            position: absolute;
+            z-index: 1000;
+            width: 100px; 
+            height: 100px;
+            pointer-events: none;
+        }
+        
+        #bg-part1, #bg-part2, #bg-part3, #bg-part4 {
+            position: fixed;
+            z-index: -1; 
+            width: 200px;
+            height: 200px;
+            opacity: 0.6;
+        }
+        
+        #bg-part1 {
+            left: -200px; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        #bg-part2 {
+            right: -200px;
+            top: 30%;
+            transform: translateY(-50%);
+        }
+        
+        #bg-part3 {
+            left: -200px; 
+            top: 70%;
+            transform: translateY(-50%);
+        }
+        
+        #bg-part4 {
+            right: -200px;
+            top: 80%;
+            transform: translateY(-50%);
+        }
+        
+        #map {
+            height: 400px;
+            width: 100%;
+        }
     
-            <button type="submit">Отправить</button>
-        </form>
+        </style>
 
-        <hr color="black" size="4">
 
-        <div class="container">
-            <p>Первый абзац.</p>
-            <div>
-                <p>Второй абзац.</p>
+        <section>
+            <div class="slider-container">
+              <div class="slide-counter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3/5</font></font></div>
+              <div class="slide-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">текст для 3 слайда</font></font></div>
+              <div class="slider" style="transform: translateX(-1800px); transition: transform 0.5s ease-in-out;">
+                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 5 слайда" data-href="https://example.com/page5" alt="альтернативный текст"><img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 1 слайда" data-href="https://example.com/page1" alt="альтернативный текст">
+                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 2 слайда" data-href="https://example.com/page2" alt="альтернативный текст">
+                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 3 слайда" data-href="https://example.com/page3" alt="альтернативный текст">
+                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 4 слайда" data-href="https://example.com/page4" alt="альтернативный текст">
+                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 5 слайда" data-href="https://example.com/page5" alt="альтернативный текст"> 
+              <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 1 слайда" data-href="https://example.com/page1" alt="альтернативный текст"></div>
+              <button class="prev-button" type="button" aria-label="Посмотреть предыдущий слайд"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;</font></font></button>
+              <button class="next-button" type="button" aria-label="Посмотреть следующий слайд"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;</font></font></button>
+              <div class="indicators">
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+              </div>
             </div>
-            <p>Третий абзац.</p>
-        </div>
-
-        <header>
-            <h1>Полигон Довнар 253505</h1>
-        </header>
-        
-        <hr color="black" size="4">
-
-        <main>
-
-
-
-
-
-
-
-            <hr color="black" size="4">
-        
-
-
-            <h1>Большая таблица</h1>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Заголовок 1</th>
-                        <th>Заголовок 2</th>
-                        <th>Заголовок 3</th>
-                        <th>Заголовок 4</th>
-                        <th>Заголовок 5</th>
-                        <th>Заголовок 6</th>
-                        <th>Заголовок 7</th>
-                        <th>Заголовок 8</th>
-                        <th>Заголовок 9</th>
-                        <th>Заголовок 10</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ячейка 1.1</td>
-                        <td>Ячейка 1.2</td>
-                        <td>Ячейка 1.3</td>
-                        <td>Ячейка 1.4</td>
-                        <td>Ячейка 1.5</td>
-                        <td>Ячейка 1.6</td>
-                        <td>Ячейка 1.7</td>
-                        <td>Ячейка 1.8</td>
-                        <td>Ячейка 1.9</td>
-                        <td>Ячейка 1.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 2.1</td>
-                        <td>Ячейка 2.2</td>
-                        <td>Ячейка 2.3</td>
-                        <td>Ячейка 2.4</td>
-                        <td>Ячейка 2.5</td>
-                        <td>Ячейка 2.6</td>
-                        <td>Ячейка 2.7</td>
-                        <td>Ячейка 2.8</td>
-                        <td>Ячейка 2.9</td>
-                        <td>Ячейка 2.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 3.1</td>
-                        <td>Ячейка 3.2</td>
-                        <td>Ячейка 3.3</td>
-                        <td>Ячейка 3.4</td>
-                        <td>Ячейка 3.5</td>
-                        <td>Ячейка 3.6</td>
-                        <td>Ячейка 3.7</td>
-                        <td>Ячейка 3.8</td>
-                        <td>Ячейка 3.9</td>
-                        <td>Ячейка 3.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 4.1</td>
-                        <td>Ячейка 4.2</td>
-                        <td>Ячейка 4.3</td>
-                        <td>Ячейка 4.4</td>
-                        <td>Ячейка 4.5</td>
-                        <td>Ячейка 4.6</td>
-                        <td>Ячейка 4.7</td>
-                        <td>Ячейка 4.8</td>
-                        <td>Ячейка 4.9</td>
-                        <td>Ячейка 4.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 5.1</td>
-                        <td>Ячейка 5.2</td>
-                        <td>Ячейка 5.3</td>
-                        <td>Ячейка 5.4</td>
-                        <td>Ячейка 5.5</td>
-                        <td>Ячейка 5.6</td>
-                        <td>Ячейка 5.7</td>
-                        <td>Ячейка 5.8</td>
-                        <td>Ячейка 5.9</td>
-                        <td>Ячейка 5.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 6.1</td>
-                        <td>Ячейка 6.2</td>
-                        <td>Ячейка 6.3</td>
-                        <td>Ячейка 6.4</td>
-                        <td>Ячейка 6.5</td>
-                        <td>Ячейка 6.6</td>
-                        <td>Ячейка 6.7</td>
-                        <td>Ячейка 6.8</td>
-                        <td>Ячейка 6.9</td>
-                        <td>Ячейка 6.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 7.1</td>
-                        <td>Ячейка 7.2</td>
-                        <td>Ячейка 7.3</td>
-                        <td>Ячейка 7.4</td>
-                        <td>Ячейка 7.5</td>
-                        <td>Ячейка 7.6</td>
-                        <td>Ячейка 7.7</td>
-                        <td>Ячейка 7.8</td>
-                        <td>Ячейка 7.9</td>
-                        <td>Ячейка 7.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 8.1</td>
-                        <td>Ячейка 8.2</td>
-                        <td>Ячейка 8.3</td>
-                        <td>Ячейка 8.4</td>
-                        <td>Ячейка 8.5</td>
-                        <td>Ячейка 8.6</td>
-                        <td>Ячейка 8.7</td>
-                        <td>Ячейка 8.8</td>
-                        <td>Ячейка 8.9</td>
-                        <td>Ячейка 8.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 9.1</td>
-                        <td>Ячейка 9.2</td>
-                        <td>Ячейка 9.3</td>
-                        <td>Ячейка 9.4</td>
-                        <td>Ячейка 9.5</td>
-                        <td>Ячейка 9.6</td>
-                        <td>Ячейка 9.7</td>
-                        <td>Ячейка 9.8</td>
-                        <td>Ячейка 9.9</td>
-                        <td>Ячейка 9.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 10.1</td>
-                        <td>Ячейка 10.2</td>
-                        <td>Ячейка 10.3</td>
-                        <td>Ячейка 10.4</td>
-                        <td>Ячейка 10.5</td>
-                        <td>Ячейка 10.6</td>
-                        <td>Ячейка 10.7</td>
-                        <td>Ячейка 10.8</td>
-                        <td>Ячейка 10.9</td>
-                        <td>Ячейка 10.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 11.1</td>
-                        <td>Ячейка 11.2</td>
-                        <td>Ячейка 11.3</td>
-                        <td>Ячейка 11.4</td>
-                        <td>Ячейка 11.5</td>
-                        <td>Ячейка 11.6</td>
-                        <td>Ячейка 11.7</td>
-                        <td>Ячейка 11.8</td>
-                        <td>Ячейка 11.9</td>
-                        <td>Ячейка 11.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 12.1</td>
-                        <td>Ячейка 12.2</td>
-                        <td>Ячейка 12.3</td>
-                        <td>Ячейка 12.4</td>
-                        <td>Ячейка 12.5</td>
-                        <td>Ячейка 12.6</td>
-                        <td>Ячейка 12.7</td>
-                        <td>Ячейка 12.8</td>
-                        <td>Ячейка 12.9</td>
-                        <td>Ячейка 12.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 13.1</td>
-                        <td>Ячейка 13.2</td>
-                        <td>Ячейка 13.3</td>
-                        <td>Ячейка 13.4</td>
-                        <td>Ячейка 13.5</td>
-                        <td>Ячейка 13.6</td>
-                        <td>Ячейка 13.7</td>
-                        <td>Ячейка 13.8</td>
-                        <td>Ячейка 13.9</td>
-                        <td>Ячейка 13.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 14.1</td>
-                        <td>Ячейка 14.2</td>
-                        <td>Ячейка 14.3</td>
-                        <td>Ячейка 14.4</td>
-                        <td>Ячейка 14.5</td>
-                        <td>Ячейка 14.6</td>
-                        <td>Ячейка 14.7</td>
-                        <td>Ячейка 14.8</td>
-                        <td>Ячейка 14.9</td>
-                        <td>Ячейка 14.10</td>
-                    </tr>
-                    <tr>
-                        <td>Ячейка 15.1</td>
-                        <td>Ячейка 15.2</td>
-                        <td>Ячейка 15.3</td>
-                        <td>Ячейка 15.4</td>
-                        <td>Ячейка 15.5</td>
-                        <td>Ячейка 15.6</td>
-                        <td>Ячейка 15.7</td>
-                        <td>Ячейка 15.8</td>
-                        <td>Ячейка 15.9</td>
-                        <td>Ячейка 15.10</td>
-                    </tr>
-                </tbody>
-            </table>
-
-
-
-            <h1>Пример использования псевдоэлементов</h1>
-
-            <p class="context">
-                Это пример абзаца текста. Он демонстрирует, как выделить первую букву и добавить контекст.
-            </p>
-        
-            <ul>
-                <li>Первый элемент списка</li>
-                <li>Второй элемент списка</li>
-                <li>Третий элемент списка</li>
-            </ul>
-
-
-            <h1>Стилизация элементов формы</h1>
-            <form>
-                <label>
-                    Доступное поле:
-                    <input type="text" value="Я доступен!" />
-                </label>
-                <br><br>
-                <label>
-                    Обязательное поле (правильный ввод):
-                    <input type="text" required pattern="[a-zA-Z]+" />
-                </label>
-                <br><br>
-                <label>
-                    Обязательное поле (неправильный ввод):
-                    <input type="text" required pattern="[0-9]+" />
-                </label>
-                <br><br>
-                <label>
-                    Заблокированное поле:
-                    <input type="text" value="Я заблокирован!" disabled />
-                </label>
-                <br><br>
-                <label>
-                    Поле со значением вне диапазона (число от 1 до 10):
-                    <input type="number" min="1" max="10" />
-                </label>
-                <br><br>
-                <label>
-                    Включенный флажок:
-                    <input type="checkbox" checked />
-                </label>
-                <br><br>
-                <label>
-                    Включенный переключатель:
-                    <input type="radio" name="option" checked />
-                </label>
-
-                        Обязательное поле (только буквы):
-                        <input type="text" required pattern="[a-zA-Z]+" />
-                    </label>
-                    <br>
-                    <label>
-                        Число от 1 до 10:
-                        <input type="number" min="1" max="10" />
-            </form>
-
-
-
-            <hr color="black" size="4">
-            <h1><strong>Кавычки в зависимости от языка!</strong></h1>
+          
             
-            <p>Цитата на французском языке: <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>  
-            <p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>  
-            <p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
-            
+          </section>
+
+          <img src="/media/images/avt_diski.png" id="bg-part1" alt="Деталь 5">
+          <img src="/media/images/avt_dvigatel.png" id="bg-part2" alt="Деталь 6">
+          <img src="/media/images/banner1.png" id="bg-part3" alt="Деталь 7">
+          <img src="/media/images/banner2.png" id="bg-part4" alt="Деталь 8">
+          <section id="top">
+            <h2 id="text">Автозапчасти</h2>
+            <img src="/media/images/avt_fara.png" id="part1" alt="Деталь 1">
+            <img src="/media/images/avt_pokrishka.png" id="part2" alt="Деталь 2">
+            <img src="/media/images/banner3.png" id="part3" alt="Деталь 3">
+            <img src="/media/images/banner7.png" id="part4" alt="Деталь 4">
+          </section>
+
+          
 
 
-
-            <hr color="black" size="4">
-        
-            <h1>Глобальные атрибуты title lang dir accesskey contenteditable (style,id,class) </h1>
-            <p title="Это простой текст на русском языке." lang="ru">Наведись на меня(на русском).</p>
-            <p title="This is a simple text in English." lang="en" dir="rtl">Simple text in English</p>
-            <input type="button" accesskey="t" value="Нажми меня (alt+t)" />
-            <p contenteditable="true">It is raining</p>
-
-            <hr color="black" size="4">
-            
-            <h1>Навигация</h1>
-            <nav>
-                <ul>
-                    <li><a href="news">Новости</a></li>
-                    <li><a href="about">О нас</a></li>
-                </ul>
-            </nav>
-
-            <a href="{{ company.certificate.url }}">Просмотреть сертификат</a>
-            <a href="/media/images/sertificat.png" download>Скачать сертификат</a>
-
-            <hr color="black" size="4">
-    
-            <h1><strong>Ищите нас здесь!</strong></h1>
-    
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4Mc80zgcgDQ?si=yniOGEL58whx8YfO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        
-            </iframe>
-
-            <hr color="black" size="4">
-            
-            <pre>
-                Это пример текста,
-                 где пробелы и
-                  переносы строк
-                   будут сохранены.
-            </pre>
-
-                <hr color="black" size="4">
-            
-                <form action="/submit" method="post">
-                    <fieldset>
-                        <legend>Личная информация</legend>
-                        <label for="name">Имя:</label>
-                        <input type="text" id="name" name="name"><br>
-                
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email"><br>
-                        
-                        <label for="age">Возраст:</label>
-                        <input type="number" id="age" name="age"><br>
-                
-                        <input type="submit" value="Отправить">
-                    </fieldset>
-                
-                </form>
-
-                <hr color="black" size="4">
-            
-
-                <h1>Выпадающий список</h1>
-                <form action="http://server.com" method="post">
-                    <select size="4" name="s1">
-                      <option disabled>Choose a hero:</option>
-                      <option value="iron">Iron Man</option>
-                      <option selected value="captain">Captain America</option>
-                      <option value="thor">Thor</option>
-                    </select>
-                    <br>
-                    <select size="1" name="s2">
-                      <option disabled>Choose a hero:</option>
-                      <option value="iron">Iron Man</option>
-                      <option selected value="captain">Captain America</option>
-                      <option value="thor">Thor</option>
-                    </select>
-                    <br>
-                    <input type="submit" value="Send!">
-                   </form>
-                   
-                   <h1>Выберите фрукт</h1>
-                   <select>
-                       <optgroup label="Цитрусовые">
-                           <option value="orange">Апельсин</option>
-                           <option value="lemon">Лимон</option>
-                           <option value="lime">Лайм</option>
-                       </optgroup>
-                       <optgroup label="Яблоки">
-                           <option value="red_apple">Красное яблоко</option>
-                           <option value="green_apple">Зеленое яблоко</option>
-                       </optgroup>
-                       <optgroup label="Тропические">
-                           <option value="banana">Банан</option>
-                           <option value="mango">Манго</option>
-                       </optgroup>
-                   </select>
-
-
-                   <hr color="black" size="4">
-            
-
-
-                <form action="/submit" method="post">
-                    <label for="username">Имя пользователя:</label>
-                    <input type="text" id="username" name="username" required><br><br>
-                
-                    <label for="password">Пароль:</label>
-                    <input type="password" id="password" name="password" required><br><br>
-                
-                    <label>Выберите пол:</label><br>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Мужской</label><br>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Женский</label><br><br>
-                
-                    <input type="checkbox" id="subscribe" name="subscribe">
-                    <label for="subscribe">Подписаться на рассылку</label><br><br>
-                
-                    <input type="hidden" id="userId" name="userId" value="12345">
-                
-                    <input type="submit" value="Отправить">
-                    <input type="reset" value="Сбросить">
-                </form>
-
-                <hr color="black" size="4">
-            
-
-
-            <details>
-                <summary>Types of Coffee</summary>
-                <ul>
-                  <li>Espresso</li>
-                  <li>Americano</li>
-                  <li>Latte</li>
-                  <li>Cappuccino</li>
-                  <li>Mocha</li>
-                </ul>
-              </details>
-            
-              <br><br>
-            
-              <table border="5" align="center">
-                <tr>
-                    <td>Яблоко</td>
-                    <td span="2">Банан</td>
-                    <td>Груша</td>
-                    <td>Клубника</td>
-                    <td>Клубника</td>
-                </tr>
-                <tr>
-                    <td>Апельсин</td>
-                    <td>Киви</td>
-                    <td>Земляника</td>
-                    <td>Земляника</td>
-                </tr>
-                <tr>
-                    <td>Апельсин</td>
-                    <td>Киви</td>
-                    <td>Земляника</td>
-                    <td>Земляника</td>
-                </tr>
-            </table>
-
-            <br><br>
-            
-            <table border="1">
-                <tr>
-                    <th id="rank">Rank</th>
-                    <th id="name">Name</th>
-                    <th id="color">Color</th>
-                </tr>
-                <tr>
-                    <th id="first" headers="rank">Favorite:</th>
-                    <td headers="name first">Apples</td>
-                    <td headers="color first">Green</td>
-                </tr>
-                <tr>
-                    <th id="second" headers="rank">2nd Favorite:</th>
-                    <td headers="name second">Oranges</td>
-                    <td headers="color second">Orange</td>
-                </tr>
-            </table>
-            
-            <body>
-                <object width="560" height="349" 
-                  data="http://www.youtube.com/v/qzA60hHca9s?version=3"
-                  type="application/x-shockwave-flash">
-                  <param name="allowFullScreen" value="true">
-                    <b>Sorry!</b> We can't display this content
-                </object>
-               </body>
-
-               
-                        <video width="360" height="240" 
-                src="big-buck-bunny_trailer.webm"
-                autoplay controls preload="none" muted>
-            Video cannot be displayed
-            </video>
-
-
-            <section class="text-highlighting">
-                <h1>Выделение</h1>
-            
-                <p>В HTML5 для выделения текста можно использовать различные элементы. Например, <strong>жирный текст</strong> создается с помощью тега <code>&lt;b&gt;</code>, а <em>курсивный текст</em> — с помощью тега <code>&lt;i&gt;</code>.</p>
-            
-                <p>Если хотите подчеркнуть что-то, используйте <u>подчеркнутый текст</u>. Для отображения небольшого текста подойдёт <small>маленький текст</small>. Для химических формул можно использовать <sub>подстрочный текст</sub> и <sup>надстрочный текст</sup>.</p>
-                
-                <p>Для кода можно использовать <code>тег code</code>, а для переменных — <var>переменная</var>. Пример вывода данных: <samp>результат</samp>. Если нужно указать нажатие клавиш, используйте <kbd>Ctrl + C</kbd>.</p>
-                
-                <p>Для сокращений используйте <abbr title="HTML5">HTML</abbr>, а для определений — <dfn>определение</dfn>. Цитаты можно выделять с помощью <q>краткой цитаты</q>, а для более длинных — использовать <cite>ссылку на источник</cite>.</p>
-                
-                <p>Если вы хотите указать время, используйте <time datetime="2024-09-18">18 сентября 2024 года</time>.</p>
-                
-                <p>Для выделения важной информации можно применять <mark>подсветку текста</mark>.</p>
-                
-                <p>Таким образом, HTML5 предлагает множество способов для выделения текста, что позволяет улучшить восприятие информации.</p>        
-            </section>
-            <hr color="black" size="4">
-        
-            <h1>Пример листинга</h1>
-
-            <p>
-                <code>
-                var fruits = ["apples", "oranges", "mangoes", "cherries"];<br>
-                document.writeln("I like " + fruits.length + " fruits");
-                </code>
-            </p>
-            <p>The variable in this example is <var>fruits</var></p>
-            <p>The output from the code is: <samp>I like 4 fruits</samp></p>
-            <p>When prompted for my favorite fruit, I typed: <kbd>cherries</kbd>
-            
-            <hr color="black" size="4">
-            
-            <h1>Сокращение/определение</h1>
-
-            <abbr title="United Nations Educational, Scientific and Cultural Organization">UNESCO</abbr>
-            <br><br><br>
-            The <dfn title="banana">banana</dfn> is a tropical fruit that is elongated and curved, with a soft and sweet flesh.
-            
-            <hr color="black" size="4">
-            
-            <h1>Цитата/Источник</h1>
-            <q cite="http://en.wikipedia.org/wiki/Apple">The apple is
-                the pomaceous fruit of the apple tree.</q>
-            
-            <br><br>
-            My favorite book on fruit is <cite>Fruit: Edible, Inedible, Incredible</cite>.
-
-
-            At <time datetime="15:00">3 o'clock</time>
-            on <time datetime="1984-12-7">December 7th</time>.
-            
-
-            <h1></h1>
-
-            <blockquote>
-                The sun sets gently over the horizon,<br>
-                Painting the sky in hues of orange and pink,<br>
-                As the waves softly lap against the shore,<br>
-                A tranquil moment, perfect for reflection.
-            </blockquote>
-
-            <h1></h1>
-            
-                Самое длинное слово из химии:<br>
-                метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин<wbr>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин<wbr>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>
-                
-            <h1></h1>   
-                Хочешь попасть на youtube.com? <br>
-                <a href="http://youtube.com">Жми сюда!</a>
-            
-                
-
-            <blockquote>
-            The apple forms a tree that is small and deciduous, 
-            reaching 3 to 12 meters (9.8 to 39 ft) tall, with a 
-            broad, often densely twiggy crown.
-            </blockquote>
-
-
-            <hr color="black" size="4">
-            <h1>Списки</h1>
-
-            <ol>
-                <li>List item one</li>
-                <li>
-                List item two with subitems:
-                <ul>
-                    <li>Subitem 1</li>
-                    <li>Subitem 2</li>
-                </ul>
-                </li>
-                <li>Final list item</li>
-            </ol>
-            
-            <br><br>
-
-            <ul type="square">
-                <li>One</li>
-                <li type="circle">Two</li>
-                <li>Three</li>
-                <li>Four</li>
-                <li>Five</li>
-            </ul>
-            
-            <ol type="A" start="10">
-                <li>Son</li>
-                <li value="1">Mother</li>
-                <li>Father</li>
-            </ol>
-                
-            <br><br>
-
-            <dl>
-                <dt>CSS</dt>
-                <dd>
-                Cascading Style Sheets — это язык стилей, используемый для описания
-                внешнего вида документа, написанного на HTML или XML.
-                </dd>
-                <dt>JavaScript</dt>
-                <dd>
-                JavaScript — это язык программирования, который позволяет 
-                создавать интерактивные элементы на веб-страницах.
-                </dd>
-                <dt>API</dt>
-                <dd>
-                Application Programming Interface — это набор правил и протоколов,
-                который позволяет различным программам взаимодействовать друг с другом.
-                </dd>
-            </dl>
-
-
-
-            <figure>
-                <p><img src="/media/images/molotok.png" alt=""></p>
-                <figcaption>molotok logo</figcaption>
-            </figure>
-                
-            <br><br>
-         
-            
-            <h1>TEXTAREA</h1>
-            <form action="http://server.com" method="post">
-                <textarea name="desc" cols="45" rows="10"
-                        placeholder="Input description"
-                        required maxlength="450"></textarea>
-                <br><br>
-                <input type="submit" value="Send!">
-            </form>
-            
-
-
-
-
-            <h1>Форма с разными типами инпутов</h1>
-            <form>
-        
-                <!-- Текстовое поле -->
-                <label for="name">Имя:</label>
-                <input type="text" id="name" name="name" required>
-                <br><br>
-        
-                <!-- Поле для пароля -->
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required>
-                <br><br>
-        
-                <!-- Поле для электронной почты -->
-                <label for="email">Электронная почта:</label>
-                <input type="email" id="email" name="email" required>
-                <br><br>
-        
-                <!-- Числовое поле -->
-                <label for="age">Возраст:</label>
-                <input type="number" id="age" name="age" min="1" max="100">
-                <br><br>
-        
-                <!-- Поле для выбора даты -->
-                <label for="birthdate">Дата рождения:</label>
-                <input type="date" id="birthdate" name="birthdate">
-                <br><br>
-        
-                <!-- Поле для выбора цвета -->
-                <label for="color">Выберите цвет:</label>
-                <input type="color" id="color" name="color">
-                <br><br>
-        
-                <!-- Чекбокс -->
-                <label>
-                    <input type="checkbox" name="subscribe" checked>
-                    Подписаться на новости
-                </label>
-                <br><br>
-        
-                <!-- Радиокнопки -->
-                <label>Пол:</label><br>
-                <label>
-                    <input type="radio" name="gender" value="male" required>
-                    Мужской
-                </label>
-                <label>
-                    <input type="radio" name="gender" value="female" checked>
-                    Женский
-                </label>
-                <br><br>
-        
-                <!-- Поле для загрузки файла -->
-                <label for="file">Загрузите файл:</label>
-                <input type="file" id="file" name="file">
-                <br><br>
-        
-                <!-- Кнопка отправки формы -->
-                <input type="submit" value="Отправить">
-                <br><br>
-        
-                <!-- Обычная кнопка -->
-                <input type="button" value="Нажмите меня" onclick="alert('Кнопка нажата!')">
-                <br><br>
-        
-                <!-- Поле для поиска -->
-                <label for="search">Поиск:</label>
-                <input type="search" id="search" name="search" placeholder="Введите запрос...">
-                <br><br>
-        
-            </form>
-
-
-            <br><br>
-
-            <section>
-                <h1>Main content</h1>
-                <article>
-                    <h2>First article</h2>
-                    <p>Text goes here...</p>
-                </article>
-                <article>
-                    <h2>Second article</h2>
-                    <p>Text goes here...</p>
-                </article>
-            </section>
-        
-
-            <hr color="black" size="4">
-
-            <p><a id="n1"></a>ИНФОРМАЦИЯ</p>
-
-            <embed
-            src="http://www.youtube.com/v/qzA60hHca9s?version=3"
-            type="application/x-shockwave-flash"
-            width="560" height="349"
-            allowfullscreen="true">
-            <!-- все "нестандартные" атрибуты - это параметры
-             для плагина -->
-        
-
-        </main>
-            <hr color="black" size="4">
-
-            <form action="http://example.com/app/profile.php" method="post">
-                Имя:
-                <input type="text" name="username"><br>
-                Адрес эл. почты:
-                <input type="text" name="email"><br>
-                Пол:<br>
-                <input type="radio" name="sex" value="male">мужской<br>
-                <input type="radio" name="sex" value="female">женский<br>
-              
-                <input type="submit" value="Отправить">
-                <input type="reset" value="Очистить">
-              </form>
-              
-              <hr color="black" size="4">
-
-
-
-              <img src="media/images/1.png" 
-              srcset="media/images/1.png 0.4x, 
-                      media/images/novost1.png 0.8x, 
-                      media/images/novost2.png 1.2x" 
-              alt="Описание изображения">
-
-              <picture>
-                <source media="(max-width: 20em)" 
-                       srcset="media/images/1.png 1x,
-                       media/images/novost1.png 2x,
-                       media/images/novost2.png 3x">
-                <source media="(max-width: 40em)" 
-                       srcset="media/images/1.png 1x,
-                       media/images/novost1.png 2x,
-                       media/images/novost2.png 3x"> 
-                <img       src="media/images/novost1.png" alt="Space Needle" >
-                </picture>
-                
-
-
-
-        <footer>
-            Copyright Довнар Александр
-        </footer>
-        
-    </body>
-
-</html>
+        </section>
+        <section id="content">
+          <h2>Добро пожаловать в наш магазин автозапчастей!</h2>
+          <p>Здесь вы найдете широкий выбор деталей для вашего автомобиля.</p>
+          Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
+      
+      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
+      
+      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
+      
+      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
+      
+      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
+      
+      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
+      
+      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
+      
+      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
+      
+      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
+      
+      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
+      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
+      
+      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
+      
+      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
+      
+      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
+      
+      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
+      
+      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
+      
+      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
+      
+      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
+      
+      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
+      
+      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
+      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
+      
+      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
+      
+      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
+      
+      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
+      
+      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
+      
+      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
+      
+      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
+      
+      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
+      
+      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
+      
+      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
+      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
+      
+      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
+      
+      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
+      
+      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
+      
+      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
+      
+      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
+      
+      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
+      
+      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
+      
+      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
+      
+      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
+      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
+      
+      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
+      
+      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
+      
+      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
+      
+      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
+      
+      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
+      
+      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
+      
+      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
+      
+      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
+      
+      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
+        </section>
+        <div id="graph-container">
+            <form id="inputForm">
+              <label for="epsilon">Погрешность (ε): </label>
+              <input type="number" id="epsilon" name="epsilon" value="0.0001" step="0.0001">
+              <button type="submit">Обновить график</button>
+          </form>
+      
+          <canvas style="margin: auto; width: 800px; height: 600px;" id="myChart"></canvas>
+      
+      </div>
+        <script src="{% static "js/scrolldemo.js" %}"></script>
+      </body>
+      </html>
+      

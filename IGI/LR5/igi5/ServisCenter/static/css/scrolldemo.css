@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../images/scrolldemo/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  #top {
+    position: relative;
+    text-align: center;
+    padding: 50px 0;
+    z-index: -1; 
+  }
+  
+  #top img {
+    width: 100%; 
+    height: auto;
+  }
+  
+  #content {
+    text-align: center;
+    padding: 50px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  #top img,
+  #content img {
+    position: absolute;
+    z-index: 1000;
+    width: 100px; 
+    height: 100px;
+    pointer-events: none;
+  }
+  
+  #bg-part1, #bg-part2, #bg-part3, #bg-part4 {
+    position: fixed;
+    z-index: -1; 
+    width: 200px;
+    height: 200px;
+    opacity: 0.6;
+  }
+  
+  #bg-part1 {
+    left: -200px; 
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #bg-part2 {
+    right: -200px;
+    top: 30%;
+    transform: translateY(-50%);
+  }
+  
+  #bg-part3 {
+    left: -200px; 
+    top: 70%;
+    transform: translateY(-50%);
+  }
+  
+  #bg-part4 {
+    right: -200px;
+    top: 80%;
+    transform: translateY(-50%);
+  }
+  
+  #map {
+    height: 400px;
+    width: 100%;
+  }

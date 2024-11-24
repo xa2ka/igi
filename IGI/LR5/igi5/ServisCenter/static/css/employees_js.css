@@ -1,0 +1,328 @@
+/* Стили для таблицы */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px; /* Увеличиваем размер шрифта */
+    table-layout: auto; /* Это позволяет таблице гибко подстраиваться под содержимое */
+  }
+  
+  .employee-table th, .employee-table td {
+    border: 1px solid #ddd;
+    padding: 15px; /* Увеличиваем отступы, чтобы текст не был сжатым */
+    text-align: left;
+    word-wrap: break-word; /* Слово будет перенесено, если оно не вмещается в ячейку */
+  }
+  
+  .employee-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .employee-table td {
+    vertical-align: middle; /* Вертикальное выравнивание текста по центру */
+  }
+  
+  .employee-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover; /* Это позволяет изображению вписываться в размер без искажения */
+  }
+  
+  /* Стили для чекбоксов */
+  .employee-table td input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+    width: 20px; /* Устанавливаем размер чекбокса */
+    height: 20px;
+  }
+  
+  /* Стили для улучшенной читаемости */
+  .employee-table th, .employee-table td {
+    font-size: 16px; /* Размер шрифта для улучшенной читаемости */
+  }
+  
+  .employee-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Добавляем чередование фона строк для лучшей читаемости */
+  }
+  
+  .employee-table tr:hover {
+    background-color: #e9e9e9; /* Подсветка строки при наведении */
+  }
+  
+  .employee-table td img {
+    max-width: 100%; /* Изображение не выйдет за пределы ячейки */
+  }
+
+  /* Стиль для заголовков таблицы */
+th {
+    cursor: pointer; /* Указываем, что элемент кликабельный */
+    position: relative;
+    padding: 10px; /* Немного отступов для лучшего восприятия */
+    text-align: left; /* Выравнивание текста по левому краю */
+    background-color: #f4f4f4; /* Цвет фона для заголовков */
+    user-select: none; /* Отключаем выделение текста */
+    border-bottom: 2px solid #ddd; /* Граница снизу */
+  }
+  
+  th:hover {
+    background-color: #e0e0e0; /* Цвет фона при наведении */
+  }
+  
+  th.ascending::after {
+    content: ' ⇧'; /* Стрелка вверх */
+    color: green;
+  }
+  
+  th.descending::after {
+    content: ' ⇩'; /* Стрелка вниз */
+    color: red;
+  }
+  
+  th::after {
+    content: ' ⇅'; /* Стрелка по умолчанию */
+    font-size: 12px;
+    color: gray;
+  }
+  
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #ddd;
+  }
+  
+  .pagination .active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .pagination button:disabled {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+  }
+  
+  /* employees_js.css */
+
+/* Стили для блока с деталями сотрудника */
+.employee-details {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    display: none; /* Блок скрыт по умолчанию */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .employee-details h3 {
+    margin-top: 0;
+  }
+  
+  .employee-details p {
+    margin: 5px 0;
+  }
+  
+  /* Стили для поисковой формы */
+  .search-form {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #search-input {
+    padding: 8px;
+    margin-right: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #search-button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #search-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Основной контейнер для формы добавления сотрудников */
+.add-employee-container {
+    text-align: center; /* Центрируем содержимое */
+    margin: 20px; /* Отступы вокруг контейнера */
+}
+
+/* Стили для кнопки "Добавить сотрудника" */
+#add-employee-btn {
+    background-color: #007bff; /* Синий фон */
+    color: #fff; /* Белый текст */
+    border: none; /* Убираем границы */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 10px 20px; /* Внутренние отступы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавное изменение фона */
+}
+
+#add-employee-btn:hover {
+    background-color: #0056b3; /* Более тёмный синий при наведении */
+}
+
+/* Стили для формы добавления сотрудника */
+#add-employee-form {
+    display: none; /* По умолчанию форма скрыта */
+    background-color: #f8f9fa; /* Светлый фон формы */
+    border: 1px solid #ddd; /* Тонкая граница */
+    border-radius: 10px; /* Скругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    max-width: 400px; /* Ограничиваем ширину формы */
+    margin: 20px auto; /* Центрируем форму */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+/* Стили заголовка формы */
+#add-employee-form h3 {
+    margin-bottom: 20px; /* Отступ снизу */
+    font-size: 20px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+}
+
+/* Стили для полей ввода и меток */
+#employee-form label {
+    display: block; /* Каждая метка на отдельной строке */
+    margin-bottom: 5px; /* Отступ снизу у метки */
+    font-weight: bold; /* Жирный шрифт */
+    color: #555; /* Цвет текста метки */
+}
+
+#employee-form input {
+    width: 100%; /* Полная ширина */
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступ снизу */
+    border: 1px solid #ccc; /* Серые границы */
+    border-radius: 4px; /* Скругленные углы */
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+    font-size: 14px; /* Размер текста */
+}
+
+#employee-form input:focus {
+    border-color: #007bff; /* Синий цвет границы при фокусе */
+    outline: none; /* Убираем стандартное обводку */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тень при фокусе */
+}
+
+/* Стили для кнопки отправки */
+#employee-form button {
+    background-color: #28a745; /* Зелёный фон */
+    color: #fff; /* Белый текст */
+    border: none; /* Убираем границы */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 10px 20px; /* Внутренние отступы */
+    font-size: 14px; /* Размер текста */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавное изменение фона */
+}
+
+#employee-form button:hover {
+    background-color: #218838; /* Более тёмный зелёный при наведении */
+}
+
+/* Стили для сообщения об ошибке */
+#validation-message {
+    color: #dc3545; /* Красный цвет для сообщений об ошибках */
+    font-size: 14px; /* Размер текста */
+    margin-top: 10px; /* Отступ сверху */
+}
+
+
+.loader {
+    color: #822003;
+    font-size: 20px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    
+    position: relative;
+    text-indent: -9999em;
+    animation: load4 1.3s infinite linear;
+    transform: translateZ(0);
+  }
+  @keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+      }
+    12.5% {
+      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+      box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+  }
+  
+  
+/* Контейнер премирования */
+#premium-container {
+    text-align: center; /* Центрируем содержимое */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+/* Стили для кнопки "Премировать" */
+#premium-button {
+    background-color: #ffc107; /* Желтый фон */
+    color: #fff; /* Белый текст */
+    border: none; /* Убираем границы */
+    border-radius: 5px; /* Скругленные углы */
+    padding: 10px 20px; /* Внутренние отступы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавное изменение фона */
+}
+
+#premium-button:hover {
+    background-color: #e0a800; /* Более тёмный желтый при наведении */
+}
+
+/* Стили для текста премирования */
+#premium-body {
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.premium-text {
+    font-size: 18px; /* Размер текста */
+    color: #28a745; /* Зелёный цвет текста */
+    font-weight: bold; /* Жирный текст */
+}

@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Supplier,Detail,Order,OrderItem, FAQ, Contaсts, News, Vacancion, Discount, User, Comment,PickupAddresses,Partner,Company,CompanyHistory
+from .models import Supplier,Detail,Order,OrderItem, FAQ, Contacts, News, Vacancion, Discount, User, Comment,PickupAddresses,Partner,Company,CompanyHistory
 
 admin.site.register(FAQ)
-admin.site.register(Contaсts)
+admin.site.register(Contacts)
 admin.site.register(News)
 admin.site.register(Vacancion)
 admin.site.register(Discount)

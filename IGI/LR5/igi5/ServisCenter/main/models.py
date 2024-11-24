@@ -19,17 +19,21 @@ class PickupAddresses(models.Model):
         verbose_name_plural = 'Пункты самовывоза'   
 
 
-class Contaсts(models.Model):
 
+from django.db import models
+
+class Contacts(models.Model):
     image = models.ImageField(upload_to='images', null=True, blank=True)
-
     full_name = models.TextField('ФИО')
     phone = models.TextField('Номер телефона')
     description = models.TextField('Описание выполняемых работ')
+    email = models.EmailField('Электронная почта', null=True, blank=True)
+    URL = models.URLField('Веб-сайт', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Работник'
         verbose_name_plural = 'Работники'
+
 
 class FAQ(models.Model):
     question = models.TextField('Вопрос')

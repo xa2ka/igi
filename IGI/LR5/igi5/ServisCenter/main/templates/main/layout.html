@@ -10,22 +10,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static "css/layout.css" %}">
+    <script src="{% static "js/time.js" %}" defer></script>
 
+    
 
-    </style>
 
 
 </head>
 <body>
-    <div class="banner">
-        <img src="media/images/banner1.png" alt="Изображение 1">
-        <img src="media/images/banner3.png" alt="Изображение 2">
-        <img src="media/images/banner2.png" alt="Изображение 3">
-        <img src="media/images/zapchast4.png" alt="Изображение 4">
-        <img src="media/images/zapchast5.png" alt="Изображение 5">
-        <img src="media/images/banner6.png" alt="Изображение 6">
-        <img src="media/images/banner7.png" alt="Изображение 7">
-    </div>
+ 
+
 
     <aside>
         <h1 id="nav-title" class="centered highlight" title="Это навигация" style="text-align: center;">НАВИГАЦИЯ</h1>
@@ -45,17 +39,27 @@
             <li><a href="{% url 'poligon' %}" class="nav-button">Полигон</a></li>
             <li><a href="{% url 'login' %}" class="nav-button">Вход</a></li>
             <li><a href="{% url 'registration' %}" class="nav-button">Регистрация</a></li>
+            <li><a href="{% url 'catalog' %}" class="nav-button">Каталог</a></li>
+            <li><a href="{% url 'workers' %}" class="nav-button">Работники</a></li>
         </ul>
     </nav>
     </aside>
 
+
+
+
+
+
+
+
     
     <main>
+        <div id="countdown" style="font-size: 24px; text-align: center; margin: 20px;"></div>
         {% block сontent %}
         {% endblock %}
     </main>
-
-    <footer style="border-top: 2px solid #01080f; /* Цвет полоски */
+</body>
+<footer style="border-top: 2px solid #01080f; /* Цвет полоски */
     text-align: center; 
     padding: 10px; 
     background-color: #0eebe0; 
@@ -65,6 +69,6 @@
     
 <p>© 2023 Все права защищены. Все права защищены.</p>
 </footer>
-</body>
+
 </html>
 

@@ -8,6 +8,9 @@
     <title>О нашей компании</title>
     {% load static %}
     <link rel="stylesheet" href="{% static "css/about.css" %}">
+    <script src="changes.js"></script>
+    <script src="{% static "js/changes.js" %}" defer></script>
+    
 </head>
 <body>
 
@@ -16,6 +19,34 @@
     </header>
 
     <main class="main">
+
+
+
+
+        <div style="text-align: center; margin: 20px;">
+            <label>
+                <input type="checkbox" id="styleToggle"> Изменить стиль
+            </label>
+        </div>
+        <div id="styleControls" style="display: none; text-align: center;">
+            <label for="fontSize">Размер шрифта:</label>
+            <select id="fontSize">
+                <option value="16px">Обычный</option>
+                <option value="20px">Крупный</option>
+                <option value="24px">Очень крупный</option>
+            </select>
+        
+            <label for="textColor">Цвет текста:</label>
+            <input type="color" id="textColor" value="#000000">
+        
+            <label for="bgColor">Цвет фона:</label>
+            <input type="color" id="bgColor" value="#ffffff">
+        </div>
+
+
+
+
+
 
         <h1 style="text-align: center;">Дата и время создания компании</h1>
         <time datetime="2024-09-17" style="display: block; text-align: center;">17 сентября 2024 года</time>

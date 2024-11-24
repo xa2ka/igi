@@ -87,62 +87,214 @@ aside ul a {
 body {
   margin: 0; /* Убираем внешние отступы для тела документа */
   height: 100vh; /* Устанавливаем высоту тела на 100% высоты окна браузера */
-  background-image: radial-gradient(rgb(136, 248, 76), rgb(248, 123, 60)); /* Фоновый градиент */
+  background-image: radial-gradient(rgb(136, 248, 76), rgb(248, 123, 60)); /* Фоновый градиент цвет фона задний фон */
 }
 
-/* Стили для каталога */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slider-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  z-index: 1;  
+}
+
+/* Стили для каждой точки */
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: black; /* Цвет для неактивных точек */
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;  /* Плавный переход для изменения цвета */
+}
+
+/* Стили для активной точки */
+.indicator.active {
+  background-color: red;  /* Цвет для активной точки */
+}
+
+.slide-counter {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.slide-text {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+#settings-form {
+  margin: 5% 30%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  visibility: visible;
+}
+
+.prev-button,
+.next-button {
+  visibility: visible; /* Кнопки видимы по умолчанию */
+  pointer-events: auto; /* Кнопки доступны для взаимодействия */
+}
+
+.indicators .indicator {
+  visibility: visible; /* Индикаторы видимы по умолчанию */
+  pointer-events: auto; /* Индикаторы доступны для взаимодействия */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
 .catalog {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
-  grid-gap: 20px; /* Пробел между элементами сетки */
+  max-width: 800px;
+  margin: auto;
 }
 
-/* Стили для сетки поставщиков */
 .suppliers-grid {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
-  grid-gap: 20px; /* Пробел между элементами сетки */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-/* Стили для каждого элемента поставщика */
 .supplier {
-  background-color: #f1f1f1; /* Цвет фона для элемента поставщика */
-  padding: 20px; /* Внутренние отступы */
-  border-radius: 5px; /* Скругляем углы */
-  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
-  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
-  grid-gap: 10px; /* Пробел между строками сетки */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Стили для общей сетки деталей */
-.details-grid {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
-  grid-gap: 10px; /* Пробел между элементами сетки */
-}
-
-/* Стили для каждого элемента детали */
 .detail {
-  background-color: white; /* Цвет фона для элемента детали */
-  padding: 10px; /* Внутренние отступы */
-  border-radius: 5px; /* Скругляем углы */
-  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
-  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
-  grid-gap: 5px; /* Пробел между строками сетки */
-  text-align: center; /* Центрируем текст внутри детали */
+  text-align: center;
 }
 
-/* Стили для изображений деталей */
 .detail-image {
-  max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
-  height: auto; /* Автоматическая высота для сохранения пропорций */
-  border-radius: 5px; /* Скругляем углы изображения */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
-/* Стили для абзацев внутри контейнера */
-style p {
-  color: rgb(9, 82, 20); /* Устанавливаем цвет текста для абзацев */
+.detail:hover {
+  transform: scale(1.05); /* Увеличение размера при наведении */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Эффект тени */
 }
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Стили для списка компаний */
 .company-list {
@@ -168,54 +320,6 @@ strong {
   color: black; /* Цвет текста для названий деталей */
 }
 
-/* Стили для каталога (повторяются) */
-.catalog {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
-  grid-gap: 20px; /* Пробел между элементами сетки */
-}
-
-/* Стили для сетки поставщиков (повторяются) */
-.suppliers-grid {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Авто-адаптивные колонки, минимум 300px */
-  grid-gap: 20px; /* Пробел между элементами сетки */
-}
-
-/* Стили для каждого элемента поставщика (повторяются) */
-.supplier {
-  background-color: #f1f1f1; /* Цвет фона для элемента поставщика */
-  padding: 20px; /* Внутренние отступы */
-  border-radius: 5px; /* Скругляем углы */
-  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
-  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
-  grid-gap: 10px; /* Пробел между строками сетки */
-}
-
-/* Стили для общей сетки деталей (повторяются) */
-.details-grid {
-  display: grid; /* Используем CSS Grid для раскладки элементов */
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Авто-адаптивные колонки, минимум 150px */
-  grid-gap: 10px; /* Пробел между элементами сетки */
-}
-
-/* Стили для каждого элемента детали (повторяются) */
-.detail {
-  background-color: white; /* Цвет фона для элемента детали */
-  padding: 10px; /* Внутренние отступы */
-  border-radius: 5px; /* Скругляем углы */
-  display: grid; /* Используем CSS Grid для раскладки внутренних элементов */
-  grid-template-rows: auto 1fr; /* Автоматическая высота для первой строки, остальное занимает оставшееся пространство */
-  grid-gap: 5px; /* Пробел между строками сетки */
-  text-align: center; /* Центрируем текст внутри детали */
-}
-
-/* Стили для изображений деталей (повторяются) */
-.detail-image {
-  max-width: 100%; /* Максимальная ширина изображения — 100% от родительского элемента */
-  height: auto; /* Автоматическая высота для сохранения пропорций */
-  border-radius: 5px; /* Скругляем углы изображения */
-}
 
 /* Стили для контейнера партнеров */
 .partner-container {
@@ -552,6 +656,19 @@ strong {
   opacity: 0; /* Начальная прозрачность (невидимо) */
   z-index: 1; /* Уровень наложения ниже, чем у коробки */
   animation: flyOutLeft 4s linear 4.5s forwards, fadeOut 1s ease-in-out 10.5s forwards; /* Анимация вылета и исчезновения */
+/* 
+  Первая анимация: flyOutLeft
+  - Длительность: 4s (4 секунды)
+  - Временная функция: linear (постоянная скорость на протяжении всей анимации)
+  - Задержка: 4.5s (начнется через 4.5 секунды после загрузки элемента)
+  - Поведение после завершения: forwards (останется в конечном состоянии анимации)
+
+  Вторая анимация: fadeOut
+  - Длительность: 1s (1 секунда)
+  - Временная функция: ease-in-out (начинается медленно, ускоряется и замедляется к концу)
+  - Задержка: 10.5s (начнется через 10.5 секунд после загрузки элемента)
+  - Поведение после завершения: forwards (останется в конечном состоянии анимации)
+*/
 }
 
 .part3 {
@@ -809,4 +926,114 @@ tr:hover {
 .table-container {
     max-width: 800px; /* Максимальная ширина контейнера */
     margin: 0 auto; /* Центрирование таблицы */
+}
+
+
+
+form {
+  margin-bottom: 20px; /* Отступ снизу для формы */
+  padding: 15px; /* Отступы внутри формы */
+  background-color: #ffffff; /* Белый фон для формы */
+  border-radius: 8px; /* Скругление углов */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для формы */
+}
+
+label {
+  font-weight: bold; /* Жирный шрифт для меток */
+  display: block; /* Отображение меток как блочные элементы */
+  margin-bottom: 5px; /* Отступ снизу для меток */
+}
+
+textarea, input[type="number"] {
+  width: 100%; /* Ширина на всю доступную ширину */
+  padding: 10px; /* Отступы внутри полей */
+  margin-bottom: 15px; /* Отступ снизу для полей */
+  border: 1px solid #ccc; /* Цвет границы */
+  border-radius: 10px; /* Скругление углов полей */
+  font-size: 16px; /* Размер шрифта */
+  transition: border-color 0.3s; /* Плавный переход цвета границы */
+}
+
+textarea:focus, input[type="number"]:focus {
+  border-color: #007bff; /* Цвет границы при фокусе */
+  outline: none; /* Убираем стандартный контур */
+}
+
+button {
+  background-color: #007bff; /* Цвет фона кнопки */
+  color: white; /* Цвет текста кнопки */
+  border: none; /* Убираем границу */
+  padding: 10px 15px; /* Отступы внутри кнопки */
+  border-radius: 5px; /* Скругление углов кнопки */
+  cursor: pointer; /* Курсор-указатель при наведении */
+  font-size: 16px; /* Размер шрифта */
+  transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+}
+
+button:hover {
+  background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+
+.alert {
+  background-color: #fff3cd; /* Цвет фона для отзывов */
+  border: 1px solid #ffeeba; /* Цвет границы для отзывов */
+  border-radius: 8px; /* Скругление углов для отзывов */
+  padding: 15px; /* Отступы внутри блока отзыва */
+  margin-bottom: 15px; /* Отступ снизу для отзывов */
+}
+
+.alert h1 {
+  font-size: 1.5em; /* Размер заголовка отзыва */
+  margin: 0 0 10px; /* Отступы сверху и снизу */
+}
+
+.alert p {
+  margin: 5px 0; /* Отступы для параграфов в отзывах */
+}
+
+
+
+
+
+
+
+
+
+
+
+.banner {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  height: 300px;
+  overflow: hidden;
+}
+
+.controls, .pagination {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pagination-dot {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#caption {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
 }
