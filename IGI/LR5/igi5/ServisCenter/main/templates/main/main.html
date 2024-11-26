@@ -34,37 +34,7 @@
 
     
     <h1 id="main-title1" class="centered highlight" title="Это главная страница" style="text-align: center;">ГЛАВНАЯ СТРАНИЦА</h1>
-    <div class="catalog">
-        {% csrf_token %}
-        <div class="suppliers-grid" id="suppliersGrid">
-            {% for supplier in suppliers %}
-                <div class="supplier" data-id="{{ supplier.id }}">
-                    <h3>{{ supplier.name }}</h3>
-                    <div class="details-grid">
-                        {% for detail in details %}
-                            {% if detail.SupplierId == supplier.id %}
-                                <div class="detail" data-id="{{ detail.id }}">
-                                    {% if detail.image %}
-                                        <img src="{{ detail.image.url }}" alt="{{ detail.name }}" class="detail-image">
-                                    {% endif %}
-                                    <a href="{% url 'registration' %}">
-                                        <strong>{{ detail.name }}</strong>
-                                    </a>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
     
-        <div class="pagination" id="pagination">
-            <!-- Пагинация будет добавлена с помощью JavaScript -->
-        </div>
-    </div>
-    
-    <script src="js/catalog.js"></script>
-
 
 
         <!-- <figure style="width: 150px; text-align: center;">
