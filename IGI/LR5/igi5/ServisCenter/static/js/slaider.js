@@ -1,17 +1,18 @@
-class Slider 
-{
+class Slider {
     // Конструктор класса Slider
-    constructor(container, intervalInput, options = {})
-    {
+    constructor(container, intervalInput, options = {}) {
         // Сохранение ссылки на контейнер и слайды
         this.container = container;
         this.slides = Array.from(container.querySelectorAll('.slide'));
         // Сохранение ссылки на элемент ввода интервала
         this.intervalInput = intervalInput;
         this.currentSlide = 0; // Индекс текущего слайда
+        this.delay = options.delay || 0;
+
+        // Установка интервала из localStorage или значения по умолчанию
+        const savedInterval = localStorage.getItem('sliderInterval');
+        this.interval = savedInterval ? parseInt(savedInterval, 10) : (options.auto ? 5000 : parseInt(this.intervalInput.value, 10) || 5000);
         
-        // Установка интервала и параметров слайдера из options или значения по умолчанию
-        this.interval = options.auto ? 5000 : parseInt(this.intervalInput.value, 10);
         this.loop = options.loop ?? true; // Зацикливание слайдов по умолчанию
         this.auto = options.auto ?? true; // Автоматическое переключение по умолчанию
         this.stopMouseHover = options.stopMouseHover ?? true; // Остановка при наведении мыши
@@ -25,26 +26,23 @@ class Slider
         this.intervalInput.addEventListener('input', () => {
             clearInterval(this.slideInterval); // Остановка текущего интервала
             this.interval = parseInt(this.intervalInput.value, 10) || 5000; // Обновление значения интервала
+            localStorage.setItem('sliderInterval', this.interval); // Сохранение значения в localStorage
             this.startSlider(); // Перезапуск слайдера с новым интервалом
         });
     }
 
     // Инициализация элементов управления (кнопки навигации и пагинации)
     initControls() {
-        if (this.navs) 
-        {
+        if (this.navs) {
             // Установка слушателей для кнопок навигации
             document.getElementById('prevSlide').addEventListener('click', () => this.prevSlide());
             document.getElementById('nextSlide').addEventListener('click', () => this.nextSlide());
-        } 
-        else 
-        {
+        } else {
             // Скрытие кнопок навигации, если они отключены
             document.querySelectorAll('.nav-btn').forEach(btn => btn.style.display = 'none');
         }
 
-        if (this.pags)
-        {
+        if (this.pags) {
             // Установка слушателей для точек пагинации
             this.paginationDots = Array.from(document.querySelectorAll('.pagination-dot'));
             this.paginationDots.forEach(dot => {
@@ -54,8 +52,7 @@ class Slider
     }
 
     // Запуск слайдера
-    startSlider()
-    {
+    startSlider() {
         this.showSlide(this.currentSlide); // Показ текущего слайда
         // Установка интервала переключения слайдов
         this.slideInterval = setInterval(() => this.nextSlide(), this.interval); 
@@ -68,8 +65,7 @@ class Slider
     }
 
     // Показ слайда по индексу
-    showSlide(curInd)
-    {
+    showSlide(curInd) {
         // Переключение класса 'active' для отображения текущего слайда
         this.slides.forEach((slide, i) => {
             slide.classList.toggle('active', i === curInd);
@@ -86,8 +82,7 @@ class Slider
     }
 
     // Переключение на следующий слайд
-    nextSlide()
-    {
+    nextSlide() {
         // Увеличение индекса текущего слайда или возвращение к началу
         if (this.currentSlide < this.slides.length - 1) {
             this.currentSlide++;
@@ -127,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Создание экземпляра класса Slider
     new Slider(banner, intervalInput, {
         loop: true, // Включение зацикливания
-        navs: false, // Включение навигационных кнопок
+        navs: true, // Включение навигационных кнопок
         pags: true, // Включение пагинации
         auto: true, // Включение автоматического переключения
         stopMouseHover: true // Остановка при наведении мыши

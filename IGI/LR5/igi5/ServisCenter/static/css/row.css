@@ -14,8 +14,8 @@ canvas {
     width: 100%;
     max-width: 800px; /* Максимальная ширина графика */
     max-height: 400px; /* Фиксированная высота графика */
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #ff6363;
+    border: 1px solid #ed6f6f;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,8 +23,8 @@ canvas {
 form#inputForm {
     margin: 20px 0;
     padding: 15px;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #6bee24;
+    border: 1px solid #64ea2b;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -47,7 +47,7 @@ form#inputForm label {
 form#inputForm input {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #eba4a4;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
@@ -62,7 +62,7 @@ form#inputForm input:focus {
 form#inputForm button {
     padding: 10px 15px;
     background: #007BFF;
-    color: white;
+    color: rgb(84, 110, 255);
     font-size: 16px;
     font-weight: bold;
     border: none;
@@ -82,9 +82,9 @@ form#inputForm button:active {
 /* Стиль графика */
 canvas#chart {
     margin-top: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 8px;
-    background: #fff;
+    background: #000000;
     max-width: 800px;
     width: 100%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);

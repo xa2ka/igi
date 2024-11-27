@@ -32,9 +32,9 @@ class CountdownTimer {
         }
 
         // Вычисление часов, минут и секунд
-        const hours = 0; // Часы (в данном случае всегда 0)
-        const minutes = Math.floor(timeRemaining / (1000 * 60)); // Полные минуты
-        const seconds = Math.floor(timeRemaining / 1000 - minutes * 60); // Остаток секунд
+        const hours = Math.floor(timeRemaining / (1000 * 60 * 60)); // Полные часы
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)); // Полные минуты
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000); // Остаток секунд
 
         // Обновление текста элемента с оставшимся временем
         this.element.textContent = `Обратный отсчёт: ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;

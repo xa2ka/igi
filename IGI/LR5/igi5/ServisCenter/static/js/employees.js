@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Обработчик для кнопки премирования
   document.getElementById('premium-button').addEventListener('click', function() {
-      console.log('ступапупа') // Отладочный вывод в консоль
+
       const loader = document.querySelector('.loader'); // Получаем элемент загрузчика
       const premiumBody = document.getElementById('premium-body'); // Получаем элемент для премирования
       loader.style.display = 'block'; // Показываем загрузчик

@@ -15,10 +15,32 @@
 
 <p>Настроить интервал для слайдера:</p>
 
-<form id="intervalForm">
-    <label for="intervalInput">Интервал (мс):</label>
-    <input type="number" id="intervalInput" value="3000">
-</form>
+
+
+
+    <form id="intervalForm">
+        <label for="intervalInput">Интервал (мс):</label>
+        <input type="number" id="intervalInput" value="5000"> <!-- Значение по умолчанию -->
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <script>
+        // Слушаем событие отправки формы
+        document.getElementById('intervalForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Предотвращаем перезагрузку страницы
+            const intervalValue = document.getElementById('intervalInput').value; // Получаем значение интервала
+            localStorage.setItem('sliderInterval', intervalValue); // Сохраняем значение в localStorage
+            alert('Интервал сохранен!'); // Уведомление о сохранении
+        });
+    </script>
+
+
+
+
+
+
+
+
 
 
     <p10><strong><big>БАЗА ПОСТАВЩИКОВ И ИХ ТОВАРЫ</big></strong></p10>
