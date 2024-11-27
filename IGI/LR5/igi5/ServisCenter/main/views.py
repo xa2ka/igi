@@ -18,6 +18,14 @@ from .cart import Cart
 import logging
 from .models import Detail
 
+
+
+
+def api(request):
+    return render(request, 'main/api.html')
+
+
+
 def get_cat_fact():
     url = 'https://catfact.ninja/fact'
 
@@ -349,12 +357,12 @@ def news(request):
 
 def contacts(request):
     logger.debug("Rendering contacts page")
-    Contact = Contaсts.objects.all()
+    Contact = Contacts.objects.all()
     return render(request, 'main/contacts.html', {'Contact': Contact})
 
 def contacts2(request):
     logger.debug("Rendering contacts2 page")
-    Contact = Contaсts.objects.all()
+    Contact = Contacts.objects.all()
     return render(request, 'main/usercontacts.html', {'Contact': Contact})
 
 def policy(request):

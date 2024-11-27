@@ -6,14 +6,7 @@
   <script src="{% static "js/employees.js" %}"></script>
 {%endblock%} 
 {% block content %}
-<section class="search-bar">
-  <h1>Employees</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="nav-button">Search</button>
-  </form>
-</section>
+
 
 <section class="search-container">
   <div class="search-form">
@@ -40,7 +33,7 @@
         <tbody>
           {% for employee in employees %}
             <tr data-employee-id="{{ employee.id }}" class="employee-row" data-included="on" onclick="toggleDetails(this)">
-              <td><img src="{{ employee.profile.photo.url }}" alt="Photo" class="employee-img" style="width: 50px; height: 50px;"/></td>
+              <td><img src="{{ employee.image }}" alt="Photo" class="employee-img" style="width: 50px; height: 50px;"/></td>
               <td>{{ employee.full_name }}</td>
               <td>{{ employee.description }}</td>
               <td>{{ employee.email }}</td>
@@ -84,7 +77,7 @@
       <input type="text" id="url" required><br>
 
       <label for="photo">Фото:</label>
-      <input type="file" id="photo" accept="image/*" required><br>
+      <input type="file" id="photo" accept="images/*" required><br>
 
       <button type="submit">Добавить в таблицу</button>
     </form>
@@ -92,15 +85,18 @@
   </div>
 </section>
 
-<section>
-  <div id="premium-container">
-    <button id="premium-button">Премировать</button>
-    <div class="loader2" >
+
+
+
+<div id="premium-container">
+  <button id="premium-button">Премировать</button>
+  <div class="loader" style="display: none;">    <div class="loader2" >
     <div class="loader1"></div> 
+</div></div> <!-- Прелоадер скрыт по умолчанию -->
+  <div id="premium-body"></div> <!-- Контейнер для текста премирования -->
 </div>
-    <div id="premium-body"></div> <!-- Контейнер для текста премирования -->
-  </div>
-</section>
+
+
 
 {% endblock %}
 

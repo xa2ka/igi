@@ -1,88 +1,135 @@
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Скрипт начал выполнение');
-    const slider = document.querySelector('.slider');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    const slides = Array.from(slider.querySelectorAll('img'));
-    const indicators = Array.from(document.querySelectorAll('.indicator'));
-    const slideCount = slides.length;
-    const slideCounter = document.querySelector('.slide-counter');
-    const slideText = document.querySelector('.slide-text'); 
-    let slideIndex = 1; 
-    let slideInterval;
-    let delay = 3000;
-    let loop = true;
-  
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slideCount - 1].cloneNode(true);
-  
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
-  
-    const imageWidth = slider.clientWidth;
-    slider.style.transform = `translateX(${-imageWidth}px)`;
-  
-    const slide = () => {
-        slider.style.transition = 'transform 0.5s ease-in-out';
-        const slideOffset = -slideIndex * imageWidth;
-        slider.style.transform = `translateX(${slideOffset}px)`;
-  
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === (slideIndex - 1 + slideCount) % slideCount);
-        });
-  
-        let displayIndex = (slideIndex - 1 + slideCount) % slideCount + 1;
-        slideCounter.textContent = `${displayIndex}/${slideCount}`;
+class Slider 
+{
+    // Конструктор класса Slider
+    constructor(container, intervalInput, options = {})
+    {
+        // Сохранение ссылки на контейнер и слайды
+        this.container = container;
+        this.slides = Array.from(container.querySelectorAll('.slide'));
+        // Сохранение ссылки на элемент ввода интервала
+        this.intervalInput = intervalInput;
+        this.currentSlide = 0; // Индекс текущего слайда
         
-        const currentSlide = slides[displayIndex - 1];
-        const text = currentSlide.getAttribute('data-text');
-        slideText.textContent = text;
-    };
-  
-    const changeSlide = (direction) => {
-        slideIndex += direction;
-        if (loop) {
-            if (slideIndex < 1) {
-                slideIndex = slideCount;
-                setTimeout(() => {
-                    slider.style.transition = 'none';  // Disable transition for clone
-                    slider.style.transform = `translateX(${-slideIndex * imageWidth}px)`;
-                }, 500);
-            } else if (slideIndex > slideCount) {
-                slideIndex = 1;
-                setTimeout(() => {
-                    slider.style.transition = 'none';  // Disable transition for clone
-                    slider.style.transform = `translateX(${-imageWidth}px)`;
-                }, 500);
-            }
-        } else {
-            slideIndex = Math.max(1, Math.min(slideCount, slideIndex));  // Clamp index
-        }
-        slide();
-    };
+        // Установка интервала и параметров слайдера из options или значения по умолчанию
+        this.interval = options.auto ? 5000 : parseInt(this.intervalInput.value, 10);
+        this.loop = options.loop ?? true; // Зацикливание слайдов по умолчанию
+        this.auto = options.auto ?? true; // Автоматическое переключение по умолчанию
+        this.stopMouseHover = options.stopMouseHover ?? true; // Остановка при наведении мыши
+        this.navs = options.navs ?? true; // Навигационные кнопки по умолчанию
+        this.pags = options.pags ?? true; // Пагинация по умолчанию
 
-    prevButton.addEventListener('click', () => changeSlide(-1));
-    nextButton.addEventListener('click', () => changeSlide(1));
-  
-    const autoSlide = () => {
-        if (loop) {
-            changeSlide(1);
+        this.initControls(); // Инициализация элементов управления
+        if (this.auto) this.startSlider(); // Запуск слайдера, если авто
+
+        // Установка слушателя изменений для поля ввода интервала
+        this.intervalInput.addEventListener('input', () => {
+            clearInterval(this.slideInterval); // Остановка текущего интервала
+            this.interval = parseInt(this.intervalInput.value, 10) || 5000; // Обновление значения интервала
+            this.startSlider(); // Перезапуск слайдера с новым интервалом
+        });
+    }
+
+    // Инициализация элементов управления (кнопки навигации и пагинации)
+    initControls() {
+        if (this.navs) 
+        {
+            // Установка слушателей для кнопок навигации
+            document.getElementById('prevSlide').addEventListener('click', () => this.prevSlide());
+            document.getElementById('nextSlide').addEventListener('click', () => this.nextSlide());
+        } 
+        else 
+        {
+            // Скрытие кнопок навигации, если они отключены
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.style.display = 'none');
         }
-    };
-  
-    const startAutoSlide = (delay) => {
-        slideInterval = setInterval(autoSlide, delay);
-    };
-  
-    const stopAutoSlide = () => {
-        clearInterval(slideInterval);
-    };
-    
-    slider.addEventListener('mouseenter', stopAutoSlide);
-    slider.addEventListener('mouseleave', () => startAutoSlide(delay));
-    
-    window.addEventListener('load', () => {
-        slide();
-        startAutoSlide(delay); 
+
+        if (this.pags)
+        {
+            // Установка слушателей для точек пагинации
+            this.paginationDots = Array.from(document.querySelectorAll('.pagination-dot'));
+            this.paginationDots.forEach(dot => {
+                dot.addEventListener('click', (e) => this.goToSlide(parseInt(e.target.dataset.index, 10)));
+            });
+        }
+    }
+
+    // Запуск слайдера
+    startSlider()
+    {
+        this.showSlide(this.currentSlide); // Показ текущего слайда
+        // Установка интервала переключения слайдов
+        this.slideInterval = setInterval(() => this.nextSlide(), this.interval); 
+
+        // Остановка слайдера при наведении мыши
+        if (this.stopMouseHover) {
+            this.container.addEventListener('mouseover', () => clearInterval(this.slideInterval));
+            this.container.addEventListener('mouseout', () => this.startSlider());
+        }
+    }
+
+    // Показ слайда по индексу
+    showSlide(curInd)
+    {
+        // Переключение класса 'active' для отображения текущего слайда
+        this.slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === curInd);
+        });
+
+        // Обновление заголовка и номера слайда
+        document.getElementById('caption').textContent = this.slides[curInd].dataset.caption;
+        document.getElementById('slideNumber').textContent = `${curInd + 1} / ${this.slides.length}`;
+        
+        // Обновление точек пагинации
+        this.paginationDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === curInd);
+        });
+    }
+
+    // Переключение на следующий слайд
+    nextSlide()
+    {
+        // Увеличение индекса текущего слайда или возвращение к началу
+        if (this.currentSlide < this.slides.length - 1) {
+            this.currentSlide++;
+        } else if (this.loop) {
+            this.currentSlide = 0;
+        } else {
+            clearInterval(this.slideInterval); // Остановка, если не зацикливается
+            return;
+        }
+        this.showSlide(this.currentSlide); // Показ нового слайда
+    }
+
+    // Переключение на предыдущий слайд
+    prevSlide() {
+        // Уменьшение индекса текущего слайда или переход к последнему
+        if (this.currentSlide > 0) {
+            this.currentSlide--;
+        } else if (this.loop) {
+            this.currentSlide = this.slides.length - 1;
+        }
+        this.showSlide(this.currentSlide); // Показ нового слайда
+    }
+
+    // Переход на указанный слайд по индексу
+    goToSlide(index) {
+        clearInterval(this.slideInterval); // Остановка текущего интервала
+        this.currentSlide = index; // Установка нового индекса текущего слайда
+        this.showSlide(this.currentSlide); // Показ нового слайда
+        if (this.auto) this.startSlider(); // Перезапуск слайдера, если авто
+    }
+}
+
+// Инициализация слайдера после загрузки документа
+document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.querySelector('.banner'); // Поиск контейнера слайдера
+    const intervalInput = document.getElementById('intervalInput'); // Поиск элемента ввода интервала
+    // Создание экземпляра класса Slider
+    new Slider(banner, intervalInput, {
+        loop: true, // Включение зацикливания
+        navs: false, // Включение навигационных кнопок
+        pags: true, // Включение пагинации
+        auto: true, // Включение автоматического переключения
+        stopMouseHover: true // Остановка при наведении мыши
     });
 });

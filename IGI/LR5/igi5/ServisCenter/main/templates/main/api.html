@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Примеры</title>
+    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+  <script src="{% static "js/api.js" %} {{ now|date:'U' }}"></script>
+</head>
+<body>
+
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+p {
+    margin: 10px 0;
+}
+    </style>
+
+
+
+    <div class="container">
+        <h1>Примеры использования API</h1>
+        
+
+        <body>
+            <div class="container">
+                <h1>Информация о GitHub пользователе</h1>
+                <input type="text" id="username" placeholder="Введите имя пользователя GitHub">
+                <button id="get-profile">Получить профиль</button>
+                <div id="profile-output" class="profile-container"></div>
+            </div>
+
+
+        <div class="container">
+            <h1>Погода в городе</h1>
+            <input type="text" id="city" placeholder="Введите название города">
+            <button id="get-weather">Получить погоду</button>
+            <p id="weather-output"></p>
+        </div>
+    
+
+
+        <section>
+            <h2>Геолокация</h2>
+            <button id="get-location">Получить местоположение</button>
+            <p id="location-output"></p>
+        </section>
+
+        <section>
+            <h2>Синтез речи</h2>
+            <textarea id="speech-input" rows="4" placeholder="Введите текст для синтеза речи..."></textarea>
+            <button id="speak-button">Сказать</button>
+        </section>
+
+        <section>
+            <h2>Статус батареи</h2>
+            <p id="battery-status"></p>
+        </section>
+    </div>
+
+    <script src="{% static "js/api.js" %}"></script>
+</body>
+</html>

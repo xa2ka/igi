@@ -1,7 +1,25 @@
+{% load static %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static "js/row.js" %}"></script>
+<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon">
+
+<script src="{% static "js/slaider.js" %}" defer></script>
+
+<link rel="stylesheet" href="{% static "css/row.css" %}" />
 
 {% block сontent %}
 
 <p>Самая часто заказываемая деталь:  {{ most_ordered_detail }}</p>
+
+
+
+<p>Настроить интервал для слайдера:</p>
+
+<form id="intervalForm">
+    <label for="intervalInput">Интервал (мс):</label>
+    <input type="number" id="intervalInput" value="3000">
+</form>
+
 
     <p10><strong><big>БАЗА ПОСТАВЩИКОВ И ИХ ТОВАРЫ</big></strong></p10>
     <form method="post">
@@ -26,6 +44,21 @@
     </form>
 
 <h1>Поставщики и Заказы</h1>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/media/images/armiya.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    overflow-x: hidden;
+    height: 100%;
+}
+</style>
 
 <h2>Поставщики</h2>
 <table>
@@ -85,59 +118,21 @@
     </tbody>
 </table>
 
-<p>График</p>
-<canvas id="myChart" width="400" height="400"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Данные для графика
-    const data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            datasets: [{
-                data: [120, 190, 30, 55, 62, 73, 85, 92, 68, 105, 140, 160],
-                backgroundColor: [
-                    '#FFC0CB',
-                    '#ADD8E6',
-                    '#FFD700',
-                    '#90EE90',
-                    '#C0C0C0',
-                    '#FFA07A',
-                    '#FF69B4',
-                    '#87CEEB',
-                    '#DAA520',
-                    '#32CD32',
-                    '#708090',
-                    '#FA8072'
-                ],
-                borderColor: [
-                    '#FF69B4',
-                    '#87CEEB',
-                    '#DAA520',
-                    '#32CD32',
-                    '#708090',
-                    '#FA8072',
-                    '#FFC0CB',
-                    '#ADD8E6',
-                    '#FFD700',
-                    '#90EE90',
-                    '#C0C0C0',
-                    '#FFA07A'
-                ],
-                borderWidth: 1
-            }]
-        };
 
-    // Конфигурация графика
-    const config = {
-        type: 'pie',
-        data: data,
-        options: {}
-    };
 
-    // Отрисовка графика
-    var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-</script>
+
+<div id="graph-container">
+    <form id="inputForm">
+      <label for="epsilon">Заданная погрещность: </label>
+      <input type="number" id="epsilon" name="epsilon" value="0.0001" step="0.0001">
+      <button type="submit">Update график</button>
+  </form>
+
+  <canvas style="margin: auto; width: 800px; height: 600px;" id="myChart"></canvas>
+
+</div>
+<script src="{% static "js/row.js" %}"></script>
+
+
 {% endblock %}
 

@@ -29,97 +29,53 @@
 
     <body>
 
-        <style>.slider-container {
-            position: relative;
-            width: 600px;
-            height: 400px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        
-        .slider {
-            position: relative;
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .prev-button,
-        .next-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border: none;
-            font-size: 24px;
-            color: white;
-        }
-        
-        .prev-button {
-            left: 10px;
-        }
-        
-        .next-button {
-            right: 10px;
-        }
-        
-        .indicators {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            bottom: 10px; 
-            left: 50%;
-            transform: translateX(-50%); 
-            z-index: 1;  
-        }
-        
-        .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: black; 
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;  
-        }
-        
-        .indicator.active {
-            background-color: red;  
-        }
-        
-        .slide-counter {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: red;
-            font-size: 16px;
-            font-weight: bold;
-            z-index: 10;
-        }
-        
-        .slide-text {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: red;
-            font-size: 20px;
-            font-weight: bold;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-            z-index: 10;}
+        <style>
+
+
+
+
+.banner {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 300px;
+    overflow: hidden;
+}
+
+.controls, .pagination {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pagination-dot {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#caption {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
 
 
         
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('/media/images/turbina.png');
+            background-image: url('/media/images/FON_PROKRUTKA.png');
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -199,30 +155,43 @@
         </style>
 
 
-        <section>
-            <div class="slider-container">
-              <div class="slide-counter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3/5</font></font></div>
-              <div class="slide-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">текст для 3 слайда</font></font></div>
-              <div class="slider" style="transform: translateX(-1800px); transition: transform 0.5s ease-in-out;">
-                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 5 слайда" data-href="https://example.com/page5" alt="альтернативный текст"><img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 1 слайда" data-href="https://example.com/page1" alt="альтернативный текст">
-                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 2 слайда" data-href="https://example.com/page2" alt="альтернативный текст">
-                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 3 слайда" data-href="https://example.com/page3" alt="альтернативный текст">
-                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 4 слайда" data-href="https://example.com/page4" alt="альтернативный текст">
-                <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 5 слайда" data-href="https://example.com/page5" alt="альтернативный текст"> 
-              <img src="/media/images/sertificat.png" width="600" height="400" class="slide" data-text="текст для 1 слайда" data-href="https://example.com/page1" alt="альтернативный текст"></div>
-              <button class="prev-button" type="button" aria-label="Посмотреть предыдущий слайд"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;</font></font></button>
-              <button class="next-button" type="button" aria-label="Посмотреть следующий слайд"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&gt;</font></font></button>
-              <div class="indicators">
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-                <span class="indicator active"></span>
-                <span class="indicator"></span>
-                <span class="indicator"></span>
-              </div>
-            </div>
-          
-            
-          </section>
+
+
+<div class='banner'>
+    <a href="https://i.pinimg.com/originals/78/3a/29/783a2965d7bf21ff8f0c337d06e8d207.jpg" class="slide" data-caption="Первый слайд">
+        <img src="https://i.pinimg.com/originals/78/3a/29/783a2965d7bf21ff8f0c337d06e8d207.jpg">
+    </a>
+    <a href="https://i.pinimg.com/originals/28/e6/54/28e65445407dba09d3bc45d9bdaa92a5.jpg" class="slide" data-caption="Второй слайд">
+        <img src="https://i.pinimg.com/originals/28/e6/54/28e65445407dba09d3bc45d9bdaa92a5.jpg">
+    </a>
+    <a href="https://s00.yaplakal.com/pics/pics_preview/9/6/5/1099569.jpg" class="slide" data-caption="Третий слайд">
+        <img src="https://s00.yaplakal.com/pics/pics_preview/9/6/5/1099569.jpg">
+    </a>
+</div>
+<div id="caption">Первый слайд</div>
+<div class="controls">
+    <button id="prevSlide">Назад</button>
+    <span id="slideNumber">1 / 3</span>
+    <button id="nextSlide">Далее</button>
+</div>
+<div class="pagination">
+    <button class="pagination-dot" data-index="0">1</button>
+    <button class="pagination-dot" data-index="1">2</button>
+    <button class="pagination-dot" data-index="2">3</button>
+</div>
+
+<form id="intervalForm">
+    <label for="intervalInput">Интервал (мс):</label>
+    <input type="number" id="intervalInput" value="3000">
+</form>
+
+
+
+
+
+
+
+
 
           <img src="/media/images/avt_diski.png" id="bg-part1" alt="Деталь 5">
           <img src="/media/images/avt_dvigatel.png" id="bg-part2" alt="Деталь 6">
@@ -236,119 +205,227 @@
             <img src="/media/images/banner7.png" id="part4" alt="Деталь 4">
           </section>
 
-          
+
 
 
         </section>
         <section id="content">
           <h2>Добро пожаловать в наш магазин автозапчастей!</h2>
           <p>Здесь вы найдете широкий выбор деталей для вашего автомобиля.</p>
-          Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
-      
-      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
-      
-      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
-      
-      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
-      
-      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
-      
-      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
-      
-      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
-      
-      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
-      
-      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
-      
-      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
-      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
-      
-      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
-      
-      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
-      
-      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
-      
-      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
-      
-      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
-      
-      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
-      
-      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
-      
-      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
-      
-      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
-      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
-      
-      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
-      
-      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
-      
-      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
-      
-      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
-      
-      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
-      
-      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
-      
-      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
-      
-      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
-      
-      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
-      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
-      
-      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
-      
-      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
-      
-      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
-      
-      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
-      
-      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
-      
-      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
-      
-      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
-      
-      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
-      
-      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
-      Ipsum in Lorem mollit ex ad reprehenderit sit voluptate. Officia velit est Lorem aliqua tempor. Anim eu labore sint deserunt aute velit reprehenderit ut id ipsum deserunt exercitation. Velit tempor nostrud dolore deserunt ad qui officia aute dolor dolor ullamco. Non laboris enim pariatur adipisicing excepteur adipisicing est enim nostrud do irure laborum.
-      
-      Ad fugiat nisi proident est irure ut. Ullamco ea esse nulla ad enim voluptate do tempor ullamco elit proident occaecat ipsum elit. Qui ipsum officia eu id magna. Eiusmod in aute laborum labore ut in. Laborum ullamco laboris nulla ea reprehenderit excepteur consequat enim cupidatat aliqua eiusmod.
-      
-      Do veniam et est nulla. Do et incididunt veniam ex ut culpa. Est anim exercitation in consequat incididunt eu consectetur.
-      
-      Ad eiusmod aliqua incididunt Lorem magna est dolor sit. Enim ullamco mollit cillum sit irure in duis velit velit commodo laborum pariatur fugiat Lorem. Do laborum nostrud culpa ullamco. Officia excepteur eu adipisicing veniam. Exercitation qui minim adipisicing consequat aliqua nisi eiusmod exercitation nostrud dolore Lorem minim. Culpa Lorem ullamco laboris do irure eiusmod excepteur non consequat ullamco qui. Tempor fugiat ad qui cupidatat esse.
-      
-      Esse eiusmod laborum enim ex nostrud mollit labore aliquip nisi ea. Aliquip laborum duis est nisi magna mollit quis occaecat fugiat aliquip laboris non. Irure commodo Lorem Lorem quis consequat sit. Lorem ipsum Lorem fugiat aliqua sunt enim laborum aute nulla cillum sint ea. Tempor culpa cillum nulla exercitation deserunt nulla. Proident velit consectetur elit id ipsum esse. Fugiat ad veniam tempor aute do do.
-      
-      Reprehenderit aliqua excepteur id mollit et qui. Adipisicing ullamco eiusmod commodo quis dolore amet sunt. Sit velit do reprehenderit ad Lorem fugiat non eu et ullamco minim dolore magna. Laborum do minim esse excepteur. Consequat veniam laborum veniam labore minim sit eu magna et ad. Non qui nulla incididunt culpa.
-      
-      Reprehenderit incididunt nisi irure qui proident nisi non nostrud velit velit. Incididunt consectetur magna amet eu enim aute nisi veniam excepteur in aute aliqua. Culpa aute mollit quis nulla et adipisicing in eu consequat consectetur. Adipisicing tempor qui eu sint proident aute minim anim. Eu duis magna sunt mollit eiusmod. Duis consequat deserunt veniam dolor dolor eu.
-      
-      Ullamco est veniam enim sit voluptate excepteur aliquip id ipsum id ipsum culpa elit exercitation. Ullamco incididunt sit elit exercitation. Mollit Lorem voluptate quis ipsum excepteur enim quis consequat nostrud. Reprehenderit nulla incididunt quis excepteur nostrud dolor veniam velit mollit consequat nulla consequat consequat. Nisi eu velit voluptate deserunt et dolore voluptate. Cupidatat consectetur est elit esse exercitation sit officia non.
-      
-      Fugiat aliqua cillum eu eiusmod quis ex laboris irure enim culpa. Dolor eu quis sunt laboris velit Lorem est. Labore deserunt laborum aliqua ut excepteur. Fugiat consequat culpa aliqua laborum aliqua ex magna aliquip laboris dolore tempor commodo. Aute non excepteur id tempor eu reprehenderit exercitation anim esse velit do. Aute ad id aliquip dolor anim duis sunt velit proident dolore ex amet. Laborum esse eiusmod aute cillum reprehenderit in.
-      
-      Id quis esse labore ex. Anim consequat anim officia quis ex veniam non eu cillum eu. Qui id ea cupidatat in adipisicing dolore consectetur aliquip aliqua esse ex ad amet. Consectetur consequat commodo mollit commodo. Quis culpa qui dolor aliqua cillum aute dolor aliquip ullamco voluptate. Non consequat in quis nostrud minim ullamco id nisi sit nisi consectetur quis. Non fugiat do enim labore quis officia ut magna veniam exercitation reprehenderit ullamco incididunt consequat.
-        </section>
-        <div id="graph-container">
-            <form id="inputForm">
-              <label for="epsilon">Погрешность (ε): </label>
-              <input type="number" id="epsilon" name="epsilon" value="0.0001" step="0.0001">
-              <button type="submit">Обновить график</button>
-          </form>
-      
-          <canvas style="margin: auto; width: 800px; height: 600px;" id="myChart"></canvas>
-      
-      </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+   
+
         <script src="{% static "js/scrolldemo.js" %}"></script>
       </body>
       </html>
